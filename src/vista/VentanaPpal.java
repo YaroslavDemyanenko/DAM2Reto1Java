@@ -27,7 +27,7 @@ public class VentanaPpal extends JFrame {
 		setSize(1024,768);		
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setTitle("BIDAI-ON (developed by JYJApps)");
+		setTitle("Reto 1");
 		setVisible(true);
 	}
 	
