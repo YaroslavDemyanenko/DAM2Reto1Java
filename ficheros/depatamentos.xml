@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<Centro>
+	<Departamento id="1">Informatica</Departamento>
+	<Departamento id="2">Ciencias naturales</Departamento>
+	<Departamento id="3">Geografia</Departamento>
+</Centro>
