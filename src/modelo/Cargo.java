@@ -13,7 +13,16 @@ public class Cargo {
 		super();
 		this.id = id;
 		this.nombre = nombre;
+	}	
+	
+	public Cargo getCargoById(Cargo[] cargos,int id) {
+		for(Cargo carg:cargos) {
+			if(carg.getId()==id)
+				return carg;
+		}
+		return null;
 	}
+	
 	public int getId() {
 		return id;
 	}
@@ -25,7 +34,5 @@ public class Cargo {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-	
-	
+	}	
 }
