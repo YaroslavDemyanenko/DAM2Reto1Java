@@ -1,22 +1,28 @@
-package modelo;
+package modelo.objetos;
 
-public class Departamento {
+public class Cargo {
 	int id;
 	String nombre;
-	Centro centro;
-		
-	public Departamento() {
+	
+	public Cargo() {
 		super();
 		this.id = 0;
 		this.nombre = "";
-		this.centro = null;
 	}
-	public Departamento(int id, String nombre, Centro centro) {
+	public Cargo(int id, String nombre) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.centro = centro;
+	}	
+	
+	public Cargo getCargoById(Cargo[] cargos,int id) {
+		for(Cargo carg:cargos) {
+			if(carg.getId()==id)
+				return carg;
+		}
+		return null;
 	}
+	
 	public int getId() {
 		return id;
 	}
@@ -28,13 +34,5 @@ public class Departamento {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-	public Centro getCentro() {
-		return centro;
-	}
-	public void setCentro(Centro centro) {
-		this.centro = centro;
-	}
-	
-	
+	}	
 }

@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-/vista/
-=======
-/baseDatos/
-/modelo/
 /lecturaFicheros/
->>>>>>> d047f25a3642b85b5df260adac4e23a37470e373
+/modelo/
+/launcher/
+/baseDatos/

@@ -114,11 +114,17 @@ public class ConsultaBD {
 				} else if (clases[i] == Float.class) {
 					statementGenerico.setFloat(i + 1, (Float) objetos[i]);
 				} else if (clases[i] == Double.class) {
-					statementGenerico.setDouble(i + 1, (Double) objetos[i]);
+					statementGenerico.setDouble(i + 1, (Double) objetos[i]);				
 				} else if (clases[i] == Integer.class) {
 					statementGenerico.setInt(i + 1, (int) objetos[i]);
 				} else if (clases[i] == java.util.Date.class) {
 					statementGenerico.setDate(i + 1, new java.sql.Date(((java.util.Date) objetos[i]).getTime()));
+				} else if (clases[i] == Boolean.class) {
+					if((boolean)objetos[i] == true) {
+						statementGenerico.setInt(i + 1, 1);
+					}else {
+						statementGenerico.setInt(i + 1, 0);
+					}
 				} else {
 					statementGenerico.setString(i + 1, (String) objetos[i]);
 				}

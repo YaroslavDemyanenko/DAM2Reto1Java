@@ -1,4 +1,4 @@
-package modelo;
+package modelo.objetos;
 
 import java.util.Date;
 
@@ -36,13 +36,11 @@ public class Empleado {
 		this.departamento = departamento;
 	}
 
-	public static Empleado toEmpleado(String[] valores) {
-		boolean jefe = false;
-		if (Integer.valueOf(valores[4]) == 1) {
-			jefe = true;
-		}
-		int sueldo = Integer.valueOf(valores[3]);
-		return new Empleado(valores[0], valores[1], valores[2], sueldo, jefe, new Date(), null, null);
+	
+	
+	public Object[] toObjectArray() {
+		Object[] objetos= {this.dni,this.nombre,this.apellidos,this.sueldo,this.esJefe,this.fechaAlta,this.cargo.id,this.departamento.id};
+		return objetos;
 	}
 
 	public String getDni() {
