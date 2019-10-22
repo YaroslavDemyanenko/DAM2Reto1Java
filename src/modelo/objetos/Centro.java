@@ -1,4 +1,4 @@
-package modelo;
+package modelo.objetos;
 
 public class Centro {
 	int id;

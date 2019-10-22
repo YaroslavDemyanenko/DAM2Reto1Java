@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="librerias/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="librerias/commons-pool2-2.6.1.jar"/>
 	<classpathentry kind="lib" path="librerias/mysql-connector-java-8.0.13.jar"/>
+	<classpathentry kind="lib" path="librerias/gson-2.2.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

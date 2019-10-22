@@ -1,28 +1,22 @@
-package modelo;
+package modelo.objetos;
 
-public class Cargo {
+public class Departamento {
 	int id;
 	String nombre;
-	
-	public Cargo() {
+	Centro centro;
+		
+	public Departamento() {
 		super();
 		this.id = 0;
 		this.nombre = "";
+		this.centro = null;
 	}
-	public Cargo(int id, String nombre) {
+	public Departamento(int id, String nombre, Centro centro) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-	}	
-	
-	public Cargo getCargoById(Cargo[] cargos,int id) {
-		for(Cargo carg:cargos) {
-			if(carg.getId()==id)
-				return carg;
-		}
-		return null;
+		this.centro = centro;
 	}
-	
 	public int getId() {
 		return id;
 	}
@@ -34,5 +28,13 @@ public class Cargo {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}	
+	}
+	public Centro getCentro() {
+		return centro;
+	}
+	public void setCentro(Centro centro) {
+		this.centro = centro;
+	}
+	
+	
 }
