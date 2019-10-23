@@ -22,12 +22,18 @@ public class MetodosCargaDatos {
 	public void cargarCsv(String path) {
 		mod.lectorCsv.cargarCsv(path);
 		for (Empleado emple : mod.lectorCsv.getElementos()) {
-			if(true) {
-			bd.insertGenerico(emple.toObjectArray(), "empleado");
-			}else {
-				continue;
+			if (comprobarEmpleado(emple)) {
+				bd.insertGenerico(emple.toObjectArray(), "empleado");
 			}
 		}
+	}
+
+	private boolean comprobarEmpleado(Empleado emple) {
+		String json = bd.consultarToGson("SELECT `idDni` 'id' FROM `empleado` WHERE `idDni` ='" + emple.getDni() + "'");
+		if (json.equals("")) {
+			return false;
+		} else
+			return true;
 	}
 
 	public Departamento buscarDepartamento(String id) {
@@ -36,7 +42,7 @@ public class MetodosCargaDatos {
 		if (departamento != null) {
 			return departamento[0];
 		} else {
-			//LOG
+			// LOG
 			return new Departamento();
 		}
 	}
@@ -47,7 +53,7 @@ public class MetodosCargaDatos {
 		if (departamento != null) {
 			return departamento[0];
 		} else {
-			//LOG
+			// LOG
 			return new Cargo();
 		}
 	}
