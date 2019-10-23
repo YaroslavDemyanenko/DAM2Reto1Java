@@ -7,6 +7,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+import java.awt.Font;
 
 public class PanelMenu extends JPanel {
 
@@ -18,8 +19,9 @@ public class PanelMenu extends JPanel {
 	 * Create the panel.
 	 */
 	
-	public JLabel lblTitulo;
-	public JButton btnGestionDpto, btnGestionEmple, btnGenInforme;
+	public JLabel lblTitulo, lblGenInforme;
+	public JButton btnGestionDpto, btnGestionEmple, btnGenPdf, btnGenTxt;
+	private JLabel lblInformeDebeSer;
 	
 	public PanelMenu() {
 
@@ -45,9 +47,23 @@ public class PanelMenu extends JPanel {
 		btnGestionEmple.setBounds(411, 229, 201, 23);
 		add(btnGestionEmple);
 		
-		btnGenInforme = new JButton("GENERAR INFORME");
-		btnGenInforme.setBounds(411, 302, 201, 23);
-		add(btnGenInforme);
+		lblGenInforme = new JLabel("GENERAR INFORME");
+		lblGenInforme.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGenInforme.setBounds(411, 263, 200, 50);
+		add(lblGenInforme);
+		
+		btnGenPdf = new JButton("GENERAR PDF");
+		btnGenPdf.setBounds(411, 311, 110, 23);
+		add(btnGenPdf);
+		
+		btnGenTxt = new JButton("GENERAR TXT");
+		btnGenTxt.setBounds(531, 311, 110, 23);
+		add(btnGenTxt);
+		
+		lblInformeDebeSer = new JLabel("INFORME DEBE SER: DEPARTAMENTOS O EMPLEADOS!!!!!");
+		lblInformeDebeSer.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblInformeDebeSer.setBounds(288, 353, 514, 92);
+		add(lblInformeDebeSer);
 		
 	}
 
