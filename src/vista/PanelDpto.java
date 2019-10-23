@@ -6,8 +6,6 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JTextField;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerListModel;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -17,15 +15,18 @@ public class PanelDpto extends JPanel {
 	/**
 	 * 
 	 */
+	
 	private static final long serialVersionUID = 7014951804218329907L;
+	
+	/**
+	 * Create the panel.
+	 */
+	
 	public JTextField txtCodigoDpto, txtNombreDpto;
 	public JLabel lblTitulo, lblCodigoDpto, lblNombreDpto, lblCentro;
 	public JButton btnVolver, btnRegistrar;
 	public JComboBox cmbCentro;
-
-	/**
-	 * Create the panel.
-	 */
+	
 	public PanelDpto() {
 		
 		setBorder(new CompoundBorder(null, new EmptyBorder(0, 5, 0, 0)));
@@ -35,8 +36,12 @@ public class PanelDpto extends JPanel {
 	private void setParametros() {
 		
 		setPreferredSize(new Dimension(1024, 588));
+		
+	}
+	
+	private void instanciarObjetos() {
 		setLayout(null);
-
+		
 		lblTitulo = new JLabel("INGRESO DE DEPARTAMENTO");
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setBounds(10, 11, 1004, 77);
@@ -75,6 +80,5 @@ public class PanelDpto extends JPanel {
 		btnVolver = new JButton("Volver");
 		btnVolver.setBounds(54, 516, 89, 23);
 		add(btnVolver);
-		
 	}
 }
