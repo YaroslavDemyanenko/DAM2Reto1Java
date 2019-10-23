@@ -17,6 +17,11 @@ public class Departamento {
 		this.nombre = nombre;
 		this.centro = centro;
 	}
+	
+	public Object[] toObjectArray() {
+		Object[] objetos= {this.id,this.nombre};
+		return objetos;
+	}
 	public int getId() {
 		return id;
 	}

@@ -6,21 +6,34 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-import modelo.Departamento;
+
+import baseDatos.ConsultaBD;
+import modelo.Modelo;
+import modelo.objetos.Departamento;
+
 
 public class LectorXml {
 
-	private Departamento departamentos = new Departamento();
+	private List<Departamento> departamentos;
+	private ConsultaBD bd;
+	private Modelo mod;
 	
-	//public static void main(String args[]) {
-		//Departamento departamentos = new Departamento();
-	public Departamento leerXml(String path) {
+	public LectorXml(Modelo mod, ConsultaBD bd) {
+		this.bd = bd;
+		this.mod = mod;
+		departamentos = new ArrayList();
+	}
+	
+	public List<Departamento> leerXml(String path) {
 		try {
     		
             SAXParserFactory parserFactory = SAXParserFactory.newInstance();
@@ -40,20 +53,16 @@ public class LectorXml {
 				}
 				public void characters(char ch[], int start, int length) throws SAXException 
 				{
-					//for(int i = 0; i < ch.length;i++) {
 						if (bDepartamento) {
-							departamentos.setId(id);
-						    departamentos.setNombre(new String(ch, start, length));
-						    System.out.println(departamentos);
+							Departamento depar = new Departamento(id,new String(ch, start, length),null);
+							departamentos.add(depar);
 						    bDepartamento = false;
 						}
-					//}
 					
 				}
                 
 			};
 
-			//File file = new File("C:\\workspace_reto1\\DAM2Reto1Java\\ficheros\\departamentos.xml");
 			File file = new File(path);
 				InputStream inputStream = new FileInputStream(file);
 				Reader reader = new InputStreamReader(inputStream, "UTF-8");
@@ -68,7 +77,14 @@ public class LectorXml {
 			System.out.println("Algo ha fallado a la hora de leer tu archivo");
 		}
 		return departamentos;
-		//return;
     }
+	
+	public List<Departamento> getDepartamentos() {
+		return departamentos;
+	}
+
+	public void setDepartamentos(List<Departamento> departamentos) {
+		this.departamentos = departamentos;
+	}
 	
 }
