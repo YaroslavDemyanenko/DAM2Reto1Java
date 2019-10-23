@@ -11,37 +11,23 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 public class PanelDpto extends JPanel {
-
-	/**
-	 * 
-	 */
-	
 	private static final long serialVersionUID = 7014951804218329907L;
-	
-	/**
-	 * Create the panel.
-	 */
-	
 	public JTextField txtCodigoDpto, txtNombreDpto;
 	public JLabel lblTitulo, lblCodigoDpto, lblNombreDpto, lblCentro;
 	public JButton btnVolver, btnRegistrar;
 	public JComboBox cmbCentro;
 	
 	public PanelDpto() {
-		
-		setBorder(new CompoundBorder(null, new EmptyBorder(0, 5, 0, 0)));
 		setParametros();
+		instanciarObjetos();
 	}
 	
 	private void setParametros() {
-		
 		setPreferredSize(new Dimension(1024, 588));
-		
+		setLayout(null);
 	}
 	
-	private void instanciarObjetos() {
-		setLayout(null);
-		
+	private void instanciarObjetos() {				
 		lblTitulo = new JLabel("INGRESO DE DEPARTAMENTO");
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setBounds(10, 11, 1004, 77);

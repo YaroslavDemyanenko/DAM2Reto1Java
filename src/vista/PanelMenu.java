@@ -1,5 +1,6 @@
 package vista;
 
+import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -19,7 +20,7 @@ public class PanelMenu extends JPanel {
 	}
 	
 	private void setParametros() {
-		//setPreferredSize(new Dimension(1024, 588));
+		setPreferredSize(new Dimension(1024, 588));
 		setLayout(null);
 	}
 	
@@ -53,8 +54,6 @@ public class PanelMenu extends JPanel {
 		lblInformeDebeSer = new JLabel("INFORME DEBE SER: DEPARTAMENTOS O EMPLEADOS!!!!!");
 		lblInformeDebeSer.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblInformeDebeSer.setBounds(288, 353, 514, 92);
-		add(lblInformeDebeSer);
-		
+		add(lblInformeDebeSer);		
 	}
-
 }

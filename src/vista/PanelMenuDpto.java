@@ -1,21 +1,16 @@
 package vista;
 
+import java.awt.Color;
 import java.awt.Dimension;
+
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import javax.swing.JList;
-import java.awt.Color;
 import javax.swing.border.LineBorder;
 
 public class PanelMenuDpto extends JPanel {
-
-	/**
-	 * 
-	 */
 	
 	private static final long serialVersionUID = 2097932691575063214L;
 
@@ -23,23 +18,17 @@ public class PanelMenuDpto extends JPanel {
 	public JButton btnIngresarDpto, btnSiguiente, btnUltimo, btnAnterior, btnPrimero, btnVolver;
 	public JList listEmpleados;
 	
-	/**
-	 * Create the panel.
-	 */
-	
 	public PanelMenuDpto() {
-		setBorder(new CompoundBorder(null, new EmptyBorder(0, 5, 0, 0)));
 		setParametros();
 		instanciarObjetos();
 	}
 	
 	private void setParametros() {
 		setPreferredSize(new Dimension(1024, 588));
+		setLayout(null);
 	}
 	
 	private void instanciarObjetos() {
-		setLayout(null);
-		
 		lblTitulo = new JLabel("MENÚ GESTIÓN DEPARTAMENTO");
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setBounds(10, 11, 1004, 77);
@@ -73,7 +62,7 @@ public class PanelMenuDpto extends JPanel {
 		listEmpleados = new JList();
 		listEmpleados.setBorder(new LineBorder(new Color(0, 0, 0)));
 		listEmpleados.setBackground(Color.LIGHT_GRAY);
-		listEmpleados.setBounds(320, 532, 398, -150);
+		listEmpleados.setBounds(320, 398, 398, 150);
 		add(listEmpleados);
 		
 		btnVolver = new JButton("Volver");

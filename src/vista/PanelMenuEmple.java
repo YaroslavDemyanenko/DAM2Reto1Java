@@ -2,46 +2,35 @@ package vista;
 
 import java.awt.Color;
 import java.awt.Dimension;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 public class PanelMenuEmple extends JPanel {
-
-	/**
-	 * 
-	 */
-	
 	private static final long serialVersionUID = -7408961551255605320L;
-	
 	public JLabel lblTitulo;
-	public JButton btnIngresarEmple, btnVolver;
+	public JButton btnIngresarEmple, btnVolver, btnBuscar;
 	public JList listDatosEmple;
 	private JLabel lblBuscarEmple;
 	private JTextField txtBuscarEmple;
 	
-	/**
-	 * Create the panel.
-	 */
-	
 	public PanelMenuEmple() {
-		setBorder(new CompoundBorder(null, new EmptyBorder(0, 5, 0, 0)));
 		setParametros();
-		
+		instanciarObjetos();
 	}
 	
 	private void setParametros() {
 		setPreferredSize(new Dimension(1024, 588));
+		setLayout(null);
 	}
 	
 	private void instanciarObjetos() {
-		setLayout(null);
+		
 		
 		lblTitulo = new JLabel("MEN\u00DA GESTI\u00D3N EMPLEADO");
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -64,7 +53,7 @@ public class PanelMenuEmple extends JPanel {
 		txtBuscarEmple.setBounds(393, 315, 226, 20);
 		add(txtBuscarEmple);
 		
-		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar = new JButton("Buscar");
 		btnBuscar.setBounds(509, 346, 110, 23);
 		add(btnBuscar);
 		

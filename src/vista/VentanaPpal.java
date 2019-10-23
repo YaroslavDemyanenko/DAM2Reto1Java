@@ -25,7 +25,7 @@ public class VentanaPpal extends JFrame {
 		border = new BorderLayout(5,5);
 		setLayout(border);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setPreferredSize(new Dimension(1024,768));		
+		setPreferredSize(new Dimension(1024, 588));		
 		//setSize(new Dimension(1024,768));
 		setTitle("Reto 1");
 		setVisible(true);

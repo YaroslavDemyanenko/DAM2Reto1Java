@@ -6,8 +6,7 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 
 public class PanelCenter extends JPanel {
-	private static final long serialVersionUID = 1L;
-
+	private static final long serialVersionUID = 3193045696500112897L;
 	public CardLayout card;
 	public int currentIndex;
 	
@@ -15,7 +14,6 @@ public class PanelCenter extends JPanel {
 	public PanelMenuDpto pMenuDpto;
 	public PanelDpto pDpto;
 	public PanelMenuEmple pMenuEmple;
-	
 	
 	public PanelCenter() {
 		setParametros();
@@ -33,15 +31,16 @@ public class PanelCenter extends JPanel {
 		pMenuPrincipal = new PanelMenu();
 		add(pMenuPrincipal, "1");
 		
-
+		
 		pMenuDpto = new PanelMenuDpto();
 		add(pMenuDpto, "2");
 		
 		pDpto = new PanelDpto();
 		add(pDpto, "3");
-
 		pMenuEmple = new PanelMenuEmple();
-		add(pMenuEmple, "4");	
+		add(pMenuEmple, "1");
+			
+		
 	}
 	
 	public void prevPanel() {
