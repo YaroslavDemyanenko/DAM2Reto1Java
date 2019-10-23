@@ -63,8 +63,7 @@ public class LectorXml {
                 
 			};
 
-			File file = new File("C:\\workspace_reto1\\DAM2Reto1Java\\ficheros\\departamentos.xml");
-			//File file = new File(path);
+			File file = new File(path);
 				InputStream inputStream = new FileInputStream(file);
 				Reader reader = new InputStreamReader(inputStream, "UTF-8");
 				
