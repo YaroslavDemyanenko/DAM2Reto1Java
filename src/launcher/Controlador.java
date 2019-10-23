@@ -21,6 +21,7 @@ public class Controlador {
 
 	private void addControladores() {
 		mod.cargaDatos.cargarCsv("ficheros/empleados.csv");
+		mod.cargaDatos.cargarXml("ficheros/departamentos.xml");
 	}
 
 	private void initListeners() {

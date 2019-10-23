@@ -51,10 +51,15 @@ public class MetodosCargaDatos {
 			return new Cargo();
 		}
 	}
-
-	/**
-	 * public void cargarXml(String path) { mod.lectorCsv.cargarCsv(path);
-	 * for(Empleado emple:mod.lectorCsv.getElementos()) {
-	 * bd.insertGenerico(emple.toObjectArray(), "empleado"); } }
-	 **/
+	
+	public void cargarXml(String path) {
+		mod.lectorXml.leerXml(path);
+		for (Departamento depar : mod.lectorXml.getDepartamentos()) {
+			if(true) {
+			bd.insertGenerico(depar.toObjectArray(), "departamento");
+			}else {
+				continue;
+			}
+		}
+	}
 }
