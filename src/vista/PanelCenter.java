@@ -12,10 +12,11 @@ public class PanelCenter extends JPanel {
 	
 
 	public PanelMenu pMenuPrincipal;
-	
 	public PanelMenuDpto pMenuDpto;
 	public PanelDpto pDpto;
 	public PanelMenuEmple pMenuEmple;
+	public PanelEmple pEmple;
+	public PanelConfirmacionRegistro pConfiRegistro;
 	
 	
 	public PanelCenter() {
@@ -43,7 +44,11 @@ public class PanelCenter extends JPanel {
 		pMenuEmple = new PanelMenuEmple();
 		add(pMenuEmple, "4");
 		
-	
+		pEmple = new PanelEmple();
+		add(pEmple,"5");
+		
+		pConfiRegistro = new PanelConfirmacionRegistro();
+		add(pConfiRegistro,"6");
 	}
 	
 	public void prevPanel() {
