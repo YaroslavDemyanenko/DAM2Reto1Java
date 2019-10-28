@@ -1,5 +1,6 @@
 package launcher;
 
+import controlador.Controlador;
 import modelo.Modelo;
 import vista.VentanaPpal;
 
