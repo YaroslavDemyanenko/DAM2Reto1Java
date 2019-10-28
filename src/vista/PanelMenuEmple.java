@@ -8,11 +8,10 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
 
 public class PanelMenuEmple extends JPanel {
-	private static final long serialVersionUID = -7408961551255605320L;
+
+	private static final long serialVersionUID = 2656417989723357437L;
 	public JLabel lblTitulo;
 	public JButton btnIngresarEmple, btnVolver, btnBuscar;
 	public JList listDatosEmple;
@@ -25,15 +24,13 @@ public class PanelMenuEmple extends JPanel {
 	}
 	
 	private void setParametros() {
-		setPreferredSize(new Dimension(1024, 588));
+		setBorder(null);
+		setPreferredSize(new Dimension(1024, 768));
 		setLayout(null);
 	}
 	
 	private void instanciarObjetos() {
-		
-		
 		lblTitulo = new JLabel("MEN\u00DA GESTI\u00D3N EMPLEADO");
-		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setBounds(10, 11, 1004, 77);
 		add(lblTitulo);
 		
@@ -42,12 +39,10 @@ public class PanelMenuEmple extends JPanel {
 		add(btnIngresarEmple);
 		
 		lblBuscarEmple = new JLabel("BUSCAR EMPLEADO");
-		lblBuscarEmple.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBuscarEmple.setBounds(393, 281, 226, 23);
 		add(lblBuscarEmple);
 		
 		txtBuscarEmple = new JTextField();
-		txtBuscarEmple.setHorizontalAlignment(SwingConstants.CENTER);
 		txtBuscarEmple.setText("Ingresar nombre o ID");
 		txtBuscarEmple.setColumns(10);
 		txtBuscarEmple.setBounds(393, 315, 226, 20);
@@ -58,7 +53,6 @@ public class PanelMenuEmple extends JPanel {
 		add(btnBuscar);
 		
 		listDatosEmple = new JList();
-		listDatosEmple.setBorder(new LineBorder(new Color(0, 0, 0)));
 		listDatosEmple.setBackground(Color.LIGHT_GRAY);
 		listDatosEmple.setBounds(320, 532, 398, -150);
 		add(listDatosEmple);

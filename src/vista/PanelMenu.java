@@ -8,19 +8,19 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class PanelMenu extends JPanel {
-	private static final long serialVersionUID = 2384139865371691563L;
-	
+	private static final long serialVersionUID = -132735883135705085L;
 	public JLabel lblTitulo, lblGenInforme;
 	public JButton btnGestionDpto, btnGestionEmple, btnGenPdf, btnGenTxt;
 	private JLabel lblInformeDebeSer;
 	
-	public PanelMenu() {
+	public PanelMenu() {		
 		setParametros();
 		instanciarObjetos();
 	}
 	
 	private void setParametros() {
-		setPreferredSize(new Dimension(1024, 588));
+		setBorder(null);
+		setPreferredSize(new Dimension(1024,768));
 		setLayout(null);
 	}
 	

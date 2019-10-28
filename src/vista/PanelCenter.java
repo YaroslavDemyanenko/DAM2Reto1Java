@@ -10,10 +10,13 @@ public class PanelCenter extends JPanel {
 	public CardLayout card;
 	public int currentIndex;
 	
+
 	public PanelMenu pMenuPrincipal;
+	
 	public PanelMenuDpto pMenuDpto;
 	public PanelDpto pDpto;
 	public PanelMenuEmple pMenuEmple;
+	
 	
 	public PanelCenter() {
 		setParametros();
@@ -24,23 +27,23 @@ public class PanelCenter extends JPanel {
 	private void setParametros() {
 		card = new CardLayout();
 		setLayout(card);
-		setPreferredSize(new Dimension(1024,588));
+		setPreferredSize(new Dimension(1024,768));
 	}
 
 	private void instanciarObjetos() {
 		pMenuPrincipal = new PanelMenu();
-		add(pMenuPrincipal, "1");
-		
+		add(pMenuPrincipal, "1");		
 		
 		pMenuDpto = new PanelMenuDpto();
 		add(pMenuDpto, "2");
 		
 		pDpto = new PanelDpto();
 		add(pDpto, "3");
+
 		pMenuEmple = new PanelMenuEmple();
-		add(pMenuEmple, "1");
-			
+		add(pMenuEmple, "4");
 		
+	
 	}
 	
 	public void prevPanel() {

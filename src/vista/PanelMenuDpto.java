@@ -8,12 +8,10 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
 
 public class PanelMenuDpto extends JPanel {
-	
-	private static final long serialVersionUID = 2097932691575063214L;
 
+	private static final long serialVersionUID = -2619620055781727212L;
 	public JLabel lblTitulo, lblNombreDpto;
 	public JButton btnIngresarDpto, btnSiguiente, btnUltimo, btnAnterior, btnPrimero, btnVolver;
 	public JList listEmpleados;
@@ -24,7 +22,8 @@ public class PanelMenuDpto extends JPanel {
 	}
 	
 	private void setParametros() {
-		setPreferredSize(new Dimension(1024, 588));
+		setBorder(null);
+		setPreferredSize(new Dimension(1024, 768));
 		setLayout(null);
 	}
 	
@@ -60,7 +59,6 @@ public class PanelMenuDpto extends JPanel {
 		add(btnPrimero);
 		
 		listEmpleados = new JList();
-		listEmpleados.setBorder(new LineBorder(new Color(0, 0, 0)));
 		listEmpleados.setBackground(Color.LIGHT_GRAY);
 		listEmpleados.setBounds(320, 398, 398, 150);
 		add(listEmpleados);

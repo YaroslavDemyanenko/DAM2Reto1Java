@@ -1,17 +1,16 @@
 package vista;
 
 import java.awt.Dimension;
-import javax.swing.JPanel;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
+
 import javax.swing.JButton;
-import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class PanelDpto extends JPanel {
-	private static final long serialVersionUID = 7014951804218329907L;
+	
+	private static final long serialVersionUID = 8913709538637781966L;
 	public JTextField txtCodigoDpto, txtNombreDpto;
 	public JLabel lblTitulo, lblCodigoDpto, lblNombreDpto, lblCentro;
 	public JButton btnVolver, btnRegistrar;
@@ -23,13 +22,13 @@ public class PanelDpto extends JPanel {
 	}
 	
 	private void setParametros() {
-		setPreferredSize(new Dimension(1024, 588));
+		setBorder(null);
+		setPreferredSize(new Dimension(1024, 768));
 		setLayout(null);
 	}
 	
 	private void instanciarObjetos() {				
 		lblTitulo = new JLabel("INGRESO DE DEPARTAMENTO");
-		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setBounds(10, 11, 1004, 77);
 		add(lblTitulo);
 		
