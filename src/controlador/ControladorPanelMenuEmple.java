@@ -5,12 +5,12 @@ import java.awt.event.ActionListener;
 import modelo.Modelo;
 import vista.VentanaPpal;
 
-public class ControladorMenuEmple {
+public class ControladorPanelMenuEmple {
 	private VentanaPpal vis;
 	private Modelo mod;
 	private Controlador controlador;
 	
-	public ControladorMenuEmple(VentanaPpal vis, Controlador cont, Modelo mod) {
+	public ControladorPanelMenuEmple(VentanaPpal vis, Controlador cont, Modelo mod) {
 		this.vis = vis;
 		this.controlador = cont;
 		this.mod = mod;
