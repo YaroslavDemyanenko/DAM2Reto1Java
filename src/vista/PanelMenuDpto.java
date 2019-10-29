@@ -46,7 +46,7 @@ public class PanelMenuDpto extends JPanel {
 		btnSiguiente.setBounds(629, 322, 89, 23);
 		add(btnSiguiente);
 		
-		btnUltimo = new JButton("\u00DAltimo");
+		btnUltimo = new JButton("Ultimo");
 		btnUltimo.setBounds(728, 322, 89, 23);
 		add(btnUltimo);
 		
