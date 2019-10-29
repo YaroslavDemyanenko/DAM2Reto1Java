@@ -11,6 +11,7 @@ public class Empleado {
 	private Date fechaAlta;
 	private Cargo cargo;
 	private Departamento departamento;
+	private Empleado empleJefe;
 
 	public Empleado(String dni, String nombre, String apellidos, int sueldo, boolean esJefe, Date fechaAlta, Cargo cargo, Departamento departamento) {
 		super();
@@ -22,6 +23,19 @@ public class Empleado {
 		this.fechaAlta = fechaAlta;
 		this.cargo = cargo;
 		this.departamento = departamento;
+	}
+	
+	public Empleado(String dni, String nombre, String apellidos, int sueldo, boolean esJefe, Date fechaAlta, Cargo cargo, Departamento departamento,Empleado empleJefe) {
+		super();
+		this.dni = dni;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.sueldo = sueldo;
+		this.esJefe = esJefe;
+		this.fechaAlta = fechaAlta;
+		this.cargo = cargo;
+		this.departamento = departamento;
+		this.empleJefe=empleJefe;
 	}
 
 	public Empleado(String dni, String nombre, String apellidos, int sueldo, boolean esJefe, int fechaAlta, Cargo cargo, Departamento departamento) {

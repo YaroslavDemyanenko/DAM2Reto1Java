@@ -3,9 +3,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
-
 import com.google.gson.Gson;
-
 import modelo.Modelo;
 import modelo.objetos.Cargo;
 import modelo.objetos.Departamento;
@@ -82,6 +80,6 @@ public class ControladorPanelEmple {
 			esJefe = true;
 		else
 			esJefe = false;
-		return new Empleado(dni, nombre, apellidos, salario, esJefe, new Date(), cargo, depart);
+		return new Empleado(dni, nombre, apellidos, salario, esJefe, new Date(), cargo, depart,superior);
 	}
 }
