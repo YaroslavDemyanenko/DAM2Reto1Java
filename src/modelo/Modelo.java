@@ -1,10 +1,11 @@
 package modelo;
 
-import java.util.ArrayList;
-
 import baseDatos.ConsultaBD;
-import lecturaFicheros.*;
+import lecturaFicheros.LectorXml;
+import lecturaFicheros.LeerCsv;
 import modelo.metodos.MetodosCargaDatos;
+import modelo.metodos.MetodosPanelEmple;
+import modelo.objetos.Departamento;
 
 
 public class Modelo {
@@ -13,8 +14,10 @@ public class Modelo {
 	public LeerCsv lectorCsv;
 	public LectorXml lectorXml;
 	public MetodosCargaDatos cargaDatos;
+	public MetodosPanelEmple mPEmple;
 	//public ArrayList<Departamento> departamentos = new ArrayList<Departamento>();
 	//public ArrayList<Empleado> empleados = new ArrayList<Empleado>();
+	public Departamento[] departamentos;
 	
 	
 	public Modelo() {

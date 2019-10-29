@@ -1,6 +1,8 @@
 package vista;
 
 import java.awt.Dimension;
+
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -9,45 +11,48 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
+
+import modelo.objetos.Cargo;
+import modelo.objetos.Departamento;
+import modelo.objetos.Empleado;
+
 import java.awt.Font;
 import javax.swing.JCheckBox;
 
 public class PanelEmple extends JPanel {
 
-	/**
-	 * 
-	 */
-	
 	private static final long serialVersionUID = -7098264249065901850L;
 
-	/**
-	 * Create the panel.
-	 */
-	
 	public JTextField txtCodEmple, txtNomEmple, txtApellidos, txtSalario;
 	public JLabel lblTitulo, lblCodEmple, lblNomEmple, lblDpto, lblApellidos, lblSalario, lblCargo, lblGuardarFechaY, lblSelJefe;
 	public JButton btnVolver, btnRegistrar;
-	public JComboBox cmbDpto, cmbCargo, cmbSelJefe;
+	public JComboBox<Departamento> cmbDpto;
+	public JComboBox<Cargo> cmbCargo;
+	public JComboBox<Empleado> cmbSelJefe;
+	public DefaultComboBoxModel<Departamento> modeloDpto;
+	public DefaultComboBoxModel<Cargo> modeloCargo;
+	public DefaultComboBoxModel<Empleado> modeloSelJefe;
 	public JCheckBox chbEsJefe;
 	
 	public PanelEmple() {
-		setBorder(new CompoundBorder(null, new EmptyBorder(0, 5, 0, 0)));
+		
 		setParametros();
+		instanciarObjetos();
 	}
 	
 	private void setParametros() {
-		setPreferredSize(new Dimension(1024, 588));
+		setBorder(new CompoundBorder(null, new EmptyBorder(0, 5, 0, 0)));
+		setPreferredSize(new Dimension(1024,768));
+		setLayout(null);
 	}
 	
 	private void instanciarObjetos() {
-		setLayout(null);
-
 		lblTitulo = new JLabel("INGRESO DE EMPLEADO");
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setBounds(10, 11, 1004, 77);
 		add(lblTitulo);
 		
-		lblCodEmple = new JLabel("C\u00F3digo de empleado");
+		lblCodEmple = new JLabel("DNI");
 		lblCodEmple.setBounds(297, 219, 152, 20);
 		add(lblCodEmple);
 		
@@ -69,7 +74,9 @@ public class PanelEmple extends JPanel {
 		lblDpto.setBounds(297, 343, 152, 20);
 		add(lblDpto);
 		
-		cmbDpto = new JComboBox();
+		cmbDpto = new JComboBox<Departamento>();
+		modeloDpto=new DefaultComboBoxModel<Departamento>();
+		cmbDpto.setModel(modeloDpto);
 		cmbDpto.setBounds(532, 343, 152, 20);
 		add(cmbDpto);
 		
@@ -103,7 +110,9 @@ public class PanelEmple extends JPanel {
 		lblCargo.setBounds(297, 374, 152, 20);
 		add(lblCargo);
 		
-		cmbCargo = new JComboBox();
+		modeloCargo = new DefaultComboBoxModel<Cargo>();
+		cmbCargo = new JComboBox<Cargo>();
+		cmbCargo.setModel(modeloCargo);
 		cmbCargo.setBounds(532, 374, 152, 20);
 		add(cmbCargo);
 		
@@ -116,7 +125,9 @@ public class PanelEmple extends JPanel {
 		chbEsJefe.setBounds(532, 404, 152, 23);
 		add(chbEsJefe);
 		
-		cmbSelJefe = new JComboBox();
+		modeloSelJefe = new DefaultComboBoxModel<Empleado>();
+		cmbSelJefe = new JComboBox<Empleado>();
+		cmbSelJefe.setModel(modeloSelJefe);
 		cmbSelJefe.setBounds(532, 434, 152, 20);
 		add(cmbSelJefe);
 		
