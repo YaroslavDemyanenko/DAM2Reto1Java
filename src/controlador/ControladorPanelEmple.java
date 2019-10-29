@@ -80,6 +80,6 @@ public class ControladorPanelEmple {
 			esJefe = true;
 		else
 			esJefe = false;
-		return new Empleado(dni, nombre, apellidos, salario, esJefe, new Date(), cargo, depart);
+		return new Empleado(dni, nombre, apellidos, salario, esJefe, new Date(), cargo, depart,superior);
 	}
 }
