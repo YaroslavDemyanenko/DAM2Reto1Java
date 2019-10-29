@@ -2,16 +2,16 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import modelo.*;
-import vista.*;
+import modelo.Modelo;
+import vista.VentanaPpal;
 
-public class ControladorPanelMenu {
+public class ControladorPanelEmple {
 
 	private VentanaPpal vis;
 	private Modelo mod;
 	private Controlador controlador;
 	
-	public ControladorPanelMenu(VentanaPpal vis, Controlador cont, Modelo mod) {
+	public ControladorPanelEmple(VentanaPpal vis, Controlador cont, Modelo mod) {
 		this.vis = vis;
 		this.controlador = cont;
 		this.mod = mod;
@@ -21,10 +21,8 @@ public class ControladorPanelMenu {
 	
 	private void initListeners() {
 		//public JButton btnGestionDpto, btnGestionEmple, btnGenPdf, btnGenTxt;
-		vis.pCenter.pMenuPrincipal.btnGestionDpto.addActionListener(new ListenerBotones());
-		vis.pCenter.pMenuPrincipal.btnGestionEmple.addActionListener(new ListenerBotones());
-		vis.pCenter.pMenuPrincipal.btnGenPdf.addActionListener(new ListenerBotones());
-		vis.pCenter.pMenuPrincipal.btnGenTxt.addActionListener(new ListenerBotones());
+		vis.pCenter.pEmple.btnVolver.addActionListener(new ListenerBotones());
+		vis.pCenter.pEmple.btnRegistrar.addActionListener(new ListenerBotones());
 	}
 	
 	private class ListenerBotones implements ActionListener {
@@ -35,10 +33,11 @@ public class ControladorPanelMenu {
 			
 			switch (accion) {
 			
-			case "GESTIONAR DEPARTAMENTOS":
-				vis.pCenter.changePanel("3");
+			case "Volver":
+				vis.pCenter.changePanel("1");
 				
-			case "GESTION DE EMPLEADOS":
+			case "Registrar":
+				//Metodo registrar()
 				vis.pCenter.changePanel("4");
 				
 //			case "GENERAR PDF":
@@ -48,9 +47,6 @@ public class ControladorPanelMenu {
 //				vis.pCenter.changePanel("");
 				
 			}
-			
 		}
-		
 	}
-	
 }
