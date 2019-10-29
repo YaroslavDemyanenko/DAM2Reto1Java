@@ -38,25 +38,31 @@ public class ControladotPanelMenuDpto {
 			
 			case "Volver":
 				vis.pCenter.changePanel("1");
+				break;
 				
 			case "INGRESAR NUEVO DEPARTAMENTO":
 				vis.pCenter.changePanel("3");
+				break;
 				
 			case "Siguiente":
 				//Metodo mostrar siguiente empleado
 				vis.pCenter.changePanel("2");
+				break;
 				
-			case "u00DAltimo":
+			case "Ultimo":
 				//Metodo mostrar siguiente empleado
 				vis.pCenter.changePanel("2");
+				break;
 				
 			case "Anterior":
 				//Metodo mostrar siguiente empleado
 				vis.pCenter.changePanel("2");
+				break;
 				
 			case "Primero":
 				//Metodo mostrar siguiente empleado
 				vis.pCenter.changePanel("2");
+				break;
 				
 			}
 		}

@@ -41,10 +41,12 @@ public class ControladorPanelEmple {
 			
 			case "Volver":
 				vis.pCenter.changePanel("1");
+				break;
 				
 			case "Registrar":
 				//Metodo registrar()
 				vis.pCenter.changePanel("4");
+				break;
 			}
 		}
 	}

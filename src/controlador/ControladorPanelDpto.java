@@ -35,17 +35,12 @@ public class ControladorPanelDpto {
 			
 			case "Volver":
 				vis.pCenter.changePanel("1");
+				break;
 				
 			case "Registrar":
 				//Metodo registrar()
 				vis.pCenter.changePanel("2");
-				
-//			case "GENERAR PDF":
-//				vis.pCenter.changePanel("");
-//				
-//			case "GENERAR TXT":
-//				vis.pCenter.changePanel("");
-				
+				break;				
 			}
 		}
 	}

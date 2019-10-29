@@ -35,13 +35,16 @@ public class ControladorPanelMenuEmple {
 			
 			case "Volver":
 				vis.pCenter.changePanel("1");
+				break;
 				
 			case "INGRESAR NUEVO EMPLEADO":
 				vis.pCenter.changePanel("5");
+				break;
 				
 			case "Buscar":
 				//Metodo mostrar siguiente empleado
 				vis.pCenter.changePanel("4");
+				break;
 				
 			}
 		}
