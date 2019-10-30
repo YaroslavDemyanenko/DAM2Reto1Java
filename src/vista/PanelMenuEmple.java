@@ -43,7 +43,8 @@ public class PanelMenuEmple extends JPanel {
 		add(lblBuscarEmple);
 		
 		txtBuscarEmple = new JTextField();
-		txtBuscarEmple.setText("Ingresar nombre o ID");
+		//txtBuscarEmple.setText("Ingresar nombre o ID");
+		txtBuscarEmple.setToolTipText("Ingresar nombre o ID");
 		txtBuscarEmple.setColumns(10);
 		txtBuscarEmple.setBounds(393, 315, 226, 20);
 		add(txtBuscarEmple);

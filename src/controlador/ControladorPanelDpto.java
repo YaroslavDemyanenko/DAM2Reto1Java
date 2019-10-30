@@ -34,7 +34,7 @@ public class ControladorPanelDpto {
 			switch (accion) {
 			
 			case "Volver":
-				vis.pCenter.changePanel("1");
+				vis.pCenter.changePanel("2");
 				break;
 				
 			case "Registrar":

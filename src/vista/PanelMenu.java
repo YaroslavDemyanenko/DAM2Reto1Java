@@ -31,11 +31,11 @@ public class PanelMenu extends JPanel {
 		add(lblTitulo);
 		
 		btnGestionDpto = new JButton("GESTIONAR DEPARTAMENTOS");
-		btnGestionDpto.setBounds(411, 165, 201, 23);
+		btnGestionDpto.setBounds(411, 165, 220, 23);
 		add(btnGestionDpto);
 		
 		btnGestionEmple = new JButton("GESTION DE EMPLEADOS");
-		btnGestionEmple.setBounds(411, 229, 201, 23);
+		btnGestionEmple.setBounds(411, 229, 220, 23);
 		add(btnGestionEmple);
 		
 		lblGenInforme = new JLabel("GENERAR INFORME");
@@ -44,11 +44,11 @@ public class PanelMenu extends JPanel {
 		add(lblGenInforme);
 		
 		btnGenPdf = new JButton("GENERAR PDF");
-		btnGenPdf.setBounds(411, 311, 110, 23);
+		btnGenPdf.setBounds(387, 311, 130, 23);
 		add(btnGenPdf);
 		
 		btnGenTxt = new JButton("GENERAR TXT");
-		btnGenTxt.setBounds(531, 311, 110, 23);
+		btnGenTxt.setBounds(531, 311, 130, 23);
 		add(btnGenTxt);
 		
 		lblInformeDebeSer = new JLabel("INFORME DEBE SER: DEPARTAMENTOS O EMPLEADOS!!!!!");
