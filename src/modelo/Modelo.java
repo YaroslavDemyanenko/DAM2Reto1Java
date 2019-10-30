@@ -25,6 +25,7 @@ public class Modelo {
 		lectorCsv=new LeerCsv(this,bd);
 		lectorXml=new LectorXml(this,bd);
 		cargaDatos=new MetodosCargaDatos(this, bd);
+		mPEmple = new MetodosPanelEmple(this, bd);
 		addMetodos();
 	}
 

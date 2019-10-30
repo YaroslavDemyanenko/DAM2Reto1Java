@@ -47,9 +47,9 @@ public class LeerCsv {
 	public Empleado toEmpleado(String[] valores) {
 		int sueldo = Integer.valueOf(valores[3]);
 		
-		boolean jefe = false;
+		int jefe = 0;
 		if (Integer.valueOf(valores[4]) == 1) {
-			jefe = true;
+			jefe = 1;
 		}
 		
 		Cargo cargo= mod.cargaDatos.buscarCargo(valores[6]);
