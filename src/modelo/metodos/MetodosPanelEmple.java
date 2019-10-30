@@ -50,7 +50,6 @@ public class MetodosPanelEmple {
 		}
 		return departamentos;
 	}
-
 	
 
 	private Departamento cargarDepartamento(String id) {

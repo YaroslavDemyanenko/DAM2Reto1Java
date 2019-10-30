@@ -3,6 +3,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.*;
+import modelo.objetos.Departamento;
 import vista.*;
 
 public class ControladorPanelMenu {
@@ -36,6 +37,7 @@ public class ControladorPanelMenu {
 			switch (accion) {
 			
 			case "GESTIONAR DEPARTAMENTOS":
+				generarMenuDpto();
 				vis.pCenter.changePanel("2");
 				break;
 				
@@ -57,4 +59,8 @@ public class ControladorPanelMenu {
 		
 	}
 	
+	public void generarMenuDpto() {
+		Departamento[] nomDptos = mod.mPDpto.cargarDepartamento();
+		vis.pCenter.pMenuDpto.lblNombreDpto.setText(nomDptos[0].toString());
+	}	
 }
