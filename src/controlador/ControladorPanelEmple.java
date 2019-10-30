@@ -44,29 +44,11 @@ public class ControladorPanelEmple {
 				break;
 				
 			case "Registrar":
-				//Metodo registrar()
 				vis.pCenter.changePanel("4");
 				break;
 			}
 		}
-	}
-
-	public void cargarInterfaz() {
-		Departamento[] departamentos = mod.mPEmple.cargarDepartamentos();
-		for (Departamento dpto : departamentos) {
-			vis.pCenter.pEmple.modeloDpto.addElement(dpto);
-		}
-		Cargo[] cargos = mod.mPEmple.cargarCargos();
-		for (Cargo cargo : cargos) {
-			vis.pCenter.pEmple.modeloCargo.addElement(cargo);
-		}
-		
-		Empleado[] jefes = mod.mPEmple.cargarJefes();
-		for (Empleado jefe : jefes) {
-			vis.pCenter.pEmple.modeloSelJefe.addElement(jefe);
-		}				
-	}
-	
+	}	
 	
 	private Empleado crearEmpleado() {
 		String dni = vis.pCenter.pEmple.txtCodEmple.getText();
@@ -77,11 +59,11 @@ public class ControladorPanelEmple {
 		Cargo cargo = vis.pCenter.pEmple.modeloCargo.getElementAt(vis.pCenter.pEmple.cmbCargo.getSelectedIndex());
 		Empleado superior = vis.pCenter.pEmple.modeloSelJefe.getElementAt(vis.pCenter.pEmple.cmbSelJefe.getSelectedIndex());
 
-		boolean esJefe;
+		int esJefe;
 		if (vis.pCenter.pEmple.chbEsJefe.isSelected())
-			esJefe = true;
+			esJefe = 1;
 		else
-			esJefe = false;
+			esJefe = 0;
 		return new Empleado(dni, nombre, apellidos, salario, esJefe, new Date(), cargo, depart,superior);
 	}
 }
