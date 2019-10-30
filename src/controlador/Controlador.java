@@ -3,7 +3,6 @@ package controlador;
 import modelo.Modelo;
 import vista.VentanaPpal;
 
-
 public class Controlador {
 
 	private VentanaPpal vis;
@@ -20,7 +19,7 @@ public class Controlador {
 		this.vis = vista;
 		this.mod = modelo;
 		addControladores();
-		initListeners();
+		//initListeners();
 	}
 
 
@@ -35,9 +34,9 @@ public class Controlador {
 		cDpto = new ControladorPanelDpto(vis, this, mod);
 	}
 
-	private void initListeners() {
-		
-	}
+//	private void initListeners() {
+//		
+//	}
 	
 	
 	

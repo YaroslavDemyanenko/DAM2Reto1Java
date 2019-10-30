@@ -36,15 +36,19 @@ public class ControladorPanelMenu {
 			switch (accion) {
 			
 			case "GESTIONAR DEPARTAMENTOS":
-				vis.pCenter.changePanel("3");
+				vis.pCenter.changePanel("2");
+				break;
 				
 			case "GESTION DE EMPLEADOS":
 				vis.pCenter.changePanel("4");
+				break;
 				
 //			case "GENERAR PDF":
+//				//metodo generarPDF()
 //				vis.pCenter.changePanel("");
 //				
 //			case "GENERAR TXT":
+//				//metodo generarTXT()
 //				vis.pCenter.changePanel("");
 				
 			}
