@@ -12,13 +12,13 @@ import modelo.objetos.Departamento;
 import modelo.objetos.Empleado;
 import modelo.objetos.Global;
 
-public class MetodosPanelEmple {
+public class MetodosPanelDpto {
 	private ConsultaBD bd;
 	private Modelo mod;
 
 	private Gson gson = new Gson();
 
-	public MetodosPanelEmple(Modelo mod, ConsultaBD bd) {
+	public MetodosPanelDpto(Modelo mod, ConsultaBD bd) {
 		this.bd = bd;
 		this.mod = mod;
 	}
@@ -51,8 +51,6 @@ public class MetodosPanelEmple {
 		return departamentos;
 	}
 
-	
-
 	private Departamento cargarDepartamento(String id) {
 		String json = mod.bd.consultarToGson("select `idDepartamento` 'id',`nombre` 'nombre' from `departamento` where `idDepartamento`='" + id + "'");
 		Departamento[] departs = gson.fromJson(json, Departamento[].class);
@@ -65,15 +63,9 @@ public class MetodosPanelEmple {
 		return centros[0];
 	}
 
-	public Cargo[] cargarCargos() {
-		String json = mod.bd.consultarToGson("select `idCargo` 'id',`nombre` 'nombre' from `cargo`");
-		Cargo[] cargos = gson.fromJson(json, Cargo[].class);
-		return cargos;
-	}
-
-	public Empleado[] cargarJefes() {
-		String json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaAlta' from `cargo` where `esJefe`=1");
-		Empleado[] jefes = gson.fromJson(json, Empleado[].class);
-		return jefes;
+	public Centro[] buscarCentros() {
+		String aux = bd.consultarToGson("SELECT `idCentro` 'id', `nombre` 'nombre' FROM `centro`");
+		Centro[] centros = gson.fromJson(aux, Centro[].class);
+		return centros;
 	}
 }

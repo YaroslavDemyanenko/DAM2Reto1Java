@@ -2,7 +2,15 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JOptionPane;
+
+import com.google.gson.Gson;
+
+import baseDatos.ConsultaBD;
 import modelo.Modelo;
+import modelo.metodos.MetodosPanelEmple;
+import modelo.objetos.Centro;
 import vista.VentanaPpal;
 
 public class ControladorPanelDpto {
@@ -16,6 +24,7 @@ public class ControladorPanelDpto {
 		this.controlador = cont;
 		this.mod = mod;
 		
+		mostrarListaCentros();
 		initListeners();
 	}
 	
@@ -44,4 +53,19 @@ public class ControladorPanelDpto {
 			}
 		}
 	}
+	
+	public void mostrarListaCentros() {
+		vis.pCenter.pDpto.cmbCentro.removeAllItems();
+		Centro[] listaCentro = mod.mPDpto.buscarCentros();
+		if (listaCentro != null) {
+			for(int i = 0; i < listaCentro.length; i++) {
+				vis.pCenter.pDpto.cmbCentro.addItem(listaCentro[i].getNombre());
+			}
+		} else {
+			JOptionPane.showMessageDialog(vis, "Error en la Base de Datos", "Error", JOptionPane.ERROR_MESSAGE);
+			vis.dispose();
+		}
+		
+	}
+	
 }
