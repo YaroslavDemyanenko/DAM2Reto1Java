@@ -37,7 +37,7 @@ public class ControladorPanelMenu {
 			switch (accion) {
 			
 			case "GESTIONAR DEPARTAMENTOS":
-				generarMenuDpto();
+				//generarMenuDpto();
 				vis.pCenter.changePanel("2");
 				break;
 				

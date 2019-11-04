@@ -16,6 +16,12 @@ public class Centro {
 		this.nombre = nombre;
 	}
 	
+	
+	@Override
+	public String toString() {
+		return nombre;
+	}
+
 	public int getId() {
 		return id;
 	}

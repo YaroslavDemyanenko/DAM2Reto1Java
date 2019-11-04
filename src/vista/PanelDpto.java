@@ -2,11 +2,14 @@ package vista;
 
 import java.awt.Dimension;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import modelo.objetos.Centro;
 
 public class PanelDpto extends JPanel {
 	
@@ -14,7 +17,8 @@ public class PanelDpto extends JPanel {
 	public JTextField txtCodigoDpto, txtNombreDpto;
 	public JLabel lblTitulo, lblCodigoDpto, lblNombreDpto, lblCentro;
 	public JButton btnVolver, btnRegistrar;
-	public JComboBox cmbCentro;
+	public JComboBox<Centro> cmbCentro;
+	public DefaultComboBoxModel<Centro> modeloCmbCentro;
 	
 	public PanelDpto() {
 		setParametros();
@@ -54,7 +58,9 @@ public class PanelDpto extends JPanel {
 		lblCentro.setBounds(297, 281, 152, 20);
 		add(lblCentro);
 		
-		cmbCentro = new JComboBox();
+		modeloCmbCentro=new DefaultComboBoxModel<Centro>();
+		
+		cmbCentro = new JComboBox<Centro>(modeloCmbCentro);
 		cmbCentro.setBounds(532, 281, 152, 20);
 		add(cmbCentro);
 		
