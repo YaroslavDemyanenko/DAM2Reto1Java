@@ -47,9 +47,7 @@ public class MetodosPanelMenuDpto {
 	
 	public Departamento[] cargarDepartamento() {
 		String json = mod.bd.consultarToGson(
-				"SELECT `idDepartamento` 'id',"
-				+ "`nombre` 'nombre'"
-				+ " FROM `departamento`");
+				"SELECT `idDepartamento` 'id',`nombre` 'nombre' FROM `departamento`");
 		Departamento[] departs = gson.fromJson(json, Departamento[].class);
 		return departs;
 	}
