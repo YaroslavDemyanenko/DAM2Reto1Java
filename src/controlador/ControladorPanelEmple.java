@@ -44,6 +44,8 @@ public class ControladorPanelEmple {
 				break;
 				
 			case "Registrar":
+				//FALTA VALIDAR
+				mod.bd.insertGenerico(crearEmpleado().toObjectArray(), "empleado");
 				vis.pCenter.changePanel("4");
 				break;
 			}
@@ -55,9 +57,9 @@ public class ControladorPanelEmple {
 		String nombre = vis.pCenter.pEmple.txtNomEmple.getText();
 		String apellidos = vis.pCenter.pEmple.txtApellidos.getText();
 		int salario = Integer.valueOf(vis.pCenter.pEmple.txtSalario.getText());
-		Departamento depart = vis.pCenter.pEmple.modeloDpto.getElementAt(vis.pCenter.pEmple.cmbDpto.getSelectedIndex());
-		Cargo cargo = vis.pCenter.pEmple.modeloCargo.getElementAt(vis.pCenter.pEmple.cmbCargo.getSelectedIndex());
-		Empleado superior = vis.pCenter.pEmple.modeloSelJefe.getElementAt(vis.pCenter.pEmple.cmbSelJefe.getSelectedIndex());
+		Departamento depart = (Departamento) vis.pCenter.pEmple.modeloDpto.getSelectedItem();
+		Cargo cargo = (Cargo) vis.pCenter.pEmple.modeloCargo.getSelectedItem();
+		Empleado superior = (Empleado) vis.pCenter.pEmple.modeloSelJefe.getSelectedItem();
 
 		int esJefe;
 		if (vis.pCenter.pEmple.chbEsJefe.isSelected())

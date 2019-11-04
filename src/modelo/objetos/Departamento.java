@@ -22,6 +22,10 @@ public class Departamento {
 		Object[] objetos= {this.id,this.nombre};
 		return objetos;
 	}
+	@Override
+	public String toString() {
+		return nombre;
+	}
 	public int getId() {
 		return id;
 	}

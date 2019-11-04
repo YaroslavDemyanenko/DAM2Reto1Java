@@ -29,6 +29,11 @@ public class Empleado {
 	}
 	
 	
+	@Override
+	public String toString() {
+		return nombre;
+	}
+	
 	public void convertirFecha() {
 		SimpleDateFormat formateador=new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");  
 		try {
