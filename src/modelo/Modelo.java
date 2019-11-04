@@ -31,6 +31,7 @@ public class Modelo {
 		cargaDatos=new MetodosCargaDatos(this, bd);
 		mPDpto=new MetodosPanelDpto(this, bd);
 		mPEmple = new MetodosPanelEmple(this, bd);
+		mPMDpto = new MetodosPanelMenuDpto(this, bd);
 		addMetodos();
 	}
 

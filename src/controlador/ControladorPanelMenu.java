@@ -2,6 +2,9 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JOptionPane;
+
 import modelo.*;
 import modelo.objetos.Departamento;
 import vista.*;
@@ -37,7 +40,7 @@ public class ControladorPanelMenu {
 			switch (accion) {
 			
 			case "GESTIONAR DEPARTAMENTOS":
-				//generarMenuDpto();
+				mostrarListaDptos();
 				vis.pCenter.changePanel("2");
 				break;
 				
@@ -59,8 +62,14 @@ public class ControladorPanelMenu {
 		
 	}
 	
-	public void generarMenuDpto() {
-		Departamento[] nomDptos = mod.mPMDpto.cargarDepartamento();
-		vis.pCenter.pMenuDpto.lblNombreDpto.setText(nomDptos[0].toString());
+	public void mostrarListaDptos() {
+		vis.pCenter.pMenuDpto.lblNombreDpto.removeAll();
+		
+		if(mod.departamentos != null) {
+			vis.pCenter.pMenuDpto.lblNombreDpto.setText(mod.departamentos[0].getNombre());
+		}else {
+			JOptionPane.showMessageDialog(vis, "Error en la Base de Datos", "Error", JOptionPane.ERROR_MESSAGE);
+			vis.dispose();
+		}	
 	}	
 }
