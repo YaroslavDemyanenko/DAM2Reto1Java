@@ -60,7 +60,7 @@ public class ControladorPanelMenu {
 	}
 	
 	public void generarMenuDpto() {
-		Departamento[] nomDptos = mod.mPDpto.cargarDepartamento();
+		Departamento[] nomDptos = mod.mPMDpto.cargarDepartamento();
 		vis.pCenter.pMenuDpto.lblNombreDpto.setText(nomDptos[0].toString());
 	}	
 }
