@@ -1,5 +1,3 @@
-/controlador/
-/modelo/
 /lecturaFicheros/
-/baseDatos/
-/vista/
+/modelo/
+/controlador/
