@@ -63,7 +63,7 @@ public class ControladorPanelMenu {
 	}
 	
 	public void mostrarListaDptos() {
-		vis.pCenter.pMenuDpto.lblNombreDpto.removeAll();
+		vis.pCenter.pMenuDpto.lblNombreDpto.setText("");
 		
 		if(mod.departamentos != null) {
 			vis.pCenter.pMenuDpto.lblNombreDpto.setText(mod.departamentos[0].getNombre());

@@ -57,7 +57,6 @@ public class ControladorPanelMenuEmple {
 	
 	
 	public void cargarInterfazRegistroEmpleado() {
-		mod.departamentos = mod.mPEmple.cargarDepartamentos();
 		for (Departamento dpto : mod.departamentos) {
 			vis.pCenter.pEmple.modeloDpto.addElement(dpto);
 		}

@@ -26,16 +26,21 @@ public class Modelo {
 	
 	public Modelo() {
 		bd = new ConsultaBD();
+		
+		addMetodos();
+		cargarVariables();
+	}
+
+	public void addMetodos() {
 		lectorCsv=new LeerCsv(this,bd);
 		lectorXml=new LectorXml(this,bd);
 		cargaDatos=new MetodosCargaDatos(this, bd);
 		mPDpto=new MetodosPanelDpto(this, bd);
 		mPEmple = new MetodosPanelEmple(this, bd);
 		mPMDpto = new MetodosPanelMenuDpto(this, bd);
-		addMetodos();
 	}
-
-	public void addMetodos() {
-		
+	
+	public void cargarVariables() {
+		departamentos = mPEmple.cargarDepartamentos();
 	}
 }

@@ -32,6 +32,8 @@ public class Controlador {
 		cMenuDpto = new ControladotPanelMenuDpto(vis, this, mod);
 		cEmple = new ControladorPanelEmple(vis, this, mod);
 		cDpto = new ControladorPanelDpto(vis, this, mod);
+		
+
 	}
 
 //	private void initListeners() {
