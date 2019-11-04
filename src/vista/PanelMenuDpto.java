@@ -34,10 +34,10 @@ public class PanelMenuDpto extends JPanel {
 		add(lblTitulo);
 		
 		btnIngresarDpto = new JButton("INGRESAR NUEVO DEPARTAMENTO");
-		btnIngresarDpto.setBounds(393, 156, 226, 23);
+		btnIngresarDpto.setBounds(393, 156, 240, 23);
 		add(btnIngresarDpto);
 		
-		lblNombreDpto = new JLabel("");
+		lblNombreDpto = new JLabel("[nombre_departamento]");
 		lblNombreDpto.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNombreDpto.setBounds(419, 322, 200, 23);
 		add(lblNombreDpto);

@@ -6,6 +6,7 @@ import lecturaFicheros.LeerCsv;
 import modelo.metodos.MetodosCargaDatos;
 import modelo.metodos.MetodosPanelDpto;
 import modelo.metodos.MetodosPanelEmple;
+import modelo.metodos.MetodosPanelMenuDpto;
 import modelo.objetos.Departamento;
 
 
@@ -17,6 +18,7 @@ public class Modelo {
 	public MetodosCargaDatos cargaDatos;
 	public MetodosPanelEmple mPEmple;
 	public MetodosPanelDpto mPDpto;
+	public MetodosPanelMenuDpto mPMDpto;
 	//public ArrayList<Departamento> departamentos = new ArrayList<Departamento>();
 	//public ArrayList<Empleado> empleados = new ArrayList<Empleado>();
 	public Departamento[] departamentos;
@@ -28,6 +30,7 @@ public class Modelo {
 		lectorXml=new LectorXml(this,bd);
 		cargaDatos=new MetodosCargaDatos(this, bd);
 		mPDpto=new MetodosPanelDpto(this, bd);
+		mPEmple = new MetodosPanelEmple(this, bd);
 		addMetodos();
 	}
 

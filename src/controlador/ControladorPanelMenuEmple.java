@@ -3,6 +3,9 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.Modelo;
+import modelo.objetos.Cargo;
+import modelo.objetos.Departamento;
+import modelo.objetos.Empleado;
 import vista.VentanaPpal;
 
 public class ControladorPanelMenuEmple {
@@ -25,6 +28,7 @@ public class ControladorPanelMenuEmple {
 		vis.pCenter.pMenuEmple.btnBuscar.addActionListener(new ListenerBotones());
 	}
 	
+	
 	private class ListenerBotones implements ActionListener {
 
 		@Override
@@ -38,6 +42,7 @@ public class ControladorPanelMenuEmple {
 				break;
 				
 			case "INGRESAR NUEVO EMPLEADO":
+				cargarInterfazRegistroEmpleado();
 				vis.pCenter.changePanel("5");
 				break;
 				
@@ -48,5 +53,23 @@ public class ControladorPanelMenuEmple {
 				
 			}
 		}
+	}
+	
+	
+	public void cargarInterfazRegistroEmpleado() {
+		Departamento[] departamentos = mod.mPEmple.cargarDepartamentos();
+		for (Departamento dpto : departamentos) {
+			vis.pCenter.pEmple.modeloDpto.addElement(dpto);
+			//vis.pCenter.pEmple.modeloDpto.
+		}
+		Cargo[] cargos = mod.mPEmple.cargarCargos();
+		for (Cargo cargo : cargos) {
+			vis.pCenter.pEmple.modeloCargo.addElement(cargo);
+		}
+		
+		Empleado[] jefes = mod.mPEmple.cargarJefes();
+		for (Empleado jefe : jefes) {
+			vis.pCenter.pEmple.modeloSelJefe.addElement(jefe);
+		}				
 	}
 }

@@ -45,12 +45,11 @@ public class MetodosPanelEmple {
 
 		Departamento[] departamentos = new Departamento[relaciones.length];
 		for (int i = 0; i < relaciones.length; i++) {
-			departamentos[i] = cargarDepartamento((String) relaciones[i].getAuxiliar1());
-			departamentos[i].setCentro(cargarCentroEnDepartamento((String) relaciones[i].getAuxiliar2()));
+			departamentos[i] = cargarDepartamento(Double.toString((double) relaciones[i].getAuxiliar1()));
+			departamentos[i].setCentro(cargarCentroEnDepartamento(Double.toString((double) relaciones[i].getAuxiliar2())));
 		}
 		return departamentos;
 	}
-
 	
 
 	private Departamento cargarDepartamento(String id) {
@@ -60,7 +59,7 @@ public class MetodosPanelEmple {
 	}
 
 	private Centro cargarCentroEnDepartamento(String id) {
-		String json = mod.bd.consultarToGson("select `idCentro` 'id',`nombre` 'nombre' from `departamento` where `idCentro`='" + id + "'");
+		String json = mod.bd.consultarToGson("select `idCentro` 'id',`nombre` 'nombre' from `centro` where `idCentro`='" + id + "'");
 		Centro[] centros = gson.fromJson(json, Centro[].class);
 		return centros[0];
 	}
@@ -72,8 +71,11 @@ public class MetodosPanelEmple {
 	}
 
 	public Empleado[] cargarJefes() {
-		String json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaAlta' from `cargo` where `esJefe`=1");
+		String json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `esJefe`=1");
 		Empleado[] jefes = gson.fromJson(json, Empleado[].class);
+		for(Empleado jefe:jefes) {
+			jefe.convertirFecha();
+		}
 		return jefes;
 	}
 }

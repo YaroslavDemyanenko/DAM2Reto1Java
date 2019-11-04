@@ -1,19 +1,22 @@
 package modelo.objetos;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Empleado {
 	private String dni;
 	private String nombre;
 	private String apellidos;
-	private int sueldo;
-	private boolean esJefe;
+	private float sueldo;
+	private int esJefe;
 	private Date fechaAlta;
+	private String fechaString;
 	private Cargo cargo;
 	private Departamento departamento;
 	private Empleado empleJefe;
 
-	public Empleado(String dni, String nombre, String apellidos, int sueldo, boolean esJefe, Date fechaAlta, Cargo cargo, Departamento departamento) {
+	public Empleado(String dni, String nombre, String apellidos, float sueldo, int esJefe, Date fechaAlta, Cargo cargo, Departamento departamento) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
@@ -25,7 +28,17 @@ public class Empleado {
 		this.departamento = departamento;
 	}
 	
-	public Empleado(String dni, String nombre, String apellidos, int sueldo, boolean esJefe, Date fechaAlta, Cargo cargo, Departamento departamento,Empleado empleJefe) {
+	
+	public void convertirFecha() {
+		SimpleDateFormat formateador=new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");  
+		try {
+			this.fechaAlta=formateador.parse(this.fechaString);
+		} catch (ParseException e) {
+			System.out.println("Error: parse fecha");
+		}
+	}
+	
+	public Empleado(String dni, String nombre, String apellidos, int sueldo, int esJefe, Date fechaAlta, Cargo cargo, Departamento departamento,Empleado empleJefe) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
@@ -38,7 +51,7 @@ public class Empleado {
 		this.empleJefe=empleJefe;
 	}
 
-	public Empleado(String dni, String nombre, String apellidos, int sueldo, boolean esJefe, int fechaAlta, Cargo cargo, Departamento departamento) {
+	public Empleado(String dni, String nombre, String apellidos, int sueldo, int esJefe, int fechaAlta, Cargo cargo, Departamento departamento) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
@@ -81,19 +94,19 @@ public class Empleado {
 		this.apellidos = apellidos;
 	}
 
-	public int getSueldo() {
+	public float getSueldo() {
 		return sueldo;
 	}
 
-	public void setSueldo(int sueldo) {
+	public void setSueldo(float sueldo) {
 		this.sueldo = sueldo;
 	}
 
-	public boolean isEsJefe() {
+	public int isEsJefe() {
 		return esJefe;
 	}
 
-	public void setEsJefe(boolean esJefe) {
+	public void setEsJefe(int esJefe) {
 		this.esJefe = esJefe;
 	}
 
