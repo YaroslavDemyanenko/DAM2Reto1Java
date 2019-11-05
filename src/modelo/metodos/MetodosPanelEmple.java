@@ -76,4 +76,15 @@ public class MetodosPanelEmple {
 		}
 		return jefes;
 	}
+	
+	public Empleado[] cargarEmpleados(int idDepartamento) {
+		String json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `idDepartamento`='" + idDepartamento + "'" );
+		Empleado[] empleados = gson.fromJson(json, Empleado[].class);
+		if(empleados != null) {
+			for(Empleado empleado:empleados) {
+				empleado.convertirFecha();
+			}
+		}
+		return empleados;
+	}
 }

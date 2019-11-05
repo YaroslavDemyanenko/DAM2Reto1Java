@@ -38,6 +38,7 @@ public class ControladorPanelMenu {
 			
 			case "GESTIONAR DEPARTAMENTOS":
 				mod.mPMenu.mostrarListaDptos(0, vis);
+				mod.mPMenu.mostrarListaEmpleadosXDpto(0, vis);
 				vis.pCenter.changePanel("2");
 				break;
 				

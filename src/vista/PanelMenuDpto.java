@@ -3,18 +3,22 @@ package vista;
 import java.awt.Color;
 import java.awt.Dimension;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import modelo.objetos.Empleado;
+
 public class PanelMenuDpto extends JPanel {
 
 	private static final long serialVersionUID = -2619620055781727212L;
 	public JLabel lblTitulo, lblNombreDpto;
 	public JButton btnIngresarDpto, btnSiguiente, btnUltimo, btnAnterior, btnPrimero, btnVolver;
-	public JList listEmpleados;
+	public DefaultListModel<Empleado> modeloListaEmple;
+	public JList<Empleado> listEmpleados;
 	
 	public PanelMenuDpto() {
 		setParametros();
@@ -58,7 +62,9 @@ public class PanelMenuDpto extends JPanel {
 		btnPrimero.setBounds(221, 322, 89, 23);
 		add(btnPrimero);
 		
-		listEmpleados = new JList();
+		modeloListaEmple = new DefaultListModel<Empleado>();
+		
+		listEmpleados = new JList<Empleado>(modeloListaEmple);
 		listEmpleados.setBackground(Color.LIGHT_GRAY);
 		listEmpleados.setBounds(320, 398, 398, 150);
 		add(listEmpleados);

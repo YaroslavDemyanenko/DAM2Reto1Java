@@ -1,11 +1,13 @@
 package modelo.metodos;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 import com.google.gson.Gson;
 
 import baseDatos.ConsultaBD;
 import modelo.Modelo;
+import modelo.objetos.Empleado;
 import vista.VentanaPpal;
 
 public class MetodosPanelMenu {
@@ -44,6 +46,14 @@ public class MetodosPanelMenu {
 			vis.dispose();
 		}	
 	}
-
 	
+	public void mostrarListaEmpleadosXDpto(int idDepartamento, VentanaPpal vis) {
+		Empleado[] empleados = mod.mPEmple.cargarEmpleados(idDepartamento);
+		vis.pCenter.pMenuDpto.modeloListaEmple.removeAllElements();		
+		if(empleados != null) {
+			for(int i=0; i<empleados.length; i++) {
+				vis.pCenter.pMenuDpto.modeloListaEmple.addElement(empleados[i]);
+			}
+		}
+	}
 }

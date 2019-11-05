@@ -48,23 +48,31 @@ public class ControladotPanelMenuDpto {
 				break;
 				
 			case "Siguiente":
-				posicion++;
+				if(posicion < mod.departamentos.length-1) {
+					posicion++;
+				}
 				mod.mPMenu.mostrarListaDptos(posicion, vis);
+				mod.mPMenu.mostrarListaEmpleadosXDpto(mod.departamentos[posicion].getId(), vis);
 				break;
 				
 			case "Ultimo":
 				posicion = mod.departamentos.length-1;
 				mod.mPMenu.mostrarListaDptos(posicion, vis);
+				mod.mPMenu.mostrarListaEmpleadosXDpto(mod.departamentos[posicion].getId(), vis);
 				break;
 				
 			case "Anterior":
-				posicion--;
+				if(posicion > 0) {
+					posicion--;
+				}
 				mod.mPMenu.mostrarListaDptos(posicion, vis);
+				mod.mPMenu.mostrarListaEmpleadosXDpto(mod.departamentos[posicion].getId(), vis);
 				break;
 				
 			case "Primero":
 				posicion=0;
 				mod.mPMenu.mostrarListaDptos(posicion, vis);
+				mod.mPMenu.mostrarListaEmpleadosXDpto(mod.departamentos[posicion].getId(), vis);
 				break;
 			}
 		}
