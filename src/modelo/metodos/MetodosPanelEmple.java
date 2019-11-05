@@ -1,9 +1,7 @@
 package modelo.metodos;
 
 import java.util.Date;
-
 import com.google.gson.Gson;
-
 import baseDatos.ConsultaBD;
 import modelo.Modelo;
 import modelo.objetos.Cargo;

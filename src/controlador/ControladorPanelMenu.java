@@ -5,9 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import modelo.*;
-import modelo.objetos.Departamento;
-import vista.*;
+import modelo.Modelo;
+import vista.VentanaPpal;
 
 public class ControladorPanelMenu {
 
@@ -40,7 +39,7 @@ public class ControladorPanelMenu {
 			switch (accion) {
 			
 			case "GESTIONAR DEPARTAMENTOS":
-				mostrarListaDptos();
+				mod.mPMenu.mostrarListaDptos(0, vis);
 				vis.pCenter.changePanel("2");
 				break;
 				
@@ -60,16 +59,5 @@ public class ControladorPanelMenu {
 			
 		}
 		
-	}
-	
-	public void mostrarListaDptos() {
-		vis.pCenter.pMenuDpto.lblNombreDpto.setText("");
-		
-		if(mod.departamentos != null) {
-			vis.pCenter.pMenuDpto.lblNombreDpto.setText(mod.departamentos[0].getNombre());
-		}else {
-			JOptionPane.showMessageDialog(vis, "Error en la Base de Datos", "Error", JOptionPane.ERROR_MESSAGE);
-			vis.dispose();
-		}	
 	}	
 }
