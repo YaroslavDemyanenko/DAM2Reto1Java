@@ -1,6 +1,6 @@
 package modelo.metodos;
 
-import java.util.Date;
+import javax.swing.JOptionPane;
 
 import com.google.gson.Gson;
 
@@ -51,6 +51,14 @@ public class MetodosPanelEmple {
 		return departamentos;
 	}
 	
+	
+	public Empleado cargarEmpleadoCompleto(String dni) {
+		String json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `idDni`='"+dni+"'");
+		Empleado[] empleado = gson.fromJson(json, Empleado[].class);
+		
+		
+		return empleado[0];
+	}
 
 	private Departamento cargarDepartamento(String id) {
 		String json = mod.bd.consultarToGson("select `idDepartamento` 'id',`nombre` 'nombre' from `departamento` where `idDepartamento`='" + id + "'");
@@ -77,5 +85,44 @@ public class MetodosPanelEmple {
 			jefe.convertirFecha();
 		}
 		return jefes;
+	}
+	
+	public boolean validarRegistroPrevio(String dni) {
+		String json = mod.bd.consultarToGson("select `idDni` 'dni' from `empleado` where `idDni`='"+dni+"'");
+		Empleado[] jefes = gson.fromJson(json, Empleado[].class);
+		if(jefes == null) {
+			return true;
+		}else {
+			JOptionPane.showMessageDialog(null, "Usuario ya registrado - DNI duplicado", null, JOptionPane.WARNING_MESSAGE);
+			return false;
+		}
+	}
+	
+	public boolean validarDNI(String dni) {
+		if (!(dni.matches("^[0-9]{7,8}['T|R|W|A|G|M|Y|F|P|D|X|B|N|J|Z|S|Q|V|H|L|C|K|E]$"))) {
+			JOptionPane.showMessageDialog(null, "DNI invalido", null, JOptionPane.WARNING_MESSAGE);
+			return false;
+		} else {			
+			return true;
+		}
+	}
+	
+	public boolean validarSoloLetras(String cadena, String nombreCampo) {
+		if (!(cadena.matches("/^[A-Za-z ]+$/"))) {
+			JOptionPane.showMessageDialog(null, nombreCampo+" invalido", null, JOptionPane.WARNING_MESSAGE);
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	public boolean validarSoloNumeros(String cadenaNumeros, String string) {
+		if (!(cadenaNumeros.matches("^[0-9]$"))) {
+			JOptionPane.showMessageDialog(null, string+" invalido", null, JOptionPane.WARNING_MESSAGE);
+			return false;
+		} else {			
+			return true;
+		}
+		
 	}
 }

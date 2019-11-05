@@ -44,8 +44,9 @@ public class ControladorPanelEmple {
 				break;
 				
 			case "Registrar":
-				//FALTA VALIDAR
-				mod.bd.insertGenerico(crearEmpleado().toObjectArray(), "empleado");
+				if(validarDatos()) {
+					mod.bd.insertGenerico(crearEmpleado().toObjectArray(), "empleado");
+				}				
 				vis.pCenter.changePanel("4");
 				break;
 			}
@@ -67,5 +68,35 @@ public class ControladorPanelEmple {
 		else
 			esJefe = 0;
 		return new Empleado(dni, nombre, apellidos, salario, esJefe, new Date(), cargo, depart,superior);
+	}
+	
+	public void limpiarPanel() {
+		vis.pCenter.pEmple.txtCodEmple.setText("");
+		vis.pCenter.pEmple.txtApellidos.setText("");
+		vis.pCenter.pEmple.txtNomEmple.setText("");
+		vis.pCenter.pEmple.txtSalario.setText("");
+		
+		vis.pCenter.pEmple.modeloCargo.removeAllElements();
+		vis.pCenter.pEmple.modeloDpto.removeAllElements();
+		vis.pCenter.pEmple.modeloSelJefe.removeAllElements();
+	}
+	
+	public boolean validarDatos() {
+		for(boolean validacion:validarCampos()) {
+			if (validacion=false) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	private boolean[] validarCampos() {
+		boolean[] validaciones = {false,false,false,false,false};
+		validaciones[0] = mod.mPEmple.validarDNI(vis.pCenter.pEmple.txtCodEmple.getText());
+		validaciones[1] = mod.mPEmple.validarSoloLetras(vis.pCenter.pEmple.txtNomEmple.getText(), "Nombre");
+		validaciones[2] = mod.mPEmple.validarSoloLetras(vis.pCenter.pEmple.txtApellidos.getText(), "Apellidos");
+		validaciones[3] = mod.mPEmple.validarSoloNumeros(vis.pCenter.pEmple.txtSalario.getText(), "Salario");
+		validaciones[4] = mod.mPEmple.validarRegistroPrevio(vis.pCenter.pEmple.txtCodEmple.getText());
+		return validaciones;
 	}
 }
