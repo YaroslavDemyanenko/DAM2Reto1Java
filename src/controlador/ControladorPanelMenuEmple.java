@@ -57,10 +57,8 @@ public class ControladorPanelMenuEmple {
 	
 	
 	public void cargarInterfazRegistroEmpleado() {
-		Departamento[] departamentos = mod.mPEmple.cargarDepartamentos();
-		for (Departamento dpto : departamentos) {
+		for (Departamento dpto : mod.departamentos) {
 			vis.pCenter.pEmple.modeloDpto.addElement(dpto);
-			//vis.pCenter.pEmple.modeloDpto.
 		}
 		Cargo[] cargos = mod.mPEmple.cargarCargos();
 		for (Cargo cargo : cargos) {

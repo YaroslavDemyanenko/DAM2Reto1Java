@@ -26,6 +26,10 @@ public class Departamento {
 		Object[] objetos= {id,centro.getId()};
 		return objetos;
 	}
+	@Override
+	public String toString() {
+		return nombre;
+	}
 	public int getId() {
 		return id;
 	}

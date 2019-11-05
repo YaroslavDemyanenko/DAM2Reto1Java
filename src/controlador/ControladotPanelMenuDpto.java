@@ -30,6 +30,8 @@ public class ControladotPanelMenuDpto {
 	
 	private class ListenerBotones implements ActionListener {
 
+		int posicionDpto = 0;
+		
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String accion = e.getActionCommand();
@@ -46,6 +48,7 @@ public class ControladotPanelMenuDpto {
 				
 			case "Siguiente":
 				//Metodo mostrar siguiente empleado
+				
 				vis.pCenter.changePanel("2");
 				break;
 				

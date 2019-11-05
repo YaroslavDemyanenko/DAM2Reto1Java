@@ -23,6 +23,11 @@ public class Cargo {
 		return null;
 	}
 	
+	@Override
+	public String toString() {
+		return nombre;
+	}
+	
 	public int getId() {
 		return id;
 	}
