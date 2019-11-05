@@ -49,8 +49,11 @@ public class ControladorPanelDpto {
 				
 			case "Registrar":
 				//Metodo registrar()
-				insertarDepartamento();
-				vis.pCenter.changePanel("2");
+				boolean repetido = insertarDepartamento();
+				if(repetido) {
+					vis.pCenter.changePanel("2");
+				}
+				resetText();
 				break;				
 			}
 		}
@@ -68,14 +71,35 @@ public class ControladorPanelDpto {
 			vis.dispose();
 		}
 	}
-	private void insertarDepartamento() {
-		int codDpto = Integer.parseInt(vis.pCenter.pDpto.txtCodigoDpto.getText());
+	private boolean insertarDepartamento() {
+		int codDpto = -1;
+		try {
+			codDpto = Integer.parseInt(vis.pCenter.pDpto.txtCodigoDpto.getText());
+		}catch(NumberFormatException e) {
+		}
 		String nombre = vis.pCenter.pDpto.txtNombreDpto.getText();
 		Centro codCentro = (Centro) vis.pCenter.pDpto.cmbCentro.getSelectedItem();
 		
-		Departamento depart = new Departamento(codDpto,nombre,codCentro);
-		mod.mPDpto.insertarDptoNuevo(depart);
+		if(codDpto!=-1 && !nombre.equals(null)) {
+			Departamento depart = new Departamento(codDpto,nombre,codCentro);
+			boolean repetido = mod.mPDpto.insertarDptoNuevo(depart);
+			if(!repetido) {
+				JOptionPane.showMessageDialog(vis.pCenter, "Departamento insertado", "Atención!", JOptionPane.WARNING_MESSAGE);
+				return true;
+			}else {
+				JOptionPane.showMessageDialog(vis.pCenter, "Departamento ya existente", "Atención!", JOptionPane.WARNING_MESSAGE);
+			}
+		}else {
+			JOptionPane.showMessageDialog(vis.pCenter, "Debe rellenar los campos", "Atención!", JOptionPane.WARNING_MESSAGE);
+		}
+		return false;
 		
+	}
+	
+	private void resetText() {
+		vis.pCenter.pDpto.txtCodigoDpto.setText("");
+		vis.pCenter.pDpto.txtNombreDpto.setText("");
+		vis.pCenter.pDpto.cmbCentro.setSelectedItem(1);
 	}
 	
 }
