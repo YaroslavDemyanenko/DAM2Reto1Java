@@ -8,6 +8,7 @@ import modelo.metodos.MetodosPanelDpto;
 import modelo.metodos.MetodosPanelEmple;
 import modelo.metodos.MetodosPanelMenu;
 import modelo.metodos.MetodosPanelMenuDpto;
+import modelo.metodos.MetodosPanelMenuEmple;
 import modelo.objetos.Departamento;
 
 
@@ -21,6 +22,7 @@ public class Modelo {
 	public MetodosPanelEmple mPEmple;
 	public MetodosPanelDpto mPDpto;
 	public MetodosPanelMenuDpto mPMDpto;
+	public MetodosPanelMenuEmple mPMEmple;
 	//public ArrayList<Departamento> departamentos = new ArrayList<Departamento>();
 	//public ArrayList<Empleado> empleados = new ArrayList<Empleado>();
 	public Departamento[] departamentos;
@@ -41,6 +43,7 @@ public class Modelo {
 		mPDpto=new MetodosPanelDpto(this, bd);
 		mPEmple = new MetodosPanelEmple(this, bd);
 		mPMDpto = new MetodosPanelMenuDpto(this, bd);
+		mPMEmple = new MetodosPanelMenuEmple(this, bd);
 	}
 	
 	public void cargarVariables() {

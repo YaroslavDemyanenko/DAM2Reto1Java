@@ -4,6 +4,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.google.gson.Gson;
+
+import baseDatos.ConsultaBD;
+
 public class Empleado {
 	private String dni;
 	private String nombre;
@@ -43,6 +47,31 @@ public class Empleado {
 		}
 	}
 	
+	public void cargarDatosComplementarios(ConsultaBD bd,Gson gson) {
+		String json = bd.consultarToGson("select `idDepartamento` 'auxiliar1',`idCargo` 'auxiliar2' from `empleado` where 'idDni'='"+this.dni+"'");
+		Global[] ids = gson.fromJson(json, Global[].class);
+		
+		
+		json = bd.consultarToGson("select `idCargo` 'id',`nombre` 'nombre' from `cargo` where `ìdCargo`='"+ids[0].getAuxiliar2()+"'");
+		Cargo[] cargos = gson.fromJson(json, Cargo[].class);
+		this.cargo=cargos[0];
+		
+		json = bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `esJefe`=1");
+		Empleado[] jefes = gson.fromJson(json, Empleado[].class);
+		for(Empleado jefe:jefes) {
+			jefe.convertirFecha();
+		}
+		
+		/**
+		String json = mod.bd.consultarToGson("select `idDepartamento` 'id',`nombre` 'nombre' from `departamento` where `idDepartamento`='" + id + "'");
+		Departamento[] departs = gson.fromJson(json, Departamento[].class);
+		return departs[0];
+		
+		
+		return jefes;
+		**/
+	}
+	
 	public Empleado(String dni, String nombre, String apellidos, int sueldo, int esJefe, Date fechaAlta, Cargo cargo, Departamento departamento,Empleado empleJefe) {
 		super();
 		this.dni = dni;
@@ -53,7 +82,7 @@ public class Empleado {
 		this.fechaAlta = fechaAlta;
 		this.cargo = cargo;
 		this.departamento = departamento;
-		this.empleJefe=empleJefe;
+		this.setEmpleJefe(empleJefe);
 	}
 
 	public Empleado(String dni, String nombre, String apellidos, int sueldo, int esJefe, int fechaAlta, Cargo cargo, Departamento departamento) {
@@ -137,5 +166,15 @@ public class Empleado {
 
 	public void setDepartamento(Departamento departamento) {
 		this.departamento = departamento;
+	}
+
+
+	public Empleado getEmpleJefe() {
+		return empleJefe;
+	}
+
+
+	public void setEmpleJefe(Empleado empleJefe) {
+		this.empleJefe = empleJefe;
 	}
 }
