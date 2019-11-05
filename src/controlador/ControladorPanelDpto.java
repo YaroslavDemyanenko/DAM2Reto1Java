@@ -72,7 +72,7 @@ public class ControladorPanelDpto {
 		}
 	}
 	private boolean insertarDepartamento() {
-		int codDpto = -1;
+		int codDpto = 0;
 		try {
 			codDpto = Integer.parseInt(vis.pCenter.pDpto.txtCodigoDpto.getText());
 		}catch(NumberFormatException e) {
@@ -80,7 +80,7 @@ public class ControladorPanelDpto {
 		String nombre = vis.pCenter.pDpto.txtNombreDpto.getText();
 		Centro codCentro = (Centro) vis.pCenter.pDpto.cmbCentro.getSelectedItem();
 		
-		if(codDpto!=-1 && !nombre.equals(null)) {
+		if(codDpto!=0 && !nombre.equals(null)) {
 			Departamento depart = new Departamento(codDpto,nombre,codCentro);
 			boolean repetido = mod.mPDpto.insertarDptoNuevo(depart);
 			if(!repetido) {
