@@ -19,19 +19,20 @@ public class ControladotPanelMenuDpto {
 	}
 	
 	private void initListeners() {
+		ListenerBotones listener=new ListenerBotones();
 		//public JButton btnGestionDpto, btnGestionEmple, btnGenPdf, btnGenTxt;
-		vis.pCenter.pMenuDpto.btnVolver.addActionListener(new ListenerBotones());
-		vis.pCenter.pMenuDpto.btnIngresarDpto.addActionListener(new ListenerBotones());
-		vis.pCenter.pMenuDpto.btnSiguiente.addActionListener(new ListenerBotones());
-		vis.pCenter.pMenuDpto.btnUltimo.addActionListener(new ListenerBotones());
-		vis.pCenter.pMenuDpto.btnAnterior.addActionListener(new ListenerBotones());
-		vis.pCenter.pMenuDpto.btnPrimero.addActionListener(new ListenerBotones());
+		vis.pCenter.pMenuDpto.btnVolver.addActionListener(listener);
+		vis.pCenter.pMenuDpto.btnIngresarDpto.addActionListener(listener);
+		vis.pCenter.pMenuDpto.btnSiguiente.addActionListener(listener);
+		vis.pCenter.pMenuDpto.btnUltimo.addActionListener(listener);
+		vis.pCenter.pMenuDpto.btnAnterior.addActionListener(listener);
+		vis.pCenter.pMenuDpto.btnPrimero.addActionListener(listener);
 	}
 	
 	private class ListenerBotones implements ActionListener {
-
-		int posicionDpto = 0;
 		
+		private int posicion = 0;
+
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String accion = e.getActionCommand();
@@ -47,26 +48,24 @@ public class ControladotPanelMenuDpto {
 				break;
 				
 			case "Siguiente":
-				//Metodo mostrar siguiente empleado
-				
-				vis.pCenter.changePanel("2");
+				posicion++;
+				mod.mPMenu.mostrarListaDptos(posicion, vis);
 				break;
 				
 			case "Ultimo":
-				//Metodo mostrar siguiente empleado
-				vis.pCenter.changePanel("2");
+				posicion = mod.departamentos.length-1;
+				mod.mPMenu.mostrarListaDptos(posicion, vis);
 				break;
 				
 			case "Anterior":
-				//Metodo mostrar siguiente empleado
-				vis.pCenter.changePanel("2");
+				posicion--;
+				mod.mPMenu.mostrarListaDptos(posicion, vis);
 				break;
 				
 			case "Primero":
-				//Metodo mostrar siguiente empleado
-				vis.pCenter.changePanel("2");
+				posicion=0;
+				mod.mPMenu.mostrarListaDptos(posicion, vis);
 				break;
-				
 			}
 		}
 	}

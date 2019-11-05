@@ -33,6 +33,7 @@ public class Controlador {
 		cEmple = new ControladorPanelEmple(vis, this, mod);
 		cDpto = new ControladorPanelDpto(vis, this, mod);
 		
+		mod.departamentos = mod.mPEmple.cargarDepartamentos();
 
 	}
 
