@@ -38,34 +38,37 @@ public class MetodosPanelDpto {
 	public void setMod(Modelo mod) {
 		this.mod = mod;
 	}
-	
-	public Departamento[] cargarDepartamentos() {
-		String json = mod.bd.consultarToGson("select `idDepartamento` 'auxiliar1',`idCentro` 'auxiliar2' from `tdepartcentro`");
-		Global[] relaciones = gson.fromJson(json, Global[].class);
-
-		Departamento[] departamentos = new Departamento[relaciones.length];
-		for (int i = 0; i < relaciones.length; i++) {
-			departamentos[i] = cargarDepartamento((String) relaciones[i].getAuxiliar1());
-			departamentos[i].setCentro(cargarCentroEnDepartamento((String) relaciones[i].getAuxiliar2()));
-		}
-		return departamentos;
-	}
-
-	private Departamento cargarDepartamento(String id) {
+	private boolean comprobarDtpo(int id) {
 		String json = mod.bd.consultarToGson("select `idDepartamento` 'id',`nombre` 'nombre' from `departamento` where `idDepartamento`='" + id + "'");
-		Departamento[] departs = gson.fromJson(json, Departamento[].class);
-		return departs[0];
+		if (json.equals("")) {
+			return false;
+		} else {
+			return true;
+		}
 	}
-
-	private Centro cargarCentroEnDepartamento(String id) {
-		String json = mod.bd.consultarToGson("select `idCentro` 'id',`nombre` 'nombre' from `departamento` where `idCentro`='" + id + "'");
-		Centro[] centros = gson.fromJson(json, Centro[].class);
-		return centros[0];
+	private boolean comprobarDtpoCentro(int idDpto,int idCentro) {
+		String json = mod.bd.consultarToGson("select `idDepartamento`,`idCentro` from `tdepartcentro` where `idDepartamento`='" + idDpto + "' and `idCentro`='"+idCentro+"'");
+		if (json.equals("")) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	public Centro[] buscarCentros() {
 		String aux = bd.consultarToGson("SELECT `idCentro` 'id', `nombre` 'nombre' FROM `centro`");
 		Centro[] centros = gson.fromJson(aux, Centro[].class);
 		return centros;
+	}
+	public boolean insertarDptoNuevo(Departamento depart) {
+		if(!comprobarDtpo(depart.getId())) {
+			bd.insertGenerico(depart.toObjectArray(), "departamento");
+		}
+		if(!comprobarDtpoCentro(depart.getId(),depart.getCentro().getId())) {
+			bd.insertGenerico(depart.dptoCentro(), "tdepartcentro");
+		}else {
+			return true;
+		}
+		return false;
 	}
 }

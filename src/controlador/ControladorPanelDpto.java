@@ -11,6 +11,7 @@ import baseDatos.ConsultaBD;
 import modelo.Modelo;
 import modelo.metodos.MetodosPanelEmple;
 import modelo.objetos.Centro;
+import modelo.objetos.Departamento;
 import vista.VentanaPpal;
 
 public class ControladorPanelDpto {
@@ -48,23 +49,32 @@ public class ControladorPanelDpto {
 				
 			case "Registrar":
 				//Metodo registrar()
+				insertarDepartamento();
 				vis.pCenter.changePanel("2");
 				break;				
 			}
 		}
 	}
 	
-	public void mostrarListaCentros() {
+	private void mostrarListaCentros() {
 		vis.pCenter.pDpto.cmbCentro.removeAllItems();
 		Centro[] listaCentro = mod.mPDpto.buscarCentros();
 		if (listaCentro != null) {
 			for(int i = 0; i < listaCentro.length; i++) {
-				vis.pCenter.pDpto.cmbCentro.addItem(listaCentro[i].getNombre());
+				vis.pCenter.pDpto.cmbCentro.addItem(listaCentro[i]);
 			}
 		} else {
 			JOptionPane.showMessageDialog(vis, "Error en la Base de Datos", "Error", JOptionPane.ERROR_MESSAGE);
 			vis.dispose();
 		}
+	}
+	private void insertarDepartamento() {
+		int codDpto = Integer.parseInt(vis.pCenter.pDpto.txtCodigoDpto.getText());
+		String nombre = vis.pCenter.pDpto.txtNombreDpto.getText();
+		Centro codCentro = (Centro) vis.pCenter.pDpto.cmbCentro.getSelectedItem();
+		
+		Departamento depart = new Departamento(codDpto,nombre,codCentro);
+		mod.mPDpto.insertarDptoNuevo(depart);
 		
 	}
 	
