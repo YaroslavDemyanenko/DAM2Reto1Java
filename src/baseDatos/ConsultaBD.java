@@ -49,7 +49,6 @@ public class ConsultaBD {
 							resultado += "},";
 					}
 				}
-
 				return resultado.substring(0, resultado.length() - 1) + "]";
 			} else {
 				return "";

@@ -13,29 +13,29 @@ public class MetodosPanelMenuEmple {
 	private Modelo mod;
 
 	private Gson gson = new Gson();
-	
-	
-	
 
 	public Empleado buscarPorNombreODni(String campoTexto) {
 		Empleado[] empleado;
-		if(mod.mPEmple.validarDNI(campoTexto)) {
-			String json = mod.bd.consultarToGson("select `idDni` 'dni' from `empleado` where `idDni`='"+campoTexto+"'");
-			empleado = gson.fromJson(json, Empleado[].class);
-		}else {
-			String json = mod.bd.consultarToGson("select `nombre` 'nombre' from `empleado` where `nombre`='"+campoTexto+"'");
-			empleado = gson.fromJson(json, Empleado[].class);
+		String json;
+		if (mod.mPEmple.validarDNI(campoTexto, false)) {
+			json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `idDni`='" + campoTexto + "'");
+		} else {
+			if (campoTexto.contains(" ")) {
+				json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where upper(`nombre`)=upper('" + campoTexto.split(" ")[0] + "') and upper(`apellidos`)=upper('" + campoTexto.split(" ")[1] + "')");
+			} else {
+				json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where upper(`nombre`)=upper('" + campoTexto + "')");
+			}
 		}
-		
-		if(empleado == null) {
+		if (!json.equals("")) {
+			empleado = gson.fromJson(json, Empleado[].class);
+			empleado[0].cargarDatosComplementarios(bd, gson);
+			return empleado[0];
+		} else {
 			JOptionPane.showMessageDialog(null, "Usuario no encontrado", null, JOptionPane.WARNING_MESSAGE);
 			return null;
-		}else {
-			return empleado[0];
 		}
 	}
-	
-	
+
 	public MetodosPanelMenuEmple(Modelo mod, ConsultaBD bd) {
 		this.bd = bd;
 		this.mod = mod;
@@ -55,5 +55,5 @@ public class MetodosPanelMenuEmple {
 
 	public void setMod(Modelo mod) {
 		this.mod = mod;
-	}	
+	}
 }

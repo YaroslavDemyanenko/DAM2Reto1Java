@@ -31,48 +31,40 @@ public class Empleado {
 		this.cargo = cargo;
 		this.departamento = departamento;
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		return nombre;
+		return "DNI: " + dni + " | " + nombre + " " + apellidos;
 	}
-	
+
 	public void convertirFecha() {
-		SimpleDateFormat formateador=new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");  
+		SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 		try {
-			this.fechaAlta=formateador.parse(this.fechaString);
+			this.fechaAlta = formateador.parse(this.fechaString);
 		} catch (ParseException e) {
 			System.out.println("Error: parse fecha");
 		}
 	}
-	
-	public void cargarDatosComplementarios(ConsultaBD bd,Gson gson) {
-		String json = bd.consultarToGson("select `idDepartamento` 'auxiliar1',`idCargo` 'auxiliar2' from `empleado` where 'idDni'='"+this.dni+"'");
+
+	public void cargarDatosComplementarios(ConsultaBD bd, Gson gson) {
+		String json = bd.consultarToGson("select `idDepartamento` 'auxiliar1',`idCargo` 'auxiliar2' from `empleado` where `idDni`='" + this.dni + "'");
 		Global[] ids = gson.fromJson(json, Global[].class);
-		
-		
-		json = bd.consultarToGson("select `idCargo` 'id',`nombre` 'nombre' from `cargo` where `ìdCargo`='"+ids[0].getAuxiliar2()+"'");
-		Cargo[] cargos = gson.fromJson(json, Cargo[].class);
-		this.cargo=cargos[0];
-		
+
+		json = bd.consultarToGson("select `idCargo` 'id',`nombre` 'nombre' from `cargo` where `idCargo`='" + ids[0].getAuxiliar2() + "'");
+		Cargo[] cargo = gson.fromJson(json, Cargo[].class);
+		this.cargo = cargo[0];
+
+		json = bd.consultarToGson("select `idDepartamento` 'id',`nombre` 'nombre' from `departamento` where `idDepartamento`='" + ids[0].getAuxiliar1() + "'");
+		Departamento[] departamento = gson.fromJson(json, Departamento[].class);
+		this.departamento = departamento[0];
+
 		json = bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `esJefe`=1");
-		Empleado[] jefes = gson.fromJson(json, Empleado[].class);
-		for(Empleado jefe:jefes) {
-			jefe.convertirFecha();
-		}
-		
-		/**
-		String json = mod.bd.consultarToGson("select `idDepartamento` 'id',`nombre` 'nombre' from `departamento` where `idDepartamento`='" + id + "'");
-		Departamento[] departs = gson.fromJson(json, Departamento[].class);
-		return departs[0];
-		
-		
-		return jefes;
-		**/
+		Empleado[] jefe = gson.fromJson(json, Empleado[].class);
+		jefe[0].convertirFecha();
+		this.empleJefe=jefe[0];
 	}
-	
-	public Empleado(String dni, String nombre, String apellidos, int sueldo, int esJefe, Date fechaAlta, Cargo cargo, Departamento departamento,Empleado empleJefe) {
+
+	public Empleado(String dni, String nombre, String apellidos, int sueldo, int esJefe, Date fechaAlta, Cargo cargo, Departamento departamento, Empleado empleJefe) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
@@ -97,10 +89,8 @@ public class Empleado {
 		this.departamento = departamento;
 	}
 
-	
-	
 	public Object[] toObjectArray() {
-		Object[] objetos= {this.dni,this.nombre,this.apellidos,this.sueldo,this.esJefe,this.fechaAlta,this.cargo.id,this.departamento.id};
+		Object[] objetos = { this.dni, this.nombre, this.apellidos, this.sueldo, this.esJefe, this.fechaAlta, this.cargo.id, this.departamento.id };
 		return objetos;
 	}
 
@@ -168,11 +158,9 @@ public class Empleado {
 		this.departamento = departamento;
 	}
 
-
 	public Empleado getEmpleJefe() {
 		return empleJefe;
 	}
-
 
 	public void setEmpleJefe(Empleado empleJefe) {
 		this.empleJefe = empleJefe;
