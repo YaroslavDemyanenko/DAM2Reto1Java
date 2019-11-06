@@ -57,7 +57,7 @@ public class PanelEmple extends JPanel {
 		add(lblCodEmple);
 		
 		txtCodEmple = new JTextField();
-		txtCodEmple.setBounds(532, 219, 152, 20);
+		txtCodEmple.setBounds(532, 219, 214, 20);
 		add(txtCodEmple);
 		txtCodEmple.setColumns(10);
 		
@@ -66,7 +66,7 @@ public class PanelEmple extends JPanel {
 		add(lblNomEmple);
 		
 		txtNomEmple = new JTextField();
-		txtNomEmple.setBounds(532, 250, 152, 20);
+		txtNomEmple.setBounds(532, 250, 214, 20);
 		add(txtNomEmple);
 		txtNomEmple.setColumns(10);
 		
@@ -77,7 +77,7 @@ public class PanelEmple extends JPanel {
 		cmbDpto = new JComboBox<Departamento>();
 		modeloDpto=new DefaultComboBoxModel<Departamento>();
 		cmbDpto.setModel(modeloDpto);
-		cmbDpto.setBounds(532, 343, 152, 20);
+		cmbDpto.setBounds(532, 343, 214, 20);
 		add(cmbDpto);
 		
 		btnRegistrar = new JButton("Registrar");
@@ -94,7 +94,7 @@ public class PanelEmple extends JPanel {
 		
 		txtApellidos = new JTextField();
 		txtApellidos.setColumns(10);
-		txtApellidos.setBounds(532, 281, 152, 20);
+		txtApellidos.setBounds(532, 281, 214, 20);
 		add(txtApellidos);
 		
 		lblSalario = new JLabel("Salario");
@@ -103,7 +103,7 @@ public class PanelEmple extends JPanel {
 		
 		txtSalario = new JTextField();
 		txtSalario.setColumns(10);
-		txtSalario.setBounds(532, 312, 152, 20);
+		txtSalario.setBounds(532, 312, 214, 20);
 		add(txtSalario);
 		
 		lblCargo = new JLabel("Cargo");
@@ -113,7 +113,7 @@ public class PanelEmple extends JPanel {
 		modeloCargo = new DefaultComboBoxModel<Cargo>();
 		cmbCargo = new JComboBox<Cargo>();
 		cmbCargo.setModel(modeloCargo);
-		cmbCargo.setBounds(532, 374, 152, 20);
+		cmbCargo.setBounds(532, 374, 214, 20);
 		add(cmbCargo);
 		
 		lblGuardarFechaY = new JLabel("GUARDAR FECHA Y HORA DE CREACI\u00D3N!!!!!!!");
@@ -128,7 +128,7 @@ public class PanelEmple extends JPanel {
 		modeloSelJefe = new DefaultComboBoxModel<Empleado>();
 		cmbSelJefe = new JComboBox<Empleado>();
 		cmbSelJefe.setModel(modeloSelJefe);
-		cmbSelJefe.setBounds(532, 434, 152, 20);
+		cmbSelJefe.setBounds(532, 434, 214, 20);
 		add(cmbSelJefe);
 		
 		lblSelJefe = new JLabel("Seleccionar superior");

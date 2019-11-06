@@ -36,7 +36,7 @@ public class MetodosPanelEmple {
 	public void setMod(Modelo mod) {
 		this.mod = mod;
 	}
-	
+
 	public Departamento[] cargarDepartamentos() {
 		String json = mod.bd.consultarToGson("select `idDepartamento` 'auxiliar1',`idCentro` 'auxiliar2' from `tdepartcentro`");
 		Global[] relaciones = gson.fromJson(json, Global[].class);
@@ -48,13 +48,11 @@ public class MetodosPanelEmple {
 		}
 		return departamentos;
 	}
-	
-	
+
 	public Empleado cargarEmpleadoCompleto(String dni) {
-		String json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `idDni`='"+dni+"'");
+		String json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `idDni`='" + dni + "'");
 		Empleado[] empleado = gson.fromJson(json, Empleado[].class);
-		
-		
+
 		return empleado[0];
 	}
 
@@ -79,46 +77,48 @@ public class MetodosPanelEmple {
 	public Empleado[] cargarJefes() {
 		String json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `esJefe`=1");
 		Empleado[] jefes = gson.fromJson(json, Empleado[].class);
-		for(Empleado jefe:jefes) {
+		for (Empleado jefe : jefes) {
 			jefe.convertirFecha();
 		}
 		return jefes;
 	}
-	
+
 	public Empleado[] cargarEmpleados(int idDepartamento) {
-		String json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `idDepartamento`='" + idDepartamento + "'" );
+		String json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `idDepartamento`='" + idDepartamento + "'");
 		Empleado[] empleados = gson.fromJson(json, Empleado[].class);
-		if(empleados != null) {
-			for(Empleado empleado:empleados) {
+		if (empleados != null) {
+			for (Empleado empleado : empleados) {
 				empleado.convertirFecha();
 			}
 		}
 		return empleados;
 	}
-	
+
 	public boolean validarRegistroPrevio(String dni) {
-		String json = mod.bd.consultarToGson("select `idDni` 'dni' from `empleado` where `idDni`='"+dni+"'");
+		String json = mod.bd.consultarToGson("select `idDni` 'dni' from `empleado` where `idDni`='" + dni + "'");
 		Empleado[] jefes = gson.fromJson(json, Empleado[].class);
-		if(jefes == null) {
+		if (jefes == null) {
 			return true;
-		}else {
+		} else {
 			JOptionPane.showMessageDialog(null, "Usuario ya registrado - DNI duplicado", null, JOptionPane.WARNING_MESSAGE);
 			return false;
 		}
 	}
-	
-	public boolean validarDNI(String dni) {
-		if (!(dni.matches("^[0-9]{7,8}['T|R|W|A|G|M|Y|F|P|D|X|B|N|J|Z|S|Q|V|H|L|C|K|E]$"))) {
-			JOptionPane.showMessageDialog(null, "DNI invalido", null, JOptionPane.WARNING_MESSAGE);
+
+	public boolean validarDNI(String dni, boolean mostrarAviso) {
+		if (!(dni.matches("^[0-9]{7,8}[T|R|W|A|G|M|Y|F|P|D|X|B|N|J|Z|S|Q|V|H|L|C|K|E]$"))) {
+			if (mostrarAviso) {
+				JOptionPane.showMessageDialog(null, "DNI invalido", null, JOptionPane.WARNING_MESSAGE);
+			}
 			return false;
-		} else {			
+		} else {
 			return true;
 		}
 	}
-	
+
 	public boolean validarSoloLetras(String cadena, String nombreCampo) {
-		if (!(cadena.matches("/^[A-Za-z ]+$/"))) {
-			JOptionPane.showMessageDialog(null, nombreCampo+" invalido", null, JOptionPane.WARNING_MESSAGE);
+		if (!(cadena.matches("^[a-zA-Z ]+$"))) {
+			JOptionPane.showMessageDialog(null, nombreCampo + " invalido", null, JOptionPane.WARNING_MESSAGE);
 			return false;
 		} else {
 			return true;
@@ -126,10 +126,10 @@ public class MetodosPanelEmple {
 	}
 
 	public boolean validarSoloNumeros(String cadenaNumeros, String string) {
-		if (!(cadenaNumeros.matches("^[0-9]$"))) {
-			JOptionPane.showMessageDialog(null, string+" invalido", null, JOptionPane.WARNING_MESSAGE);
+		if (!(cadenaNumeros.matches("^[0-9]+$"))) {
+			JOptionPane.showMessageDialog(null, string + " invalido", null, JOptionPane.WARNING_MESSAGE);
 			return false;
-		} else {			
+		} else {
 			return true;
 		}
 	}
