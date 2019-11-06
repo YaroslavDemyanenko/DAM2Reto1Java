@@ -1,10 +1,6 @@
 package modelo.metodos;
 
-import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-
-import com.google.gson.Gson;
-
 import baseDatos.ConsultaBD;
 import modelo.Modelo;
 import modelo.objetos.Empleado;
@@ -13,7 +9,6 @@ import vista.VentanaPpal;
 public class MetodosPanelMenu {
 	private ConsultaBD bd;
 	private Modelo mod;
-	private Gson gson = new Gson();
 	
 	public MetodosPanelMenu(Modelo mod, ConsultaBD bd) {
 		this.bd = bd;
