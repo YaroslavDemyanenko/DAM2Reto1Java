@@ -7,5 +7,37 @@
 	<classpathentry kind="lib" path="librerias/commons-pool2-2.6.1.jar"/>
 	<classpathentry kind="lib" path="librerias/mysql-connector-java-8.0.13.jar"/>
 	<classpathentry kind="lib" path="librerias/gson-2.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/pdftest-7.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/pdftest-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/pdftest-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/sign-7.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/barcodes-7.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/barcodes-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/barcodes-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/font-asian-7.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/forms-7.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/forms-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/forms-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/hyph-7.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/io-7.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/io-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/io-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/kernel-7.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/kernel-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/kernel-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/layout-7.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/layout-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/layout-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/sign-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/sign-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/styled-xml-parser-7.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/styled-xml-parser-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/styled-xml-parser-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/svg-7.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/svg-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/pdfa-7.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/pdfa-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/pdfa-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/svg-7.1.4-javadoc.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

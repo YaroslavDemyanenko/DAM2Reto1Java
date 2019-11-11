@@ -46,10 +46,19 @@ public class ControladorPanelMenu {
 				vis.pCenter.changePanel("4");
 				break;
 				
-//			case "GENERAR PDF":
-//				//metodo generarPDF()
+  			case "GENERAR PDF":
+  				//metodo generarPDF()
+  				String[] opcionPDF = {"Empleados","Departamentos"};
+  				String respuesta = (String) JOptionPane.showInputDialog(null, "Seleccione archivo a generar", "Archivos", JOptionPane.DEFAULT_OPTION, null, opcionPDF, opcionPDF[0]);
+  				
+  				switch(respuesta) {
+  					case "Empleados":
+  						break;
+  					case "Departamentos":
+  						break;
+  				}
 //				vis.pCenter.changePanel("");
-//				
+  				break;
 //			case "GENERAR TXT":
 //				//metodo generarTXT()
 //				vis.pCenter.changePanel("");
