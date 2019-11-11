@@ -32,7 +32,6 @@ public class Modelo {
 		bd = new ConsultaBD();
 		
 		addMetodos();
-		cargarVariables();
 	}
 
 	public void addMetodos() {
@@ -44,9 +43,5 @@ public class Modelo {
 		mPEmple = new MetodosPanelEmple(this, bd);
 		mPMDpto = new MetodosPanelMenuDpto(this, bd);
 		mPMEmple = new MetodosPanelMenuEmple(this, bd);
-	}
-	
-	public void cargarVariables() {
-		departamentos = mPEmple.cargarDepartamentos();
 	}
 }

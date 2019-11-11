@@ -31,9 +31,9 @@ public class MetodosCargaDatos {
 	private boolean comprobarEmpleado(Empleado emple) {
 		String json = bd.consultarToGson("SELECT `idDni` 'id' FROM `empleado` WHERE `idDni` ='" + emple.getDni() + "'");
 		if (json.equals("")) {
-			return false;
-		} else
 			return true;
+		} else
+			return false;
 	}
 
 	public Departamento buscarDepartamento(String id) {
@@ -57,15 +57,14 @@ public class MetodosCargaDatos {
 			return new Cargo();
 		}
 	}
-	
+
 	public void cargarXml(String path) {
 		mod.lectorXml.leerXml(path);
 		for (Departamento depar : mod.lectorXml.getDepartamentos()) {
-			if(true) {
+			bd.insertGenerico(depar.getCentro().toObjectArray(), "centro");
 			bd.insertGenerico(depar.toObjectArray(), "departamento");
-			}else {
-				continue;
-			}
+			Object[] ids = {depar.getId(),depar.getCentro().getId()};
+			bd.insertGenerico(ids, "tdepartcentro");
 		}
 	}
 }
