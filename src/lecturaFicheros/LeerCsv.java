@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 import baseDatos.ConsultaBD;
+import logs.Logger;
 import modelo.Modelo;
 import modelo.objetos.Cargo;
 import modelo.objetos.Departamento;
@@ -37,9 +38,11 @@ public class LeerCsv {
 				elementos.add(empleadoAux);
 			}
 		} catch (FileNotFoundException e) {
+			Logger.logger.escribirArchivo("Error, archivo no encontrado");
 			System.out.println("Archivo no encontrado");
 		} catch (IOException e) {
-			System.out.println("Algo ha fallado a la hora de escribir o leer tu archivo");
+			Logger.logger.escribirArchivo("Error, no es posible leer/escribir el archivo");
+			System.out.println("No es posible leer/escribir el archivo");
 		}
 		return elementos;
 	}

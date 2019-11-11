@@ -5,11 +5,11 @@ package modelo.objetos;
  * Clase auxiliar para recoger uno o mas (hasta 3) datos de la base de datos con los Json
  *
  */
-public class Global {
-	private Object auxiliar1;
-	private Object auxiliar2;
-	private Object auxiliar3;
 
+public class Global {
+	
+	private Object auxiliar1, auxiliar2, auxiliar3;
+	
 	/**
 	 * Metodo que devuelve el primer objeto auxiliar
 	 * @return auxiliar

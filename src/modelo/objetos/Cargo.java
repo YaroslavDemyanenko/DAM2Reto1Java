@@ -1,6 +1,7 @@
 package modelo.objetos;
 
 public class Cargo {
+	
 	int id;
 	String nombre;
 	

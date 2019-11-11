@@ -8,10 +8,11 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class PanelMenu extends JPanel {
+	
 	private static final long serialVersionUID = -132735883135705085L;
+	
 	public JLabel lblTitulo, lblGenInforme;
 	public JButton btnGestionDpto, btnGestionEmple, btnGenPdf, btnGenTxt;
-	private JLabel lblInformeDebeSer;
 	
 	public PanelMenu() {		
 		setParametros();
@@ -31,29 +32,24 @@ public class PanelMenu extends JPanel {
 		add(lblTitulo);
 		
 		btnGestionDpto = new JButton("GESTIONAR DEPARTAMENTOS");
-		btnGestionDpto.setBounds(411, 165, 220, 23);
+		btnGestionDpto.setBounds(403, 290, 220, 23);
 		add(btnGestionDpto);
 		
 		btnGestionEmple = new JButton("GESTION DE EMPLEADOS");
-		btnGestionEmple.setBounds(411, 229, 220, 23);
+		btnGestionEmple.setBounds(403, 354, 220, 23);
 		add(btnGestionEmple);
 		
 		lblGenInforme = new JLabel("GENERAR INFORME");
 		lblGenInforme.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGenInforme.setBounds(411, 263, 200, 50);
+		lblGenInforme.setBounds(403, 388, 200, 50);
 		add(lblGenInforme);
 		
 		btnGenPdf = new JButton("GENERAR PDF");
-		btnGenPdf.setBounds(387, 311, 130, 23);
+		btnGenPdf.setBounds(379, 436, 130, 23);
 		add(btnGenPdf);
 		
 		btnGenTxt = new JButton("GENERAR TXT");
-		btnGenTxt.setBounds(531, 311, 130, 23);
+		btnGenTxt.setBounds(523, 436, 130, 23);
 		add(btnGenTxt);
-		
-		lblInformeDebeSer = new JLabel("INFORME DEBE SER: DEPARTAMENTOS O EMPLEADOS!!!!!");
-		lblInformeDebeSer.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblInformeDebeSer.setBounds(288, 353, 514, 92);
-		add(lblInformeDebeSer);		
 	}
 }

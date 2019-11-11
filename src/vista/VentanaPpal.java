@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 public class VentanaPpal extends JFrame {
+	
 	private static final long serialVersionUID = 1L;
 	
 	public PanelCenter pCenter;

@@ -13,7 +13,6 @@ import modelo.objetos.Global;
 public class MetodosPanelEmple {
 	private ConsultaBD bd;
 	private Modelo mod;
-
 	private Gson gson = new Gson();
 
 	public MetodosPanelEmple(Modelo mod, ConsultaBD bd) {

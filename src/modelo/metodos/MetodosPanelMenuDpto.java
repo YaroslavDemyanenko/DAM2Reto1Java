@@ -7,9 +7,9 @@ import modelo.objetos.Departamento;
 import modelo.objetos.Empleado;
 
 public class MetodosPanelMenuDpto {
+	
 	private ConsultaBD bd;
 	private Modelo mod;
-	
 	private Gson gson = new Gson();
 	
 	public MetodosPanelMenuDpto(Modelo mod, ConsultaBD bd) {

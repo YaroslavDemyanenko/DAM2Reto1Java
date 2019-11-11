@@ -1,6 +1,7 @@
 package modelo.objetos;
 
 public class Centro {
+	
 	int id;
 	String nombre;		
 	

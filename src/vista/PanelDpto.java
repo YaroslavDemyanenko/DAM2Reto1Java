@@ -14,6 +14,7 @@ import modelo.objetos.Centro;
 public class PanelDpto extends JPanel {
 	
 	private static final long serialVersionUID = 8913709538637781966L;
+	
 	public JTextField txtCodigoDpto, txtNombreDpto;
 	public JLabel lblTitulo, lblCodigoDpto, lblNombreDpto, lblCentro;
 	public JButton btnVolver, btnRegistrar;

@@ -9,13 +9,11 @@ import com.google.gson.Gson;
 import baseDatos.ConsultaBD;
 
 public class Empleado {
-	private String dni;
-	private String nombre;
-	private String apellidos;
+	
+	private String dni, nombre, apellidos, fechaString;
 	private float sueldo;
 	private int esJefe;
 	private Date fechaAlta;
-	private String fechaString;
 	private Cargo cargo;
 	private Departamento departamento;
 	private Empleado empleJefe;

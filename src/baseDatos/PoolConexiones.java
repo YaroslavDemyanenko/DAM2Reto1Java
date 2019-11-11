@@ -7,6 +7,8 @@ import java.util.Properties;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSourceFactory;
 
+import logs.Logger;
+
 public class PoolConexiones {
 	//BasicDataSource basicDataSource = new BasicDataSource();
 	DataSource dataSource;
@@ -17,17 +19,17 @@ public class PoolConexiones {
 		try {
 			propiedades.load(new FileInputStream("datasource_config.properties"));
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			Logger.logger.escribirArchivo("Error al crear la conexión a la base de datos");
 			return null;
 		} catch (IOException e) {
-			e.printStackTrace();
+			Logger.logger.escribirArchivo("Error al crear la conexión a la base de datos");
 			return null;
 		}
 	
 		try {
 			dataSource = BasicDataSourceFactory.createDataSource(propiedades);
 		} catch (Exception e) {
-			e.printStackTrace();
+			Logger.logger.escribirArchivo("Error al crear la conexión a la base de datos");
 			return null;
 		}
 		return dataSource;

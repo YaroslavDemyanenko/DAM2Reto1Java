@@ -20,6 +20,7 @@ import modelo.objetos.Centro;
 import modelo.objetos.Departamento;
 
 import baseDatos.ConsultaBD;
+import logs.Logger;
 import modelo.Modelo;
 
 public class LectorXml {
@@ -77,9 +78,11 @@ public class LectorXml {
 			is.setEncoding("UTF-8");
 			saxParser.parse(is, handler);
 		} catch (FileNotFoundException e) {
+			Logger.logger.escribirArchivo("Error, archivo no encontrado");
 			System.out.println("Archivo no encontrado");
 		} catch (Exception e) {
-			System.out.println("Algo ha fallado a la hora de leer tu archivo");
+			Logger.logger.escribirArchivo("Error al leer archivo");
+			System.out.println("No es posible leer el archivo");
 		}
 		return departamentos;
 	}

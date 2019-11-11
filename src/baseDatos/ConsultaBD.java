@@ -1,12 +1,13 @@
 package baseDatos;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.sql.DataSource;
-import java.sql.CallableStatement;
+import logs.Logger;
 
 public class ConsultaBD {
 
@@ -55,14 +56,14 @@ public class ConsultaBD {
 			}
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			Logger.logger.escribirArchivo("Error al realizar la consulta");
 			return null;
 		} finally {
 			try {
 				if (con != null)
 					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				Logger.logger.escribirArchivo("Error al realizar la consulta");
 				return null;
 			}
 		}
@@ -89,13 +90,14 @@ public class ConsultaBD {
 			}
 			return true;
 		} catch (SQLException e1) {
+			Logger.logger.escribirArchivo("Error al insertar datos en la base de datos");
 			return false;
 		} finally {
 			try {
 				if (con != null)
 					con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				Logger.logger.escribirArchivo("Error al insertar datos en la base de datos");
 			}
 		}
 	}
@@ -135,6 +137,7 @@ public class ConsultaBD {
 			}
 			return statementGenerico;
 		} catch (SQLException e) {
+			Logger.logger.escribirArchivo("Error al generar sentencia");
 			return null;
 		}
 	}
@@ -168,34 +171,6 @@ public class ConsultaBD {
 		query = (query.substring(0, query.length() - 1)) + ");";
 		return query;
 	}
-
-	/**
-	 * Llama al procedimiento de la base de datos para guardar la reserva. Al
-	 * guardar en dos tablas el procemiento almacenado hace un rollback si hay algun
-	 * error
-	 * 
-	 * @param idRsv    ID de la reserva
-	 * @param dni      DNI del cliente
-	 * @param fechaRsv Fecha en la que se realiza la reserva
-	 * @param fechaIn  Fecha de entrada de la reserva
-	 * @param fechaOut Fecha de salida de la reserva
-	 * @param precio   Precio de la reserva
-	 * @param id       ID de la habitacion reservada
-	 * @param tipo     tipo de alojamiento
-	 * @return booleano de como ha ido el proceso.
-	 */
-	public boolean guardarReserva(int idRsv, String dni, String fechaRsv, String fechaIn, String fechaOut, double precio, int id, String tipo) {
-		try {
-			con = datasource.getConnection();
-
-			CallableStatement cst = con.prepareCall("{call guardar_reserva (" + idRsv + ", '" + dni + "', '" + fechaRsv + "', '" + fechaIn + "', '" + fechaOut + "', " + precio + ", " + id + ", '" + tipo + "')}");
-			return cst.execute();
-
-		} catch (SQLException e) {
-			return false;
-		}
-	}
-
 	
 	/**
 	 * Delete generico para borrar consultas simples, pasar condiciones separadas metidas en un array
@@ -214,6 +189,7 @@ public class ConsultaBD {
 			PreparedStatement statementGenerico = this.con.prepareStatement(statement);
 			return statementGenerico.execute();
 		} catch (SQLException e1) {
+			Logger.logger.escribirArchivo("Error al borrar elemento de la base de datos");
 			return false;
 		}
 	}

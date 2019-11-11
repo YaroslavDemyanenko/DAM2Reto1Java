@@ -6,11 +6,10 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 
 public class PanelCenter extends JPanel {
+	
 	private static final long serialVersionUID = 3193045696500112897L;
 	public CardLayout card;
 	public int currentIndex;
-	
-
 	public PanelMenu pMenuPrincipal;
 	public PanelMenuDpto pMenuDpto;
 	public PanelDpto pDpto;

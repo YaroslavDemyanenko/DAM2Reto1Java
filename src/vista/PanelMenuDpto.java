@@ -15,6 +15,7 @@ import modelo.objetos.Empleado;
 public class PanelMenuDpto extends JPanel {
 
 	private static final long serialVersionUID = -2619620055781727212L;
+	
 	public JLabel lblTitulo, lblNombreDpto;
 	public JButton btnIngresarDpto, btnSiguiente, btnUltimo, btnAnterior, btnPrimero, btnVolver;
 	public DefaultListModel<Empleado> modeloListaEmple;

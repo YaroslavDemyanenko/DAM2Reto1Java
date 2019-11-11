@@ -1,21 +1,15 @@
 package modelo.metodos;
 
-import java.util.Date;
-
 import com.google.gson.Gson;
-
 import baseDatos.ConsultaBD;
 import modelo.Modelo;
-import modelo.objetos.Cargo;
 import modelo.objetos.Centro;
 import modelo.objetos.Departamento;
-import modelo.objetos.Empleado;
-import modelo.objetos.Global;
 
 public class MetodosPanelDpto {
+	
 	private ConsultaBD bd;
 	private Modelo mod;
-
 	private Gson gson = new Gson();
 
 	public MetodosPanelDpto(Modelo mod, ConsultaBD bd) {

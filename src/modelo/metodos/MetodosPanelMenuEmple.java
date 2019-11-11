@@ -9,9 +9,9 @@ import modelo.Modelo;
 import modelo.objetos.Empleado;
 
 public class MetodosPanelMenuEmple {
+	
 	private ConsultaBD bd;
 	private Modelo mod;
-
 	private Gson gson = new Gson();
 
 	public Empleado buscarPorNombreODni(String campoTexto) {

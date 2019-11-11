@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 public class PanelMenuEmple extends JPanel {
 
 	private static final long serialVersionUID = 2656417989723357437L;
+	
 	public JLabel lblTitulo;
 	public JButton btnIngresarEmple, btnVolver, btnBuscar;
 	public JList<String> listDatosEmple;

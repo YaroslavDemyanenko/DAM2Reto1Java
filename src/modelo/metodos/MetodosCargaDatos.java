@@ -1,17 +1,17 @@
 package modelo.metodos;
 
 import com.google.gson.Gson;
-
 import baseDatos.ConsultaBD;
+import logs.Logger;
 import modelo.Modelo;
 import modelo.objetos.Cargo;
 import modelo.objetos.Departamento;
 import modelo.objetos.Empleado;
 
 public class MetodosCargaDatos {
+	
 	private ConsultaBD bd;
 	private Modelo mod;
-
 	private Gson gson = new Gson();
 
 	public MetodosCargaDatos(Modelo mod, ConsultaBD bd) {
@@ -42,7 +42,7 @@ public class MetodosCargaDatos {
 		if (departamento != null) {
 			return departamento[0];
 		} else {
-			// LOG
+			Logger.logger.escribirArchivo("Error al buscar departamento");
 			return new Departamento();
 		}
 	}
@@ -53,7 +53,7 @@ public class MetodosCargaDatos {
 		if (departamento != null) {
 			return departamento[0];
 		} else {
-			// LOG
+			Logger.logger.escribirArchivo("Error al buscar cargo");
 			return new Cargo();
 		}
 	}

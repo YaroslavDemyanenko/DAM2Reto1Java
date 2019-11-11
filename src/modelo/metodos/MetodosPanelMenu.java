@@ -7,6 +7,7 @@ import modelo.objetos.Empleado;
 import vista.VentanaPpal;
 
 public class MetodosPanelMenu {
+	
 	private ConsultaBD bd;
 	private Modelo mod;
 	
