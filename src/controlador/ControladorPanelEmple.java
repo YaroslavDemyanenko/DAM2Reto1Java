@@ -46,8 +46,9 @@ public class ControladorPanelEmple {
 			case "Registrar":
 				if(validarDatos()) {
 					mod.bd.insertGenerico(crearEmpleado().toObjectArray(), "empleado");
+					vis.pCenter.changePanel("4");
 				}				
-				vis.pCenter.changePanel("4");
+				
 				break;
 			}
 		}
@@ -92,7 +93,7 @@ public class ControladorPanelEmple {
 	
 	private boolean[] validarCampos() {
 		boolean[] validaciones = {false,false,false,false,false};
-		validaciones[0] = mod.mPEmple.validarDNI(vis.pCenter.pEmple.txtCodEmple.getText());
+		validaciones[0] = mod.mPEmple.validarDNI(vis.pCenter.pEmple.txtCodEmple.getText(),true);
 		validaciones[1] = mod.mPEmple.validarSoloLetras(vis.pCenter.pEmple.txtNomEmple.getText(), "Nombre");
 		validaciones[2] = mod.mPEmple.validarSoloLetras(vis.pCenter.pEmple.txtApellidos.getText(), "Apellidos");
 		validaciones[3] = mod.mPEmple.validarSoloNumeros(vis.pCenter.pEmple.txtSalario.getText(), "Salario");

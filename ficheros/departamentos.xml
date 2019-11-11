@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Centro>
+<Centro id="1" nombre="Elorrieta">
 	<Departamento id="0">Direccion</Departamento>
 	<Departamento id="1">Informatica</Departamento>
 	<Departamento id="2">Ciencias naturales</Departamento>

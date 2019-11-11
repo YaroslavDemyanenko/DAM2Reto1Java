@@ -34,5 +34,10 @@ public class Centro {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	public Object[] toObjectArray() {
+		Object[] objetos =  {id,nombre};
+		return objetos;
+	}
 	
 }
