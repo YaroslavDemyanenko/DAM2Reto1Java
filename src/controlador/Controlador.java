@@ -19,7 +19,6 @@ public class Controlador {
 		this.vis = vista;
 		this.mod = modelo;
 		addControladores();
-		//initListeners();
 	}
 
 
