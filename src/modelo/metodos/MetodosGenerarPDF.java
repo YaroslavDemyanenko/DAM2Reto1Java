@@ -1,9 +1,9 @@
 package modelo.metodos;
 
-import java.io.File;
-
-import javax.swing.JOptionPane;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import com.google.gson.Gson;
+import com.itextpdf.kernel.pdf.PdfWriter;
 import baseDatos.ConsultaBD;
 import lecturaFicheros.GenerarPDF;
 import modelo.Modelo;
@@ -45,9 +45,21 @@ public class MetodosGenerarPDF {
 		
 		Departamento[] departamentos = cargarDepartamentos();
 		
-		GenerarPDF generatePDFFileIText = new GenerarPDF();
-        generatePDFFileIText.crearPDF(new File("/home/xules/codigoxules/GeneratePDFFileIText.pdf"),null,departamentos);
-		
+		GenerarPDF generarPDF = new GenerarPDF();
+		PdfWriter writer = null;
+		try {
+			writer = new PdfWriter("C:\\workspace_reto1\\DAM2Reto1Java\\ficheros\\departamentos.pdf");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		generarPDF.crearPDF(writer,null,departamentos);
+		try {
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return false;
 	}
 	
@@ -112,3 +124,7 @@ public class MetodosGenerarPDF {
 		return empleados;
 	}
 }
+
+
+
+
