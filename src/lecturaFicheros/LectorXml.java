@@ -78,10 +78,10 @@ public class LectorXml {
 			is.setEncoding("UTF-8");
 			saxParser.parse(is, handler);
 		} catch (FileNotFoundException e) {
-			Logger.logger.escribirArchivo("Error, archivo no encontrado");
+//			Logger.getInstance().escribirArchivo("Error, archivo no encontrado");
 			System.out.println("Archivo no encontrado");
 		} catch (Exception e) {
-			Logger.logger.escribirArchivo("Error al leer archivo");
+//			Logger.getInstance().escribirArchivo("Error al leer archivo");
 			System.out.println("No es posible leer el archivo");
 		}
 		return departamentos;

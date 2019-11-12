@@ -56,14 +56,14 @@ public class ConsultaBD {
 			}
 
 		} catch (SQLException e) {
-			Logger.logger.escribirArchivo("Error al realizar la consulta");
+//			Logger.getInstance().escribirArchivo("Error al realizar la consulta");
 			return null;
 		} finally {
 			try {
 				if (con != null)
 					con.close();
 			} catch (SQLException e) {
-				Logger.logger.escribirArchivo("Error al realizar la consulta");
+//				Logger.getInstance().escribirArchivo("Error al realizar la consulta");
 				return null;
 			}
 		}
@@ -90,14 +90,14 @@ public class ConsultaBD {
 			}
 			return true;
 		} catch (SQLException e1) {
-			Logger.logger.escribirArchivo("Error al insertar datos en la base de datos");
+//			Logger.getInstance().escribirArchivo("Error al insertar datos en la base de datos");
 			return false;
 		} finally {
 			try {
 				if (con != null)
 					con.close();
 			} catch (SQLException e) {
-				Logger.logger.escribirArchivo("Error al insertar datos en la base de datos");
+//				Logger.getInstance().escribirArchivo("Error al insertar datos en la base de datos");
 			}
 		}
 	}
@@ -137,7 +137,7 @@ public class ConsultaBD {
 			}
 			return statementGenerico;
 		} catch (SQLException e) {
-			Logger.logger.escribirArchivo("Error al generar sentencia");
+//			Logger.getInstance().escribirArchivo("Error al generar sentencia");
 			return null;
 		}
 	}
@@ -189,7 +189,7 @@ public class ConsultaBD {
 			PreparedStatement statementGenerico = this.con.prepareStatement(statement);
 			return statementGenerico.execute();
 		} catch (SQLException e1) {
-			Logger.logger.escribirArchivo("Error al borrar elemento de la base de datos");
+//			Logger.getInstance().escribirArchivo("Error al borrar elemento de la base de datos");
 			return false;
 		}
 	}

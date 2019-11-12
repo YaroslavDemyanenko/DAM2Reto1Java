@@ -6,17 +6,15 @@ import java.io.IOException;
 
 public class Logger {
 
-	public static Logger logger;
-	private File ruta = new File("/logs/logs.txt");
+	private static Logger logger;
+	private String ruta = "/logs/logs.txt";
 	private FileWriter txtWriter;
 
-	public Logger() {
+	private Logger() {
 	}
 
 	private static void createInstance() {
-		if (logger == null) {
-			logger = new Logger();
-		}
+		logger = new Logger();
 	}
 
 	public static Logger getInstance() {
@@ -26,13 +24,12 @@ public class Logger {
 	}
 
 	private void abrirArchivo() throws IOException {
-		txtWriter = new FileWriter(this.ruta, true);
+		txtWriter = new FileWriter(new File(this.ruta), true);
 	}
 
 	private void cerrarArchivo() throws IOException {
 		txtWriter.flush();
 		txtWriter.close();
-		txtWriter = null;
 	}
 
 	public void escribirArchivo(String lineas) {

@@ -2,42 +2,42 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="librerias/barcodes-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="librerias/barcodes-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="librerias/barcodes-7.1.4.jar"/>
 	<classpathentry kind="lib" path="librerias/commons-dbcp2-2.6.0.jar"/>
 	<classpathentry kind="lib" path="librerias/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="librerias/commons-pool2-2.6.1.jar"/>
-	<classpathentry kind="lib" path="librerias/mysql-connector-java-8.0.13.jar"/>
+	<classpathentry kind="lib" path="librerias/font-asian-7.1.4.jar"/>
+	<classpathentry kind="lib" path="librerias/forms-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="librerias/forms-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="librerias/forms-7.1.4.jar"/>
 	<classpathentry kind="lib" path="librerias/gson-2.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/pdftest-7.1.4.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/pdftest-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/pdftest-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/sign-7.1.4.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/barcodes-7.1.4.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/barcodes-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/barcodes-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/font-asian-7.1.4.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/forms-7.1.4.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/forms-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/forms-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/hyph-7.1.4.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/io-7.1.4.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/io-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/io-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/kernel-7.1.4.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/kernel-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/kernel-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/layout-7.1.4.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/layout-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/layout-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/sign-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/sign-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/styled-xml-parser-7.1.4.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/styled-xml-parser-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/styled-xml-parser-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/svg-7.1.4.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/svg-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/pdfa-7.1.4.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/pdfa-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/pdfa-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="C:/workspace_reto1/DAM2Reto1Java/librerias/svg-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="librerias/hyph-7.1.4.jar"/>
+	<classpathentry kind="lib" path="librerias/io-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="librerias/io-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="librerias/io-7.1.4.jar"/>
+	<classpathentry kind="lib" path="librerias/kernel-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="librerias/kernel-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="librerias/kernel-7.1.4.jar"/>
+	<classpathentry kind="lib" path="librerias/layout-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="librerias/layout-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="librerias/layout-7.1.4.jar"/>
+	<classpathentry kind="lib" path="librerias/mysql-connector-java-8.0.13.jar"/>
+	<classpathentry kind="lib" path="librerias/pdfa-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="librerias/pdfa-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="librerias/pdfa-7.1.4.jar"/>
+	<classpathentry kind="lib" path="librerias/pdftest-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="librerias/pdftest-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="librerias/pdftest-7.1.4.jar"/>
+	<classpathentry kind="lib" path="librerias/sign-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="librerias/sign-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="librerias/sign-7.1.4.jar"/>
+	<classpathentry kind="lib" path="librerias/styled-xml-parser-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="librerias/styled-xml-parser-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="librerias/styled-xml-parser-7.1.4.jar"/>
+	<classpathentry kind="lib" path="librerias/svg-7.1.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="librerias/svg-7.1.4-sources.jar"/>
+	<classpathentry kind="lib" path="librerias/svg-7.1.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

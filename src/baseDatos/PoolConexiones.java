@@ -19,17 +19,17 @@ public class PoolConexiones {
 		try {
 			propiedades.load(new FileInputStream("datasource_config.properties"));
 		} catch (FileNotFoundException e) {
-			Logger.logger.escribirArchivo("Error al crear la conexión a la base de datos");
+//			Logger.getInstance().escribirArchivo("Error al crear la conexión a la base de datos");
 			return null;
 		} catch (IOException e) {
-			Logger.logger.escribirArchivo("Error al crear la conexión a la base de datos");
+//			Logger.getInstance().escribirArchivo("Error al crear la conexión a la base de datos");
 			return null;
 		}
 	
 		try {
 			dataSource = BasicDataSourceFactory.createDataSource(propiedades);
 		} catch (Exception e) {
-			Logger.logger.escribirArchivo("Error al crear la conexión a la base de datos");
+//			Logger.getInstance().escribirArchivo("Error al crear la conexión a la base de datos");
 			return null;
 		}
 		return dataSource;

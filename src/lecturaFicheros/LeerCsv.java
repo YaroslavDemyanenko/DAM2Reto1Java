@@ -38,10 +38,10 @@ public class LeerCsv {
 				elementos.add(empleadoAux);
 			}
 		} catch (FileNotFoundException e) {
-			Logger.logger.escribirArchivo("Error, archivo no encontrado");
+//			Logger.getInstance().escribirArchivo("Error, archivo no encontrado");
 			System.out.println("Archivo no encontrado");
 		} catch (IOException e) {
-			Logger.logger.escribirArchivo("Error, no es posible leer/escribir el archivo");
+//			Logger.getInstance().escribirArchivo("Error, no es posible leer/escribir el archivo");
 			System.out.println("No es posible leer/escribir el archivo");
 		}
 		return elementos;

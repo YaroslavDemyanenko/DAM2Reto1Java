@@ -30,10 +30,7 @@ public class MetodosCargaDatos {
 
 	private boolean comprobarEmpleado(Empleado emple) {
 		String json = bd.consultarToGson("SELECT `idDni` 'id' FROM `empleado` WHERE `idDni` ='" + emple.getDni() + "'");
-		if (json.equals("")) {
-			return true;
-		} else
-			return false;
+		return json.equals("");
 	}
 
 	public Departamento buscarDepartamento(String id) {
@@ -42,7 +39,7 @@ public class MetodosCargaDatos {
 		if (departamento != null) {
 			return departamento[0];
 		} else {
-			Logger.logger.escribirArchivo("Error al buscar departamento");
+//			Logger.getInstance().escribirArchivo("Error al buscar departamento");
 			return new Departamento();
 		}
 	}
@@ -53,7 +50,7 @@ public class MetodosCargaDatos {
 		if (departamento != null) {
 			return departamento[0];
 		} else {
-			Logger.logger.escribirArchivo("Error al buscar cargo");
+//			Logger.getInstance().escribirArchivo("Error al buscar cargo");
 			return new Cargo();
 		}
 	}
