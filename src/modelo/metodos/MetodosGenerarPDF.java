@@ -71,7 +71,7 @@ public boolean generarPDFempleados() {
 		GenerarPDF generarPDF = new GenerarPDF();
 		PdfWriter writer = null;
 		try {
-			writer = new PdfWriter("ficheros/Informe_departamentos.pdf");
+			writer = new PdfWriter("ficheros/Informe_empleados.pdf");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
