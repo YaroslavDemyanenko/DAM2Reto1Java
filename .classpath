@@ -40,5 +40,6 @@
 	<classpathentry kind="lib" path="librerias/svg-7.1.4-sources.jar"/>
 	<classpathentry kind="lib" path="librerias/svg-7.1.4.jar"/>
 	<classpathentry kind="lib" path="librerias/slf4j-api-1.7.29.jar"/>
+	<classpathentry kind="lib" path="librerias/slf4j-simple-1.7.29.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

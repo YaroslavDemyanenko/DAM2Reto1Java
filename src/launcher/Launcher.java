@@ -22,7 +22,6 @@ public class Launcher {
 		
 		vista.pCenter.nextPanel();
 		vista.pCenter.prevPanel();
-		System.out.println("tEST");
 		
 		@SuppressWarnings("unused")
 		Controlador controlador = new Controlador(vista, modelo);

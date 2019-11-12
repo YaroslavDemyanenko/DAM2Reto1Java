@@ -1,0 +1,5 @@
+actualizar departamento despues de insertar
+proponer numero de departamento
+limpiar lista de resultados empleado
+limpiar panel de ingreso de empleados
+visualizar todas las nereas

@@ -63,7 +63,10 @@ public class MetodosGenerarPDF {
 		return false;
 	}
 	
-	
+	public boolean generarPDFEmpleados() {
+		
+		return true;
+	}
 	
 	public Departamento[] cargarDepartamentos() {
 		String json = mod.bd.consultarToGson("select `idDepartamento` 'auxiliar1',`idCentro` 'auxiliar2' from `tdepartcentro`");
