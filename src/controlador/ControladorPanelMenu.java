@@ -55,6 +55,7 @@ public class ControladorPanelMenu {
   					case "Empleados":
   						break;
   					case "Departamentos":
+  						mod.mGenerarPDF.generarPDFdepartamentos();
   						break;
   				}
 //				vis.pCenter.changePanel("");

@@ -4,6 +4,7 @@ import baseDatos.ConsultaBD;
 import lecturaFicheros.LectorXml;
 import lecturaFicheros.LeerCsv;
 import modelo.metodos.MetodosCargaDatos;
+import modelo.metodos.MetodosGenerarPDF;
 import modelo.metodos.MetodosPanelDpto;
 import modelo.metodos.MetodosPanelEmple;
 import modelo.metodos.MetodosPanelMenu;
@@ -23,6 +24,7 @@ public class Modelo {
 	public MetodosPanelDpto mPDpto;
 	public MetodosPanelMenuDpto mPMDpto;
 	public MetodosPanelMenuEmple mPMEmple;
+	public MetodosGenerarPDF mGenerarPDF;
 	//public ArrayList<Departamento> departamentos = new ArrayList<Departamento>();
 	//public ArrayList<Empleado> empleados = new ArrayList<Empleado>();
 	public Departamento[] departamentos;
@@ -43,5 +45,6 @@ public class Modelo {
 		mPEmple = new MetodosPanelEmple(this, bd);
 		mPMDpto = new MetodosPanelMenuDpto(this, bd);
 		mPMEmple = new MetodosPanelMenuEmple(this, bd);
+		mGenerarPDF = new MetodosGenerarPDF(this, bd);
 	}
 }
