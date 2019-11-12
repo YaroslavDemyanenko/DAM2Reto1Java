@@ -48,7 +48,7 @@ public class MetodosGenerarPDF {
 		GenerarPDF generarPDF = new GenerarPDF();
 		PdfWriter writer = null;
 		try {
-			writer = new PdfWriter("C:\\workspace_reto1\\DAM2Reto1Java\\ficheros\\departamentos.pdf");
+			writer = new PdfWriter("ficheros/departamentos.pdf");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
