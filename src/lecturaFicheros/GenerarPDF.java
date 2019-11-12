@@ -43,13 +43,20 @@ public class GenerarPDF {
 			
 		}else if(departamentos != null) {
 			
-			//PdfPTable table = new PdfPTable(3);                
-            
-            //table.addCell("Celda 1");
+			Table tabla = new Table(3);
+			
+			tabla.addHeaderCell("ID");
+			tabla.addHeaderCell("Nombre dpto.");
+			tabla.addHeaderCell("Centro");
 			
 			for(int i=0; i < departamentos.length; i++) {
-				document.add(new Paragraph(departamentos[i].getId() + " " + departamentos[i].getNombre() + " " + departamentos[i].getCentro()));
+				//document.add(new Paragraph(departamentos[i].getId() + " " + departamentos[i].getNombre() + " " + departamentos[i].getCentro()));
+				
+				tabla.addCell(Integer.toString(departamentos[i].getId()));
+				tabla.addCell(departamentos[i].getNombre());
+				tabla.addCell(departamentos[i].getCentro().getNombre());
 			}
+			document.add(tabla);
 		}
 		
 		document.close();

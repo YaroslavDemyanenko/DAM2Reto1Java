@@ -48,7 +48,30 @@ public class MetodosGenerarPDF {
 		GenerarPDF generarPDF = new GenerarPDF();
 		PdfWriter writer = null;
 		try {
-			writer = new PdfWriter("ficheros/departamentos.pdf");
+			writer = new PdfWriter("ficheros/Informe_departamentos.pdf");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		generarPDF.crearPDF(writer,null,departamentos);
+		try {
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	
+public boolean generarPDFempleados() {
+		
+		Departamento[] departamentos = cargarDepartamentos();
+		
+		GenerarPDF generarPDF = new GenerarPDF();
+		PdfWriter writer = null;
+		try {
+			writer = new PdfWriter("ficheros/Informe_empleados.pdf");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
