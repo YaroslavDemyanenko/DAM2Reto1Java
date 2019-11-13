@@ -3,6 +3,8 @@ package modelo.metodos;
 import javax.swing.JOptionPane;
 import com.google.gson.Gson;
 import baseDatos.ConsultaBD;
+import launcher.Launcher;
+import logs.Logger;
 import modelo.Modelo;
 import modelo.objetos.Cargo;
 import modelo.objetos.Centro;
@@ -117,7 +119,7 @@ public class MetodosPanelEmple {
 
 	public boolean validarSoloLetras(String cadena, String nombreCampo) {
 		if (!(cadena.matches("^[a-zA-Z ]+$"))) {
-			JOptionPane.showMessageDialog(null, nombreCampo + " invalido", null, JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, nombreCampo + " inválido", null, JOptionPane.WARNING_MESSAGE);
 			return false;
 		} else {
 			return true;

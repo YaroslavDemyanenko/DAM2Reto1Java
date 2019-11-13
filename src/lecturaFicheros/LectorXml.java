@@ -8,18 +8,16 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-
 import modelo.objetos.Centro;
 import modelo.objetos.Departamento;
-
 import baseDatos.ConsultaBD;
+import launcher.Launcher;
 import logs.Logger;
 import modelo.Modelo;
 
@@ -78,11 +76,9 @@ public class LectorXml {
 			is.setEncoding("UTF-8");
 			saxParser.parse(is, handler);
 		} catch (FileNotFoundException e) {
-//			Logger.getInstance().escribirArchivo("Error, archivo no encontrado");
-			System.out.println("Archivo no encontrado");
+			Logger.getInstance().loggear("Error, archivo no encontrado",Launcher.class, 2);
 		} catch (Exception e) {
-//			Logger.getInstance().escribirArchivo("Error al leer archivo");
-			System.out.println("No es posible leer el archivo");
+			Logger.getInstance().loggear("Error en la lectura del archivo",Launcher.class, 2);
 		}
 		return departamentos;
 	}

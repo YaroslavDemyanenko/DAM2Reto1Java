@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ##############################
 ## Java
 ##############################
@@ -72,3 +73,12 @@ nb-configuration.xml
 /modelo/
 /controlador/
 /vista/
+=======
+/launcher/
+/logs/
+/vista/
+/baseDatos/
+/controlador/
+/lecturaFicheros/
+/modelo/
+>>>>>>> 7432159b9790cb721f78143d17cc9add8b9fed7a

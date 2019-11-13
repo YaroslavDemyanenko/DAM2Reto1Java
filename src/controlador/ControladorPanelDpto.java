@@ -4,7 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
+import com.google.gson.Gson;
 
+import baseDatos.ConsultaBD;
+import launcher.Launcher;
+import logs.Logger;
 import modelo.Modelo;
 import modelo.objetos.Centro;
 import modelo.objetos.Departamento;
@@ -67,7 +71,8 @@ public class ControladorPanelDpto {
 		int codDpto = 0;
 		try {
 			codDpto = Integer.parseInt(vis.pCenter.pDpto.txtCodigoDpto.getText());
-		} catch (NumberFormatException e) {
+		}catch(NumberFormatException e) {
+			Logger.getInstance().loggear("Error al obtener el código de departamento",Launcher.class, 3);
 		}
 		String nombre = vis.pCenter.pDpto.txtNombreDpto.getText();
 		Centro codCentro = (Centro) vis.pCenter.pDpto.cmbCentro.getSelectedItem();
@@ -76,13 +81,14 @@ public class ControladorPanelDpto {
 			Departamento depart = new Departamento(codDpto, nombre, codCentro);
 			boolean repetido = mod.mPDpto.insertarDptoNuevo(depart);
 			if (!repetido) {
-				JOptionPane.showMessageDialog(vis.pCenter, "Departamento insertado", "Atenci�n!", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(vis.pCenter, "Departamento insertado", "Atencion!", JOptionPane.WARNING_MESSAGE);
 				return true;
 			} else {
-				JOptionPane.showMessageDialog(vis.pCenter, "Departamento ya existente", "Atenci�n!", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(vis.pCenter, "Departamento ya existente", "Atencion!", JOptionPane.WARNING_MESSAGE);
 			}
 		} else {
-			JOptionPane.showMessageDialog(vis.pCenter, "Debe rellenar los campos", "Atenci�n!", JOptionPane.WARNING_MESSAGE);
+
+			JOptionPane.showMessageDialog(vis.pCenter, "Debe rellenar los campos", "Atencion!", JOptionPane.WARNING_MESSAGE);
 		}
 		return false;
 
@@ -93,5 +99,4 @@ public class ControladorPanelDpto {
 		vis.pCenter.pDpto.txtNombreDpto.setText("");
 		vis.pCenter.pDpto.cmbCentro.setSelectedItem(1);
 	}
-
 }
