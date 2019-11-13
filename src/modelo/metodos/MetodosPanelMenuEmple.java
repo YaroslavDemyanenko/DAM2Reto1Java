@@ -21,7 +21,9 @@ public class MetodosPanelMenuEmple {
 			json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `idDni`='" + campoTexto + "'");
 		} else {
 			if (campoTexto.contains(" ")) {
-				json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where upper(`nombre`)=upper('" + campoTexto.split(" ")[0] + "') and upper(`apellidos`)=upper('" + campoTexto.split(" ")[1] + "')");
+				String nombre=campoTexto.split(" ")[0];
+				String apellidos=campoTexto.substring(nombre.length()+1);
+				json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where upper(`nombre`)=upper('" + nombre + "') and upper(`apellidos`)=upper('" + apellidos + "')");
 			} else {
 				json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where upper(`nombre`)=upper('" + campoTexto + "')");
 			}

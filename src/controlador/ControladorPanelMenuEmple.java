@@ -41,6 +41,7 @@ public class ControladorPanelMenuEmple {
 				break;
 
 			case "INGRESAR NUEVO EMPLEADO":
+				limpiarPanelRegistroEmpleado();
 				cargarInterfazRegistroEmpleado();
 				vis.pCenter.changePanel("5");
 				break;
@@ -50,6 +51,17 @@ public class ControladorPanelMenuEmple {
 				break;
 			}
 		}
+	}
+	
+	public void limpiarPanelRegistroEmpleado() {
+		vis.pCenter.pEmple.txtCodEmple.setText("");
+		vis.pCenter.pEmple.txtApellidos.setText("");
+		vis.pCenter.pEmple.txtNomEmple.setText("");
+		vis.pCenter.pEmple.txtSalario.setText("");
+		
+		vis.pCenter.pEmple.modeloCargo.removeAllElements();
+		vis.pCenter.pEmple.modeloDpto.removeAllElements();
+		vis.pCenter.pEmple.modeloSelJefe.removeAllElements();
 	}
 
 	public void cargarInterfazRegistroEmpleado() {
@@ -76,6 +88,7 @@ public class ControladorPanelMenuEmple {
 	}
 
 	private void llenarListaConInformacion(Empleado emple) {
+		vis.pCenter.pMenuEmple.modeloListDatosEmple.removeAllElements();
 		vis.pCenter.pMenuEmple.modeloListDatosEmple.addElement("DNI: " + emple.getDni());
 		vis.pCenter.pMenuEmple.modeloListDatosEmple.addElement("Nombre: " + emple.getNombre());
 		vis.pCenter.pMenuEmple.modeloListDatosEmple.addElement("Apellido: " + emple.getApellidos());
