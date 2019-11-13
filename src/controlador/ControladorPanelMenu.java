@@ -58,15 +58,8 @@ public class ControladorPanelMenu {
   						mod.mGenerarPDF.generarPDFdepartamentos();
   						break;
   				}
-//				vis.pCenter.changePanel("");
   				break;
-//			case "GENERAR TXT":
-//				//metodo generarTXT()
-//				vis.pCenter.changePanel("");
-				
 			}
-			
 		}
-		
 	}	
 }

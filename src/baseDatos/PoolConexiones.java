@@ -7,10 +7,11 @@ import java.util.Properties;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSourceFactory;
 
+import launcher.Launcher;
 import logs.Logger;
 
 public class PoolConexiones {
-	//BasicDataSource basicDataSource = new BasicDataSource();
+	
 	DataSource dataSource;
 	
 	public DataSource CrearConexiones() {	
@@ -19,17 +20,17 @@ public class PoolConexiones {
 		try {
 			propiedades.load(new FileInputStream("datasource_config.properties"));
 		} catch (FileNotFoundException e) {
-//			Logger.getInstance().escribirArchivo("Error al crear la conexión a la base de datos");
+			Logger.getInstance().loggear("Error al crear la conexiÃ³n a la base de datos",Launcher.class, 3);
 			return null;
 		} catch (IOException e) {
-//			Logger.getInstance().escribirArchivo("Error al crear la conexión a la base de datos");
+			Logger.getInstance().loggear("Error al crear la conexiÃ³n a la base de datos",Launcher.class, 3);
 			return null;
 		}
 	
 		try {
 			dataSource = BasicDataSourceFactory.createDataSource(propiedades);
 		} catch (Exception e) {
-//			Logger.getInstance().escribirArchivo("Error al crear la conexión a la base de datos");
+			Logger.getInstance().loggear("Error al crear la conexiÃ³n a la base de datos",Launcher.class, 3);
 			return null;
 		}
 		return dataSource;

@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
 import com.google.gson.Gson;
 
 import baseDatos.ConsultaBD;
+import launcher.Launcher;
+import logs.Logger;
 import modelo.Modelo;
 import modelo.metodos.MetodosPanelEmple;
 import modelo.objetos.Centro;
@@ -48,7 +50,6 @@ public class ControladorPanelDpto {
 				break;
 				
 			case "Registrar":
-				//Metodo registrar()
 				boolean repetido = insertarDepartamento();
 				if(repetido) {
 					vis.pCenter.changePanel("2");
@@ -76,6 +77,7 @@ public class ControladorPanelDpto {
 		try {
 			codDpto = Integer.parseInt(vis.pCenter.pDpto.txtCodigoDpto.getText());
 		}catch(NumberFormatException e) {
+			Logger.getInstance().loggear("Error al obtener el cÃ³digo de departamento",Launcher.class, 3);
 		}
 		String nombre = vis.pCenter.pDpto.txtNombreDpto.getText();
 		Centro codCentro = (Centro) vis.pCenter.pDpto.cmbCentro.getSelectedItem();
@@ -84,13 +86,13 @@ public class ControladorPanelDpto {
 			Departamento depart = new Departamento(codDpto,nombre,codCentro);
 			boolean repetido = mod.mPDpto.insertarDptoNuevo(depart);
 			if(!repetido) {
-				JOptionPane.showMessageDialog(vis.pCenter, "Departamento insertado", "Atención!", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(vis.pCenter, "Departamento insertado", "Atenciï¿½n!", JOptionPane.WARNING_MESSAGE);
 				return true;
 			}else {
-				JOptionPane.showMessageDialog(vis.pCenter, "Departamento ya existente", "Atención!", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(vis.pCenter, "Departamento ya existente", "Atenciï¿½n!", JOptionPane.WARNING_MESSAGE);
 			}
 		}else {
-			JOptionPane.showMessageDialog(vis.pCenter, "Debe rellenar los campos", "Atención!", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(vis.pCenter, "Debe rellenar los campos", "Atenciï¿½n!", JOptionPane.WARNING_MESSAGE);
 		}
 		return false;
 		
@@ -101,5 +103,4 @@ public class ControladorPanelDpto {
 		vis.pCenter.pDpto.txtNombreDpto.setText("");
 		vis.pCenter.pDpto.cmbCentro.setSelectedItem(1);
 	}
-	
 }

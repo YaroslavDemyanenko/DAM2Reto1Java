@@ -34,13 +34,5 @@ public class Controlador {
 		
 		mod.departamentos = mod.mPEmple.cargarDepartamentos();
 
-	}
-
-//	private void initListeners() {
-//		
-//	}
-	
-	
-	
-	
+	}	
 }

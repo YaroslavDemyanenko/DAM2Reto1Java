@@ -72,7 +72,6 @@ public class ControladorPanelMenuEmple {
 		if (emple != null) {
 			llenarListaConInformacion(emple);
 		}
-
 	}
 
 	private void llenarListaConInformacion(Empleado emple) {
