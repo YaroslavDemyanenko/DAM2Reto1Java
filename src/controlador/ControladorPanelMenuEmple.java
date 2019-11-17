@@ -2,6 +2,11 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+import javafx.beans.value.ChangeListener;
+import javafx.scene.control.ComboBox;
 import modelo.Modelo;
 import modelo.objetos.Cargo;
 import modelo.objetos.Departamento;
@@ -26,6 +31,7 @@ public class ControladorPanelMenuEmple {
 		vis.pCenter.pMenuEmple.btnVolver.addActionListener(new ListenerBotones());
 		vis.pCenter.pMenuEmple.btnIngresarEmple.addActionListener(new ListenerBotones());
 		vis.pCenter.pMenuEmple.btnBuscar.addActionListener(new ListenerBotones());
+		vis.pCenter.pMenuEmple.cmbEmpleados.addItemListener(new listenerCambioIndex());
 	}
 
 	private class ListenerBotones implements ActionListener {
@@ -51,6 +57,17 @@ public class ControladorPanelMenuEmple {
 				break;
 			}
 		}
+	}
+	
+	private class listenerCambioIndex implements ItemListener{
+
+		@Override
+	    public void itemStateChanged(ItemEvent event) {
+	       if (event.getStateChange() == ItemEvent.SELECTED) {
+	          llenarListaConInformacion((Empleado) vis.pCenter.pMenuEmple.modeloCmbEmpleados.getSelectedItem());	          
+	       }
+	    } 
+		
 	}
 	
 	public void limpiarPanelRegistroEmpleado() {
@@ -80,11 +97,23 @@ public class ControladorPanelMenuEmple {
 	}
 
 	public void buscarEmpleado(String nombre) {
-		Empleado emple = mod.mPMEmple.buscarPorNombreODni(nombre);
-		if (emple != null) {
-			llenarListaConInformacion(emple);
+		Empleado[] empleados = mod.mPMEmple.buscarPorNombreODni(nombre);
+		if (empleados != null) {
+			for (Empleado emple:empleados) {
+				llenarListaConInformacion(emple);
+			}
+			meterEmpleadosEnComboBox(empleados);
+			llenarListaConInformacion(empleados[0]);
 		}
 	}
+
+	public void meterEmpleadosEnComboBox(Empleado[] empleados) {
+		vis.pCenter.pMenuEmple.modeloCmbEmpleados.removeAllElements();
+		for (Empleado emple:empleados) {
+			vis.pCenter.pMenuEmple.modeloCmbEmpleados.addElement(emple);
+		}	
+	}
+
 
 	private void llenarListaConInformacion(Empleado emple) {
 		vis.pCenter.pMenuEmple.modeloListDatosEmple.removeAllElements();

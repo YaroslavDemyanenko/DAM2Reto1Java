@@ -14,7 +14,7 @@ public class MetodosPanelMenuEmple {
 	private Modelo mod;
 	private Gson gson = new Gson();
 
-	public Empleado buscarPorNombreODni(String campoTexto) {
+	public Empleado[] buscarPorNombreODni(String campoTexto) {
 		Empleado[] empleado;
 		String json;
 		if (mod.mPEmple.validarDNI(campoTexto, false)) {
@@ -30,13 +30,17 @@ public class MetodosPanelMenuEmple {
 		}
 		if (!json.equals("")) {
 			empleado = gson.fromJson(json, Empleado[].class);
-			empleado[0].cargarDatosComplementarios(bd, gson);
-			return empleado[0];
+			for (Empleado emple:empleado) {
+				emple.cargarDatosComplementarios(bd, gson);
+			}
+			return empleado;
 		} else {
 			JOptionPane.showMessageDialog(null, "Usuario no encontrado", null, JOptionPane.WARNING_MESSAGE);
 			return null;
 		}
 	}
+	
+	
 
 	public MetodosPanelMenuEmple(Modelo mod, ConsultaBD bd) {
 		this.bd = bd;
@@ -58,4 +62,6 @@ public class MetodosPanelMenuEmple {
 	public void setMod(Modelo mod) {
 		this.mod = mod;
 	}
+
+
 }
