@@ -53,6 +53,7 @@ public class ControladorPanelMenu {
   				
   				switch(respuesta) {
   					case "Empleados":
+  						mod.mGenerarPDF.generarPDFempleados();
   						break;
   					case "Departamentos":
   						mod.mGenerarPDF.generarPDFdepartamentos();

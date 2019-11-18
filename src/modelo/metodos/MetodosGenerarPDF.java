@@ -39,12 +39,11 @@ public class MetodosGenerarPDF {
 	public void setMod(Modelo mod) {
 		this.mod = mod;
 	}
-	
-	
+
 	public boolean generarPDFdepartamentos() {
-		
+
 		Departamento[] departamentos = cargarDepartamentos();
-		
+
 		GenerarPDF generarPDF = new GenerarPDF();
 		PdfWriter writer = null;
 		try {
@@ -53,7 +52,7 @@ public class MetodosGenerarPDF {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		generarPDF.crearPDF(writer,null,departamentos);
+		generarPDF.crearPDF(writer, null, departamentos);
 		try {
 			writer.close();
 		} catch (IOException e) {
@@ -62,12 +61,11 @@ public class MetodosGenerarPDF {
 		}
 		return false;
 	}
-	
-	
-public boolean generarPDFempleados() {
-		
-		Departamento[] departamentos = cargarDepartamentos();
-		
+
+	public boolean generarPDFempleados() {
+
+		Empleado[] empleados = cargarEmpleados();
+
 		GenerarPDF generarPDF = new GenerarPDF();
 		PdfWriter writer = null;
 		try {
@@ -76,7 +74,7 @@ public boolean generarPDFempleados() {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		generarPDF.crearPDF(writer,null,departamentos);
+		generarPDF.crearPDF(writer, empleados, null);
 		try {
 			writer.close();
 		} catch (IOException e) {
@@ -85,72 +83,76 @@ public boolean generarPDFempleados() {
 		}
 		return false;
 	}
-	
-	public boolean generarPDFEmpleados() {
-		
-		return true;
-	}
-	
+
 	public Departamento[] cargarDepartamentos() {
-		String json = mod.bd.consultarToGson("select `idDepartamento` 'auxiliar1',`idCentro` 'auxiliar2' from `tdepartcentro`");
+		String json = mod.bd
+				.consultarToGson("select `idDepartamento` 'auxiliar1',`idCentro` 'auxiliar2' from `tdepartcentro`");
 		Global[] relaciones = gson.fromJson(json, Global[].class);
 
 		Departamento[] departamentos = new Departamento[relaciones.length];
 		for (int i = 0; i < relaciones.length; i++) {
 			departamentos[i] = cargarDepartamento(Double.toString((double) relaciones[i].getAuxiliar1()));
-			departamentos[i].setCentro(cargarCentroEnDepartamento(Double.toString((double) relaciones[i].getAuxiliar2())));
+			departamentos[i]
+					.setCentro(cargarCentroEnDepartamento(Double.toString((double) relaciones[i].getAuxiliar2())));
 		}
 		return departamentos;
 	}
-	
-	
-	public Empleado cargarEmpleadoCompleto(String dni) {
-		String json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `idDni`='"+dni+"'");
-		Empleado[] empleado = gson.fromJson(json, Empleado[].class);
-		
-		
-		return empleado[0];
-	}
 
 	private Departamento cargarDepartamento(String id) {
-		String json = mod.bd.consultarToGson("select `idDepartamento` 'id',`nombre` 'nombre' from `departamento` where `idDepartamento`='" + id + "'");
+		String json = mod.bd.consultarToGson(
+				"select `idDepartamento` 'id',`nombre` 'nombre' from `departamento` where `idDepartamento`='" + id
+						+ "'");
 		Departamento[] departs = gson.fromJson(json, Departamento[].class);
 		return departs[0];
 	}
 
 	private Centro cargarCentroEnDepartamento(String id) {
-		String json = mod.bd.consultarToGson("select `idCentro` 'id',`nombre` 'nombre' from `centro` where `idCentro`='" + id + "'");
+		String json = mod.bd.consultarToGson(
+				"select `idCentro` 'id',`nombre` 'nombre' from `centro` where `idCentro`='" + id + "'");
 		Centro[] centros = gson.fromJson(json, Centro[].class);
 		return centros[0];
 	}
-
-	public Cargo[] cargarCargos() {
-		String json = mod.bd.consultarToGson("select `idCargo` 'id',`nombre` 'nombre' from `cargo`");
-		Cargo[] cargos = gson.fromJson(json, Cargo[].class);
-		return cargos;
-	}
-
-	public Empleado[] cargarJefes() {
-		String json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `esJefe`=1");
-		Empleado[] jefes = gson.fromJson(json, Empleado[].class);
-		for(Empleado jefe:jefes) {
-			jefe.convertirFecha();
-		}
-		return jefes;
-	}
 	
-	public Empleado[] cargarEmpleados(int idDepartamento) {
-		String json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado`" );
+	private Departamento cargarDepartamentoEmple(String idDni) {
+		String json = mod.bd.consultarToGson(
+				"select `idDepartamento` 'id',`nombre` 'nombre' from `departamento` where `idDepartamento`=(select idDepartamento from empleado where idDni='"+ idDni +"')");
+		Departamento[] departs = gson.fromJson(json, Departamento[].class);
+		return departs[0];
+	}
+
+	public Cargo cargarCargo(String idDni) {
+		String json = mod.bd.consultarToGson("select `idCargo` 'id',`nombre` 'nombre' from `cargo` where idCargo=(select idCargo from empleado where idDni='"+ idDni +"')");
+		Cargo[] cargos = gson.fromJson(json, Cargo[].class);
+		return cargos[0];
+	}
+
+	public Empleado cargarJefes(String idDni) {
+		String json = mod.bd.consultarToGson(
+				"select empleado.idDni 'dni',nombre 'nombre',apellidos 'apellidos',sueldo 'sueldo',esJefe 'esJefe', fechaAlta 'fechaString' from empleado, templejefe  WHERE empleado.idDni = templejefe.idJefe and templejefe.idDni = '"
+						+ idDni + "'");
+		Empleado[] jefes = gson.fromJson(json, Empleado[].class);
+		if (jefes == null) {
+			return null;
+		} else {
+			return jefes[0];
+		}
+	}
+
+	public Empleado[] cargarEmpleados() {
+		String json = mod.bd.consultarToGson(
+				"select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado`");
 		Empleado[] empleados = gson.fromJson(json, Empleado[].class);
-		if(empleados != null) {
-			for(Empleado empleado:empleados) {
-				empleado.convertirFecha();
+		if (empleados != null) {
+			for (int i = 0; i < empleados.length; i++) {
+				empleados[i].convertirFecha();
+				Empleado jefe = cargarJefes(empleados[i].getDni());
+				if (jefe != null) {
+					empleados[i].setEmpleJefe(jefe);
+				}
+				empleados[i].setCargo(cargarCargo(empleados[i].getDni()));
+				empleados[i].setDepartamento(cargarDepartamentoEmple(empleados[i].getDni()));
 			}
 		}
 		return empleados;
 	}
 }
-
-
-
-
