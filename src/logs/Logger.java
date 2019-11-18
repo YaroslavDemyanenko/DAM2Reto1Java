@@ -3,11 +3,12 @@ package logs;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Date;
 
 public class Logger {
 
 	private static Logger logger;
-	private String ruta = "/logs/logs.txt";
+	private String ruta = "logs/logs.txt";
 	private FileWriter txtWriter;
 
 	private Logger() {
@@ -23,22 +24,15 @@ public class Logger {
 		return logger;
 	}
 
-	private void abrirArchivo() throws IOException {
-		txtWriter = new FileWriter(new File(this.ruta), true);
-	}
-
-	private void cerrarArchivo() throws IOException {
-		txtWriter.flush();
-		txtWriter.close();
-	}
-
-	public void escribirArchivo(String lineas) {
+	public void loggear(String lineas,Class<?> clase, int nivel) {
+		File archivo = new File(this.ruta);
+		
 		try {
-			abrirArchivo();
-			txtWriter.append("\n" + lineas);
-			cerrarArchivo();
+			txtWriter = new FileWriter(archivo, true);
+			txtWriter.append(new Date().toString() + " | " +  clase.getSimpleName() + " [" + nivel + "] | " + lineas + "\n");
+			txtWriter.flush();
+			txtWriter.close();
 		} catch (IOException e) {
 		}
-
 	}
 }

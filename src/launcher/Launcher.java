@@ -1,24 +1,22 @@
 package launcher;
 
-
-
 import controlador.Controlador;
+import logs.Logger;
 import modelo.Modelo;
 import vista.VentanaPpal;
 
-/**
- * Launcher de la aplicacion
- *
- */
 public class Launcher {
 
 	/**
 	 * Main del programa
 	 * @param args parametros de la aplicacion
 	 */
+	
 	public static void main(String[] args) {
 		VentanaPpal vista = new VentanaPpal();
-		Modelo modelo = new Modelo();
+		Modelo modelo = new Modelo();		
+		
+		Logger.getInstance().loggear("[Nueva ejecución]",Launcher.class, 1);
 		
 		vista.pCenter.nextPanel();
 		vista.pCenter.prevPanel();

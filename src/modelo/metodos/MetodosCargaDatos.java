@@ -2,6 +2,7 @@ package modelo.metodos;
 
 import com.google.gson.Gson;
 import baseDatos.ConsultaBD;
+import launcher.Launcher;
 import logs.Logger;
 import modelo.Modelo;
 import modelo.objetos.Cargo;
@@ -39,7 +40,7 @@ public class MetodosCargaDatos {
 		if (departamento != null) {
 			return departamento[0];
 		} else {
-//			Logger.getInstance().escribirArchivo("Error al buscar departamento");
+			Logger.getInstance().loggear("Error en la búsqueda de departamento",Launcher.class, 3);
 			return new Departamento();
 		}
 	}
@@ -50,7 +51,7 @@ public class MetodosCargaDatos {
 		if (departamento != null) {
 			return departamento[0];
 		} else {
-//			Logger.getInstance().escribirArchivo("Error al buscar cargo");
+			Logger.getInstance().loggear("Error en la búsqueda de cargo",Launcher.class, 3);
 			return new Cargo();
 		}
 	}

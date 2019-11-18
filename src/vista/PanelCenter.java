@@ -2,7 +2,6 @@ package vista;
 
 import java.awt.CardLayout;
 import java.awt.Dimension;
-
 import javax.swing.JPanel;
 
 public class PanelCenter extends JPanel {
@@ -16,7 +15,6 @@ public class PanelCenter extends JPanel {
 	public PanelMenuEmple pMenuEmple;
 	public PanelEmple pEmple;
 	public PanelConfirmacionRegistro pConfiRegistro;
-	
 	
 	public PanelCenter() {
 		setParametros();

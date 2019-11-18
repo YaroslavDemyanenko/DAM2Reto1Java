@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import baseDatos.ConsultaBD;
+import launcher.Launcher;
 import logs.Logger;
 import modelo.Modelo;
 import modelo.objetos.Cargo;
@@ -38,11 +38,9 @@ public class LeerCsv {
 				elementos.add(empleadoAux);
 			}
 		} catch (FileNotFoundException e) {
-//			Logger.getInstance().escribirArchivo("Error, archivo no encontrado");
-			System.out.println("Archivo no encontrado");
+			Logger.getInstance().loggear("Error, archivo no encontrado",Launcher.class, 2);
 		} catch (IOException e) {
-//			Logger.getInstance().escribirArchivo("Error, no es posible leer/escribir el archivo");
-			System.out.println("No es posible leer/escribir el archivo");
+			Logger.getInstance().loggear("Error en la lectura del archivo",Launcher.class, 2);
 		}
 		return elementos;
 	}

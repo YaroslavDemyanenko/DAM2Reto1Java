@@ -1,12 +1,13 @@
 package baseDatos;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.sql.DataSource;
+
+import launcher.Launcher;
 import logs.Logger;
 
 public class ConsultaBD {
@@ -23,6 +24,7 @@ public class ConsultaBD {
 
 	public String consultarToGson(String consulta) {
 		String resultado = "[";
+		
 		try {
 			con = datasource.getConnection();
 			Statement st = con.createStatement();
@@ -56,14 +58,14 @@ public class ConsultaBD {
 			}
 
 		} catch (SQLException e) {
-//			Logger.getInstance().escribirArchivo("Error al realizar la consulta");
+			Logger.getInstance().loggear("Error en la consulta a la base de datos",Launcher.class, 3);
 			return null;
 		} finally {
 			try {
 				if (con != null)
 					con.close();
 			} catch (SQLException e) {
-//				Logger.getInstance().escribirArchivo("Error al realizar la consulta");
+				Logger.getInstance().loggear("Error en la consulta a la base de datos",Launcher.class, 3);
 				return null;
 			}
 		}
@@ -90,14 +92,14 @@ public class ConsultaBD {
 			}
 			return true;
 		} catch (SQLException e1) {
-//			Logger.getInstance().escribirArchivo("Error al insertar datos en la base de datos");
+			Logger.getInstance().loggear("Error al insertar datos en la base de datos",Launcher.class, 2);
 			return false;
 		} finally {
 			try {
 				if (con != null)
 					con.close();
 			} catch (SQLException e) {
-//				Logger.getInstance().escribirArchivo("Error al insertar datos en la base de datos");
+				Logger.getInstance().loggear("Error al insertar datos en la base de datos",Launcher.class, 2);
 			}
 		}
 	}
@@ -137,7 +139,7 @@ public class ConsultaBD {
 			}
 			return statementGenerico;
 		} catch (SQLException e) {
-//			Logger.getInstance().escribirArchivo("Error al generar sentencia");
+			Logger.getInstance().loggear("Error al generar la sentencia",Launcher.class, 3);
 			return null;
 		}
 	}
@@ -189,7 +191,7 @@ public class ConsultaBD {
 			PreparedStatement statementGenerico = this.con.prepareStatement(statement);
 			return statementGenerico.execute();
 		} catch (SQLException e1) {
-//			Logger.getInstance().escribirArchivo("Error al borrar elemento de la base de datos");
+			Logger.getInstance().loggear("Error al borrar un elemento de la base de datos",Launcher.class, 2);
 			return false;
 		}
 	}
