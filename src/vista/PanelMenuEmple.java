@@ -3,12 +3,17 @@ package vista;
 import java.awt.Color;
 import java.awt.Dimension;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import modelo.objetos.Empleado;
+
+import javax.swing.JComboBox;
 
 public class PanelMenuEmple extends JPanel {
 
@@ -20,6 +25,8 @@ public class PanelMenuEmple extends JPanel {
 	public DefaultListModel<String> modeloListDatosEmple;
 	public JLabel lblBuscarEmple;
 	public JTextField txtBuscarEmple;
+	public DefaultComboBoxModel<Empleado> modeloCmbEmpleados;
+	public JComboBox<Empleado> cmbEmpleados;
 	
 	public PanelMenuEmple() {
 		setParametros();
@@ -46,7 +53,6 @@ public class PanelMenuEmple extends JPanel {
 		add(lblBuscarEmple);
 		
 		txtBuscarEmple = new JTextField();
-		//txtBuscarEmple.setText("Ingresar nombre o ID");
 		txtBuscarEmple.setToolTipText("Ingresar nombre o ID");
 		txtBuscarEmple.setColumns(10);
 		txtBuscarEmple.setBounds(393, 276, 226, 20);
@@ -66,5 +72,11 @@ public class PanelMenuEmple extends JPanel {
 		btnVolver = new JButton("Volver");
 		btnVolver.setBounds(54, 516, 89, 23);
 		add(btnVolver);
+		
+		modeloCmbEmpleados=new DefaultComboBoxModel<Empleado>();
+		
+		cmbEmpleados = new JComboBox<Empleado>(modeloCmbEmpleados);
+		cmbEmpleados.setBounds(321, 307, 69, 34);
+		add(cmbEmpleados);
 	}
 }

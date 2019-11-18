@@ -26,7 +26,6 @@ public class ControladorPanelEmple {
 	}
 	
 	private void initListeners() {
-		//public JButton btnGestionDpto, btnGestionEmple, btnGenPdf, btnGenTxt;
 		vis.pCenter.pEmple.btnVolver.addActionListener(new ListenerBotones());
 		vis.pCenter.pEmple.btnRegistrar.addActionListener(new ListenerBotones());
 	}
@@ -69,17 +68,6 @@ public class ControladorPanelEmple {
 		else
 			esJefe = 0;
 		return new Empleado(dni, nombre, apellidos, salario, esJefe, new Date(), cargo, depart,superior);
-	}
-	
-	public void limpiarPanel() {
-		vis.pCenter.pEmple.txtCodEmple.setText("");
-		vis.pCenter.pEmple.txtApellidos.setText("");
-		vis.pCenter.pEmple.txtNomEmple.setText("");
-		vis.pCenter.pEmple.txtSalario.setText("");
-		
-		vis.pCenter.pEmple.modeloCargo.removeAllElements();
-		vis.pCenter.pEmple.modeloDpto.removeAllElements();
-		vis.pCenter.pEmple.modeloSelJefe.removeAllElements();
 	}
 	
 	public boolean validarDatos() {

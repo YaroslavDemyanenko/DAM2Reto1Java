@@ -32,7 +32,8 @@ public class MetodosPanelMenu {
 		this.mod = mod;
 	}
 	
-	public void mostrarListaDptos(int posicion,VentanaPpal vis) {		
+	public void mostrarListaDptos(int posicion,VentanaPpal vis) {
+		mod.departamentos=mod.mPEmple.cargarDepartamentos();
 		if(mod.departamentos != null) {
 			if(posicion < mod.departamentos.length && posicion >= 0) {
 				vis.pCenter.pMenuDpto.lblNombreDpto.setText(mod.departamentos[posicion].getNombre());

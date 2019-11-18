@@ -2,6 +2,11 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+import javafx.beans.value.ChangeListener;
+import javafx.scene.control.ComboBox;
 import modelo.Modelo;
 import modelo.objetos.Cargo;
 import modelo.objetos.Departamento;
@@ -26,6 +31,7 @@ public class ControladorPanelMenuEmple {
 		vis.pCenter.pMenuEmple.btnVolver.addActionListener(new ListenerBotones());
 		vis.pCenter.pMenuEmple.btnIngresarEmple.addActionListener(new ListenerBotones());
 		vis.pCenter.pMenuEmple.btnBuscar.addActionListener(new ListenerBotones());
+		vis.pCenter.pMenuEmple.cmbEmpleados.addItemListener(new listenerCambioIndex());
 	}
 
 	private class ListenerBotones implements ActionListener {
@@ -41,6 +47,7 @@ public class ControladorPanelMenuEmple {
 				break;
 
 			case "INGRESAR NUEVO EMPLEADO":
+				limpiarPanelRegistroEmpleado();
 				cargarInterfazRegistroEmpleado();
 				vis.pCenter.changePanel("5");
 				break;
@@ -50,6 +57,28 @@ public class ControladorPanelMenuEmple {
 				break;
 			}
 		}
+	}
+	
+	private class listenerCambioIndex implements ItemListener{
+
+		@Override
+	    public void itemStateChanged(ItemEvent event) {
+	       if (event.getStateChange() == ItemEvent.SELECTED) {
+	          llenarListaConInformacion((Empleado) vis.pCenter.pMenuEmple.modeloCmbEmpleados.getSelectedItem());	          
+	       }
+	    } 
+		
+	}
+	
+	public void limpiarPanelRegistroEmpleado() {
+		vis.pCenter.pEmple.txtCodEmple.setText("");
+		vis.pCenter.pEmple.txtApellidos.setText("");
+		vis.pCenter.pEmple.txtNomEmple.setText("");
+		vis.pCenter.pEmple.txtSalario.setText("");
+		
+		vis.pCenter.pEmple.modeloCargo.removeAllElements();
+		vis.pCenter.pEmple.modeloDpto.removeAllElements();
+		vis.pCenter.pEmple.modeloSelJefe.removeAllElements();
 	}
 
 	public void cargarInterfazRegistroEmpleado() {
@@ -68,13 +97,26 @@ public class ControladorPanelMenuEmple {
 	}
 
 	public void buscarEmpleado(String nombre) {
-		Empleado emple = mod.mPMEmple.buscarPorNombreODni(nombre);
-		if (emple != null) {
-			llenarListaConInformacion(emple);
+		Empleado[] empleados = mod.mPMEmple.buscarPorNombreODni(nombre);
+		if (empleados != null) {
+			for (Empleado emple:empleados) {
+				llenarListaConInformacion(emple);
+			}
+			meterEmpleadosEnComboBox(empleados);
+			llenarListaConInformacion(empleados[0]);
 		}
 	}
 
+	public void meterEmpleadosEnComboBox(Empleado[] empleados) {
+		vis.pCenter.pMenuEmple.modeloCmbEmpleados.removeAllElements();
+		for (Empleado emple:empleados) {
+			vis.pCenter.pMenuEmple.modeloCmbEmpleados.addElement(emple);
+		}	
+	}
+
+
 	private void llenarListaConInformacion(Empleado emple) {
+		vis.pCenter.pMenuEmple.modeloListDatosEmple.removeAllElements();
 		vis.pCenter.pMenuEmple.modeloListDatosEmple.addElement("DNI: " + emple.getDni());
 		vis.pCenter.pMenuEmple.modeloListDatosEmple.addElement("Nombre: " + emple.getNombre());
 		vis.pCenter.pMenuEmple.modeloListDatosEmple.addElement("Apellido: " + emple.getApellidos());

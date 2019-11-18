@@ -44,6 +44,7 @@ public class ControladotPanelMenuDpto {
 				break;
 				
 			case "INGRESAR NUEVO DEPARTAMENTO":
+				vis.pCenter.pDpto.txtCodigoDpto.setText(Integer.toString(mod.mPMDpto.numeroPropuestoDpto()));
 				vis.pCenter.changePanel("3");
 				break;
 				
