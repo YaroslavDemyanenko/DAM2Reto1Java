@@ -136,6 +136,18 @@ public class Empleado {
 		return fechaAlta;
 	}
 
+	public String getFechaString() {
+		return fechaString;
+	}
+
+	public void setFechaString(String fechaString) {
+		this.fechaString = fechaString;
+	}
+
+	public int getEsJefe() {
+		return esJefe;
+	}
+
 	public void setFechaAlta(Date fechaAlta) {
 		this.fechaAlta = fechaAlta;
 	}

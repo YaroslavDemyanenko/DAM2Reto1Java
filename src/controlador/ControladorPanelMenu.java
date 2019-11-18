@@ -54,9 +54,11 @@ public class ControladorPanelMenu {
   				switch(respuesta) {
   					case "Empleados":
   						mod.mGenerarPDF.generarPDFempleados();
+  						JOptionPane.showMessageDialog(vis, "Informe de empleados generado", null, JOptionPane.INFORMATION_MESSAGE);
   						break;
   					case "Departamentos":
   						mod.mGenerarPDF.generarPDFdepartamentos();
+  						JOptionPane.showMessageDialog(vis, "Informe de departamentos generado", null, JOptionPane.INFORMATION_MESSAGE);
   						break;
   				}
   				break;

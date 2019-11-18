@@ -3,6 +3,8 @@ package lecturaFicheros;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.AreaBreak;
+import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 
 import modelo.objetos.Departamento;
@@ -15,7 +17,11 @@ public class GenerarPDF {
 		PdfDocument pdf = new PdfDocument(writer);
 		Document document = new Document(pdf);
 		
+		
+		
 		if (empleados != null) {
+			
+			document.add(new Paragraph("Tabla empleados"));
 			
 			Table tabla = new Table(8);
 			
@@ -39,12 +45,14 @@ public class GenerarPDF {
 					tabla.addCell("No tiene superior");
 				}
 				
-				tabla.addCell(empleados[i].getFechaAlta().toString());
+				tabla.addCell(empleados[i].getFechaString());
 				tabla.addCell(empleados[i].getCargo().getNombre());
 				tabla.addCell(empleados[i].getDepartamento().getNombre());
 			}
 			document.add(tabla);
 		}else if(departamentos != null) {
+			
+			document.add(new Paragraph("Tabla empleados"));
 			
 			Table tabla = new Table(3);
 			
