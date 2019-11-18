@@ -1,0 +1,13 @@
+18-11-2019 13:49:21 | Launcher [1] | [Nueva ejecución]
+18-11-2019 13:49:21 | Launcher [2] | Error al insertar datos en la base de datos
+18-11-2019 13:49:21 | Launcher [2] | Error al insertar datos en la base de datos
+18-11-2019 13:49:21 | Launcher [2] | Error al insertar datos en la base de datos
+18-11-2019 13:49:21 | Launcher [2] | Error al insertar datos en la base de datos
+18-11-2019 13:49:21 | Launcher [2] | Error al insertar datos en la base de datos
+18-11-2019 13:49:21 | Launcher [2] | Error al insertar datos en la base de datos
+18-11-2019 13:49:21 | Launcher [2] | Error al insertar datos en la base de datos
+18-11-2019 13:49:21 | Launcher [2] | Error al insertar datos en la base de datos
+18-11-2019 13:49:21 | Launcher [2] | Error al insertar datos en la base de datos
+18-11-2019 13:49:21 | Launcher [2] | Error al insertar datos en la base de datos
+18-11-2019 13:49:21 | Launcher [2] | Error al insertar datos en la base de datos
+18-11-2019 13:49:21 | Launcher [2] | Error al insertar datos en la base de datos

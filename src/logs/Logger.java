@@ -3,6 +3,7 @@ package logs;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Logger {
@@ -26,10 +27,10 @@ public class Logger {
 
 	public void loggear(String lineas,Class<?> clase, int nivel) {
 		File archivo = new File(this.ruta);
-		
+		SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 		try {
 			txtWriter = new FileWriter(archivo, true);
-			txtWriter.append(new Date().toString() + " | " +  clase.getSimpleName() + " [" + nivel + "] | " + lineas + "\n");
+			txtWriter.append(formateador.format(new Date()) + " | " +  clase.getSimpleName() + " [" + nivel + "] | " + lineas + "\n");
 			txtWriter.flush();
 			txtWriter.close();
 		} catch (IOException e) {
