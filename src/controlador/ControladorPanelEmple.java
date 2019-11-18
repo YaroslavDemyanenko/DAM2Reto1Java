@@ -44,7 +44,10 @@ public class ControladorPanelEmple {
 				
 			case "Registrar":
 				if(validarDatos()) {
-					mod.bd.insertGenerico(crearEmpleado().toObjectArray(), "empleado");
+					Empleado emple=crearEmpleado();
+					mod.bd.insertGenerico(emple.toObjectArray(), "empleado");
+					String[] codigos = {emple.getDni(),emple.getEmpleJefe().getDni()};
+					mod.bd.insertGenerico(codigos, "templejefe");
 					vis.pCenter.changePanel("4");
 				}				
 				
@@ -72,7 +75,7 @@ public class ControladorPanelEmple {
 	
 	public boolean validarDatos() {
 		for(boolean validacion:validarCampos()) {
-			if (validacion=false) {
+			if (validacion==false) {
 				return false;
 			}
 		}

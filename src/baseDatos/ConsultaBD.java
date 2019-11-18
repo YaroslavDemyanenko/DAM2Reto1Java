@@ -126,7 +126,7 @@ public class ConsultaBD {
 				} else if (clases[i] == Integer.class) {
 					statementGenerico.setInt(i + 1, (int) objetos[i]);
 				} else if (clases[i] == java.util.Date.class) {
-					statementGenerico.setDate(i + 1, new java.sql.Date(((java.util.Date) objetos[i]).getTime()));
+					statementGenerico.setTimestamp(i + 1, new java.sql.Timestamp(((java.util.Date) objetos[i]).getTime()));
 				} else if (clases[i] == Boolean.class) {
 					if((boolean)objetos[i] == true) {
 						statementGenerico.setInt(i + 1, 1);
