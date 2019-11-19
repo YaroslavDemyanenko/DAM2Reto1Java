@@ -29,7 +29,12 @@ public class Departamento {
 	}
 	@Override
 	public String toString() {
-		return nombre;
+		if (centro.nombre != null) {
+			return centro.nombre+" - "+ nombre;	
+		}else {
+			return nombre;
+		}
+		
 	}
 	public int getId() {
 		return id;

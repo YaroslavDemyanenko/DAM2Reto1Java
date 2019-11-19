@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 import modelo.objetos.Empleado;
 import javax.swing.ImageIcon;
@@ -40,13 +41,13 @@ public class PanelMenuDpto extends JPanel {
 		lblTitulo = new JLabel("MENU GESTION DEPARTAMENTO");
 		lblTitulo.setFont(new Font("Perpetua", Font.PLAIN, 25));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitulo.setBounds(321, 41, 358, 77);
+		lblTitulo.setBounds(254, 41, 492, 77);
 		lblTitulo.setForeground(Color.WHITE);
 		add(lblTitulo);
 		
 		btnIngresarDpto = new JButton("INGRESAR NUEVO DEPARTAMENTO");
 		btnIngresarDpto.setFont(new Font("Perpetua", Font.PLAIN, 20));
-		btnIngresarDpto.setBounds(321, 194, 358, 38);
+		btnIngresarDpto.setBounds(273, 194, 453, 38);
 		btnIngresarDpto.setBackground(new Color(1,35,80));
 		btnIngresarDpto.setForeground(Color.WHITE);
 		add(btnIngresarDpto);
@@ -54,7 +55,7 @@ public class PanelMenuDpto extends JPanel {
 		lblNombreDpto = new JLabel("[nombre_departamento]");
 		lblNombreDpto.setFont(new Font("Perpetua", Font.PLAIN, 20));
 		lblNombreDpto.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNombreDpto.setBounds(398, 330, 200, 23);
+		lblNombreDpto.setBounds(362, 330, 272, 23);
 		lblNombreDpto.setForeground(Color.WHITE);
 		add(lblNombreDpto);
 		
@@ -67,7 +68,7 @@ public class PanelMenuDpto extends JPanel {
 		
 		btnUltimo = new JButton("Ultimo");
 		btnUltimo.setFont(new Font("Perpetua", Font.PLAIN, 20));
-		btnUltimo.setBounds(820, 322,130, 38);
+		btnUltimo.setBounds(803, 322,130, 38);
 		btnUltimo.setBackground(new Color(1,35,80));
 		btnUltimo.setForeground(Color.WHITE);
 		add(btnUltimo);
@@ -81,7 +82,7 @@ public class PanelMenuDpto extends JPanel {
 		
 		btnPrimero = new JButton("Primero");
 		btnPrimero.setFont(new Font("Perpetua", Font.PLAIN, 20));
-		btnPrimero.setBounds(46, 322, 130, 38);
+		btnPrimero.setBounds(69, 322, 130, 38);
 		btnPrimero.setBackground(new Color(1,35,80));
 		btnPrimero.setForeground(Color.WHITE);
 		add(btnPrimero);
@@ -89,15 +90,15 @@ public class PanelMenuDpto extends JPanel {
 		modeloListaEmple = new DefaultListModel<Empleado>();
 		
 		listEmpleados = new JList<Empleado>(modeloListaEmple);
-		listEmpleados.setFont(new Font("Agency FB", Font.PLAIN, 25));
+		listEmpleados.setFont(new Font("Dialog", Font.PLAIN, 17));
 		listEmpleados.setBounds(282, 398, 435, 207);
 		listEmpleados.setForeground(new Color(1,35,80));
+		listEmpleados.setBorder(new LineBorder(new Color(1, 35, 80)));
 		add(listEmpleados);
 		
 		btnVolver = new JButton("Volver");
 		btnVolver.setFont(new Font("Perpetua", Font.PLAIN, 20));
 		btnVolver.setBounds(46, 667, 130, 38);
-		btnVolver.setBackground(new Color(1,35,80));
 		btnVolver.setForeground(Color.WHITE);
 		add(btnVolver);
 		
@@ -107,5 +108,16 @@ public class PanelMenuDpto extends JPanel {
 		btnAnterior.setBackground(new Color(1,35,80));
 		btnPrimero.setBackground(new Color(1,35,80));
 		btnVolver.setBackground(new Color(1,35,80));
+		
+		
+		btnIngresarDpto.setFocusPainted(false);
+		btnSiguiente.setFocusPainted(false);
+		btnUltimo.setFocusPainted(false);
+		btnAnterior.setFocusPainted(false);
+		btnPrimero.setFocusPainted(false);
+		btnVolver.setFocusPainted(false);
+		
+		
+		
 	}
 }

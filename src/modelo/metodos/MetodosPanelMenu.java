@@ -36,7 +36,7 @@ public class MetodosPanelMenu {
 		mod.departamentos=mod.mPEmple.cargarDepartamentos();
 		if(mod.departamentos != null) {
 			if(posicion < mod.departamentos.length && posicion >= 0) {
-				vis.pCenter.pMenuDpto.lblNombreDpto.setText(mod.departamentos[posicion].getNombre());
+				vis.pCenter.pMenuDpto.lblNombreDpto.setText(mod.departamentos[posicion].toString());
 			}
 		}else {
 			JOptionPane.showMessageDialog(vis, "Error en la Base de Datos", "Error", JOptionPane.ERROR_MESSAGE);

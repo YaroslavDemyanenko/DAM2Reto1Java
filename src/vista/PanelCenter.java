@@ -25,7 +25,7 @@ public class PanelCenter extends JPanel {
 	private void setParametros() {
 		card = new CardLayout();
 		setLayout(card);
-		setPreferredSize(new Dimension(1024,768));
+		setPreferredSize(new Dimension(1000,770));
 		setBackground(new Color(180,187,194));
 		setForeground(Color.WHITE);
 	}

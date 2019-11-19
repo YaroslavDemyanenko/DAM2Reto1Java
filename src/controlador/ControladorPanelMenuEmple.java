@@ -5,8 +5,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-import javafx.beans.value.ChangeListener;
-import javafx.scene.control.ComboBox;
 import modelo.Modelo;
 import modelo.objetos.Cargo;
 import modelo.objetos.Departamento;
@@ -64,7 +62,7 @@ public class ControladorPanelMenuEmple {
 		@Override
 	    public void itemStateChanged(ItemEvent event) {
 	       if (event.getStateChange() == ItemEvent.SELECTED) {
-	          llenarListaConInformacion((Empleado) vis.pCenter.pMenuEmple.modeloCmbEmpleados.getSelectedItem());	          
+	          llenarListaConInformacion((Empleado) vis.pCenter.pMenuEmple.modeloCmbEmpleados.getSelectedItem());
 	       }
 	    } 
 		

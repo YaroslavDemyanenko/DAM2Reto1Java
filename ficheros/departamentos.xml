@@ -1,7 +1,14 @@
 <?xml version="1.0"?>
-<Centro id="1" nombre="Elorrieta">
-	<Departamento id="0">Direccion</Departamento>
-	<Departamento id="1">Informatica</Departamento>
-	<Departamento id="2">Ciencias naturales</Departamento>
-	<Departamento id="3">Geografia</Departamento>
-</Centro>
+<Centros>
+	<Centro id="1" nombre="Elorrieta">
+		<Departamento id="0">Direccion</Departamento>
+		<Departamento id="1">Informatica</Departamento>
+		<Departamento id="2">Ciencias naturales</Departamento>
+		<Departamento id="3">Geografia</Departamento>
+	</Centro>
+	<Centro id="2" nombre="Andra Mari">
+		<Departamento id="0">Direccion</Departamento>
+		<Departamento id="2">Ciencias naturales</Departamento>
+		<Departamento id="3">Geografia</Departamento>
+	</Centro>
+</Centros>
