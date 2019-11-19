@@ -55,19 +55,19 @@ public class PanelMenu extends JPanel {
 		lblGenInforme = new JLabel("GENERAR INFORME");
 		lblGenInforme.setFont(new Font("Perpetua", Font.PLAIN, 18));
 		lblGenInforme.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGenInforme.setBounds(400, 444, 200, 50);
+		lblGenInforme.setBounds(400, 437, 200, 50);
 		lblGenInforme.setForeground(Color.WHITE);
 		add(lblGenInforme);
 		
 		btnGenPdf = new JButton("GENERAR PDF");
 		btnGenPdf.setFont(new Font("Perpetua", Font.PLAIN, 15));
-		btnGenPdf.setBounds(334, 505, 130, 38);
+		btnGenPdf.setBounds(334, 505,331, 38);
 		btnGenPdf.setBackground(new Color(1,35,80));
 		btnGenPdf.setForeground(Color.WHITE);
 		add(btnGenPdf);
 		
 		btnGenTxt = new JButton("GENERAR TXT");
-
+		btnGenTxt.setVisible(false);
 		btnGenTxt.setFont(new Font("Perpetua", Font.PLAIN, 15));
 		btnGenTxt.setBounds(535, 505, 130, 38);
 		btnGenTxt.setBackground(new Color(1,35,80));
