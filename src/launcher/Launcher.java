@@ -11,12 +11,12 @@ public class Launcher {
 	 * Main del programa
 	 * @param args parametros de la aplicacion
 	 */
-	
 	public static void main(String[] args) {
 		VentanaPpal vista = new VentanaPpal();
 		Modelo modelo = new Modelo();		
+		Logger log = Logger.getInstance();
 		
-		Logger.getInstance().loggear("[Nueva ejecución]",Launcher.class, 1);
+		log.loggear("[Nueva ejecución]",Launcher.class, 1);
 		
 		vista.pCenter.nextPanel();
 		vista.pCenter.prevPanel();

@@ -32,7 +32,7 @@ public class Empleado {
 
 	@Override
 	public String toString() {
-		return "DNI: " + dni + " | " + nombre + " " + apellidos;
+		return "DNI: " + dni+"     " + nombre + " " + apellidos;
 	}
 
 	public void convertirFecha() {

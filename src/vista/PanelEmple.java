@@ -1,5 +1,6 @@
 package vista;
 
+import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.DefaultComboBoxModel;
@@ -42,14 +43,17 @@ public class PanelEmple extends JPanel {
 	
 	private void setParametros() {
 		setBorder(new CompoundBorder(null, new EmptyBorder(0, 5, 0, 0)));
-		setPreferredSize(new Dimension(1024,768));
+		setPreferredSize(new Dimension(1000,770));
 		setLayout(null);
+		setBackground(new Color(136, 136, 207));
+		setForeground(Color.WHITE);
 	}
 	
 	private void instanciarObjetos() {
 		lblTitulo = new JLabel("INGRESO DE EMPLEADO");
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setBounds(10, 11, 1004, 77);
+		lblTitulo.setForeground(Color.WHITE);
 		add(lblTitulo);
 		
 		lblCodEmple = new JLabel("DNI");

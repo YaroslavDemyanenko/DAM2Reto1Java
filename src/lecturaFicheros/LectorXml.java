@@ -27,6 +27,7 @@ public class LectorXml {
 	private Centro centro;
 	private ConsultaBD bd;
 	private Modelo mod;
+	private Logger log = Logger.getInstance();
 
 	public LectorXml(Modelo mod, ConsultaBD bd) {
 		this.bd = bd;
@@ -76,9 +77,9 @@ public class LectorXml {
 			is.setEncoding("UTF-8");
 			saxParser.parse(is, handler);
 		} catch (FileNotFoundException e) {
-			Logger.getInstance().loggear("Error, archivo no encontrado",Launcher.class, 2);
+			log.loggear("Error, archivo no encontrado",Launcher.class, 2);
 		} catch (Exception e) {
-			Logger.getInstance().loggear("Error en la lectura del archivo",Launcher.class, 2);
+			log.loggear("Error en la lectura del archivo",Launcher.class, 2);
 		}
 		return departamentos;
 	}

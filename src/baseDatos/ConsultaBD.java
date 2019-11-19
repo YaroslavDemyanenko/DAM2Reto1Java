@@ -15,6 +15,7 @@ public class ConsultaBD {
 	private PoolConexiones pool;
 	private DataSource datasource;
 	private Connection con;
+	private Logger log = Logger.getInstance();
 
 	public ConsultaBD() {
 		pool = new PoolConexiones();
@@ -58,14 +59,14 @@ public class ConsultaBD {
 			}
 
 		} catch (SQLException e) {
-			Logger.getInstance().loggear("Error en la consulta a la base de datos",Launcher.class, 3);
+			log.loggear("Error en la consulta a la base de datos",Launcher.class, 3);
 			return null;
 		} finally {
 			try {
 				if (con != null)
 					con.close();
 			} catch (SQLException e) {
-				Logger.getInstance().loggear("Error en la consulta a la base de datos",Launcher.class, 3);
+				log.loggear("Error en la consulta a la base de datos",Launcher.class, 3);
 				return null;
 			}
 		}
@@ -92,14 +93,14 @@ public class ConsultaBD {
 			}
 			return true;
 		} catch (SQLException e1) {
-			Logger.getInstance().loggear("Error al insertar datos en la base de datos",Launcher.class, 2);
+			log.loggear("Error al insertar datos en la base de datos",Launcher.class, 2);
 			return false;
 		} finally {
 			try {
 				if (con != null)
 					con.close();
 			} catch (SQLException e) {
-				Logger.getInstance().loggear("Error al insertar datos en la base de datos",Launcher.class, 2);
+				log.loggear("Error al insertar datos en la base de datos",Launcher.class, 2);
 			}
 		}
 	}
@@ -139,7 +140,7 @@ public class ConsultaBD {
 			}
 			return statementGenerico;
 		} catch (SQLException e) {
-			Logger.getInstance().loggear("Error al generar la sentencia",Launcher.class, 3);
+			log.loggear("Error al generar la sentencia",Launcher.class, 3);
 			return null;
 		}
 	}
@@ -191,7 +192,7 @@ public class ConsultaBD {
 			PreparedStatement statementGenerico = this.con.prepareStatement(statement);
 			return statementGenerico.execute();
 		} catch (SQLException e1) {
-			Logger.getInstance().loggear("Error al borrar un elemento de la base de datos",Launcher.class, 2);
+			log.loggear("Error al borrar un elemento de la base de datos",Launcher.class, 2);
 			return false;
 		}
 	}

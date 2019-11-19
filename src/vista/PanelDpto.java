@@ -1,5 +1,6 @@
 package vista;
 
+import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.DefaultComboBoxModel;
@@ -28,8 +29,10 @@ public class PanelDpto extends JPanel {
 	
 	private void setParametros() {
 		setBorder(null);
-		setPreferredSize(new Dimension(1024, 768));
+		setPreferredSize(new Dimension(1000,770));
 		setLayout(null);
+		setBackground(new Color(136, 136, 207));
+		setForeground(Color.WHITE);
 	}
 	
 	private void instanciarObjetos() {				

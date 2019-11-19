@@ -19,11 +19,13 @@ public class VentanaPpal extends JFrame {
 	
 	private void setParametros() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(1024,768);
+		setSize(1000,770);
 		setLocationRelativeTo(null);
 		setResizable(true);		
 		setTitle("Reto 1");
 		setVisible(true);
+		setBackground(new Color(180,187,194));
+		setForeground(Color.WHITE);
 	}
 	
 	private void instanciarObjetos() {

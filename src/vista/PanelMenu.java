@@ -1,7 +1,9 @@
 package vista;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -13,6 +15,7 @@ public class PanelMenu extends JPanel {
 	
 	public JLabel lblTitulo, lblGenInforme;
 	public JButton btnGestionDpto, btnGestionEmple, btnGenPdf, btnGenTxt;
+	private Dimension arcs = new Dimension(20, 20);
 	
 	public PanelMenu() {		
 		setParametros();
@@ -21,35 +24,54 @@ public class PanelMenu extends JPanel {
 	
 	private void setParametros() {
 		setBorder(null);
-		setPreferredSize(new Dimension(1024,768));
+		setPreferredSize(new Dimension(1000,770));
 		setLayout(null);
+		setBackground(new Color(136, 136, 207));
+		setForeground(Color.WHITE);
 	}
 	
 	private void instanciarObjetos() {
-		lblTitulo = new JLabel("BIENVENIDA");
+		lblTitulo = new JLabel("CENTER MANAGER");
+		lblTitulo.setFont(new Font("Perpetua", Font.BOLD | Font.ITALIC, 36));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitulo.setBounds(10, 11, 1004, 77);
+		lblTitulo.setBounds(290, 119, 420, 77);
+		lblTitulo.setForeground(Color.WHITE);
 		add(lblTitulo);
 		
 		btnGestionDpto = new JButton("GESTIONAR DEPARTAMENTOS");
-		btnGestionDpto.setBounds(403, 290, 220, 23);
+		btnGestionDpto.setFont(new Font("Perpetua", Font.PLAIN, 20));
+		btnGestionDpto.setBounds(334, 276, 331, 38);
+		btnGestionDpto.setBackground(new Color(1,35,80));
+		btnGestionDpto.setForeground(Color.WHITE);
 		add(btnGestionDpto);
 		
 		btnGestionEmple = new JButton("GESTION DE EMPLEADOS");
-		btnGestionEmple.setBounds(403, 354, 220, 23);
+		btnGestionEmple.setFont(new Font("Perpetua", Font.PLAIN, 20));
+		btnGestionEmple.setBounds(334, 364, 331, 38);
+		btnGestionEmple.setBackground(new Color(1,35,80));
+		btnGestionEmple.setForeground(Color.WHITE);
 		add(btnGestionEmple);
 		
 		lblGenInforme = new JLabel("GENERAR INFORME");
+		lblGenInforme.setFont(new Font("Perpetua", Font.PLAIN, 18));
 		lblGenInforme.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGenInforme.setBounds(403, 388, 200, 50);
+		lblGenInforme.setBounds(400, 444, 200, 50);
+		lblGenInforme.setForeground(Color.WHITE);
 		add(lblGenInforme);
 		
 		btnGenPdf = new JButton("GENERAR PDF");
-		btnGenPdf.setBounds(379, 436, 130, 23);
+		btnGenPdf.setFont(new Font("Perpetua", Font.PLAIN, 15));
+		btnGenPdf.setBounds(334, 505, 130, 38);
+		btnGenPdf.setBackground(new Color(1,35,80));
+		btnGenPdf.setForeground(Color.WHITE);
 		add(btnGenPdf);
 		
 		btnGenTxt = new JButton("GENERAR TXT");
-		btnGenTxt.setBounds(523, 436, 130, 23);
+
+		btnGenTxt.setFont(new Font("Perpetua", Font.PLAIN, 15));
+		btnGenTxt.setBounds(535, 505, 130, 38);
+		btnGenTxt.setBackground(new Color(1,35,80));
+		btnGenTxt.setForeground(Color.WHITE);
 		add(btnGenTxt);
 	}
 }

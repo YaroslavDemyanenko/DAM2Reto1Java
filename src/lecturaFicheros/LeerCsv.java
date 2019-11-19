@@ -19,6 +19,7 @@ public class LeerCsv {
 
 	private ConsultaBD bd;
 	private Modelo mod;
+	private Logger log = Logger.getInstance();
 	
 	private List<Empleado> elementos;
 
@@ -38,9 +39,9 @@ public class LeerCsv {
 				elementos.add(empleadoAux);
 			}
 		} catch (FileNotFoundException e) {
-			Logger.getInstance().loggear("Error, archivo no encontrado",Launcher.class, 2);
+			log.loggear("Error, archivo no encontrado",Launcher.class, 2);
 		} catch (IOException e) {
-			Logger.getInstance().loggear("Error en la lectura del archivo",Launcher.class, 2);
+			log.loggear("Error en la lectura del archivo",Launcher.class, 2);
 		}
 		return elementos;
 	}

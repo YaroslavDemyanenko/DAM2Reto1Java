@@ -1,6 +1,7 @@
 package vista;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JPanel;
 
@@ -14,7 +15,6 @@ public class PanelCenter extends JPanel {
 	public PanelDpto pDpto;
 	public PanelMenuEmple pMenuEmple;
 	public PanelEmple pEmple;
-	public PanelConfirmacionRegistro pConfiRegistro;
 	
 	public PanelCenter() {
 		setParametros();
@@ -26,6 +26,8 @@ public class PanelCenter extends JPanel {
 		card = new CardLayout();
 		setLayout(card);
 		setPreferredSize(new Dimension(1024,768));
+		setBackground(new Color(180,187,194));
+		setForeground(Color.WHITE);
 	}
 
 	private void instanciarObjetos() {
@@ -43,9 +45,6 @@ public class PanelCenter extends JPanel {
 		
 		pEmple = new PanelEmple();
 		add(pEmple,"5");
-		
-		pConfiRegistro = new PanelConfirmacionRegistro();
-		add(pConfiRegistro,"6");
 	}
 	
 	public void prevPanel() {
