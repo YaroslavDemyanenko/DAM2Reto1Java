@@ -45,6 +45,7 @@ public class MetodosPanelMenu {
 	}
 	
 	public void mostrarListaEmpleadosXDpto(int idDepartamento,int idCentro, VentanaPpal vis) {
+		vis.pCenter.pMenuDpto.modeloListaEmple.removeAllElements();
 		Empleado[] empleados = mod.mPEmple.cargarEmpleados(idDepartamento,idCentro);	
 		if(empleados != null) {
 			for(int i=0; i<empleados.length; i++) {
