@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
+import javax.swing.JOptionPane;
+
 import modelo.Modelo;
 import modelo.objetos.Cargo;
 import modelo.objetos.Departamento;
@@ -48,6 +50,7 @@ public class ControladorPanelEmple {
 					mod.bd.insertGenerico(emple.toObjectArray(), "empleado");
 					String[] codigos = {emple.getDni(),emple.getEmpleJefe().getDni()};
 					mod.bd.insertGenerico(codigos, "templejefe");
+					JOptionPane.showMessageDialog(vis.pCenter, "Empleado registrado", "Info", JOptionPane.INFORMATION_MESSAGE);
 					vis.pCenter.changePanel("4");
 				}				
 				

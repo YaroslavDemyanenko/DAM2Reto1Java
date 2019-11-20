@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import launcher.Launcher;
 import logs.Logger;
 import modelo.Modelo;
 import modelo.objetos.Centro;
@@ -71,7 +70,7 @@ public class ControladorPanelDpto {
 		try {
 			codDpto = Integer.parseInt(vis.pCenter.pDpto.txtCodigoDpto.getText());
 		}catch(NumberFormatException e) {
-			Logger.getInstance().loggear("Error al obtener el código de departamento",Launcher.class, 3);
+			Logger.getInstance().loggear("Error al obtener el código de departamento",this.getClass(), 3);
 		}
 		String nombre = vis.pCenter.pDpto.txtNombreDpto.getText();
 		Centro codCentro = (Centro) vis.pCenter.pDpto.cmbCentro.getSelectedItem();
@@ -80,13 +79,12 @@ public class ControladorPanelDpto {
 			Departamento depart = new Departamento(codDpto, nombre, codCentro);
 			boolean repetido = mod.mPDpto.insertarDptoNuevo(depart);
 			if (!repetido) {
-				JOptionPane.showMessageDialog(vis.pCenter, "Departamento insertado", "Atencion!", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(vis.pCenter, "Departamento creado", "Info", JOptionPane.INFORMATION_MESSAGE);
 				return true;
 			} else {
 				JOptionPane.showMessageDialog(vis.pCenter, "Departamento ya existente", "Atencion!", JOptionPane.WARNING_MESSAGE);
 			}
 		} else {
-
 			JOptionPane.showMessageDialog(vis.pCenter, "Debe rellenar los campos", "Atencion!", JOptionPane.WARNING_MESSAGE);
 		}
 		return false;

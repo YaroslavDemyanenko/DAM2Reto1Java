@@ -59,14 +59,14 @@ public class ConsultaBD {
 			}
 
 		} catch (SQLException e) {
-			log.loggear("Error en la consulta a la base de datos",Launcher.class, 3);
+			log.loggear("Error en la consulta a la base de datos",this.getClass(), 3);
 			return null;
 		} finally {
 			try {
 				if (con != null)
 					con.close();
 			} catch (SQLException e) {
-				log.loggear("Error en la consulta a la base de datos",Launcher.class, 3);
+				log.loggear("Error en la consulta a la base de datos",this.getClass(), 3);
 				return null;
 			}
 		}
@@ -94,14 +94,14 @@ public class ConsultaBD {
 			}
 			return true;
 		} catch (SQLException e1) {
-			log.loggear("Error al insertar datos en la base de datos",Launcher.class, 2);
+			log.loggear("Error al insertar datos en la base de datos",this.getClass(), 2);
 			return false;
 		} finally {
 			try {
 				if (con != null)
 					con.close();
 			} catch (SQLException e) {
-				log.loggear("Error al insertar datos en la base de datos",Launcher.class, 2);
+				log.loggear("Error al insertar datos en la base de datos",this.getClass(), 2);
 			}
 		}
 	}
@@ -141,7 +141,7 @@ public class ConsultaBD {
 			}
 			return statementGenerico;
 		} catch (SQLException e) {
-			log.loggear("Error al generar la sentencia",Launcher.class, 3);
+			log.loggear("Error al generar la sentencia",this.getClass(), 3);
 			return null;
 		}
 	}
@@ -194,7 +194,7 @@ public class ConsultaBD {
 			PreparedStatement statementGenerico = this.con.prepareStatement(statement);
 			return statementGenerico.execute();
 		} catch (SQLException e1) {
-			log.loggear("Error al borrar un elemento de la base de datos",Launcher.class, 2);
+			log.loggear("Error al borrar un elemento de la base de datos",this.getClass(), 2);
 			return false;
 		}
 	}

@@ -74,9 +74,9 @@ public class LectorXml {
 			is.setEncoding("UTF-8");
 			saxParser.parse(is, handler);
 		} catch (FileNotFoundException e) {
-			log.loggear("Error, archivo no encontrado",Launcher.class, 2);
+			log.loggear("Error, archivo no encontrado en la lectura de xml",this.getClass(), 2);
 		} catch (Exception e) {
-			log.loggear("Error en la lectura del archivo",Launcher.class, 2);
+			log.loggear("Error en la lectura del archivo xml",this.getClass(), 2);
 		}
 		return departamentos;
 	}
