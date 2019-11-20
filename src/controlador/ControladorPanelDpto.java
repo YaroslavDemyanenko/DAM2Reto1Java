@@ -47,6 +47,7 @@ public class ControladorPanelDpto {
 					vis.pCenter.changePanel("2");
 				}
 				resetText();
+				vis.pCenter.pDpto.txtCodigoDpto.setText(Integer.toString(mod.mPMDpto.numeroPropuestoDpto()+1));				
 				break;
 			}
 		}
