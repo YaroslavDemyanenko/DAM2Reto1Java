@@ -45,10 +45,9 @@ public class ControladotPanelMenuDpto {
 				
 			case "INGRESAR NUEVO DEPARTAMENTO":
 				limpiarPanelDpto(vis.pCenter.pDpto);
-				vis.pCenter.pDpto.txtCodigoDpto.setText(Integer.toString(mod.mPMDpto.numeroPropuestoDpto()));
+				vis.pCenter.pDpto.txtCodigoDpto.setText(Integer.toString(mod.mPMDpto.numeroPropuestoDpto()+1));
 				vis.pCenter.changePanel("3");
-				break;
-				
+				break;				
 			case "Siguiente":
 				if(posicion < mod.departamentos.length-1) {
 					posicion++;
