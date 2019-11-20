@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import launcher.Launcher;
 import logs.Logger;
 import modelo.Modelo;
 import modelo.objetos.Cargo;

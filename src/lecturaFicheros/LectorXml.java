@@ -17,7 +17,6 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import launcher.Launcher;
 import logs.Logger;
 import modelo.objetos.Centro;
 import modelo.objetos.Departamento;
