@@ -7,10 +7,15 @@ public class Controlador {
 
 	private VentanaPpal vis;
 	private Modelo mod;
+	@SuppressWarnings("unused")
 	private ControladorPanelMenu cMenu;
+	@SuppressWarnings("unused")
 	private ControladorPanelMenuEmple cMenuEmple;
+	@SuppressWarnings("unused")
 	private ControladotPanelMenuDpto cMenuDpto;
+	@SuppressWarnings("unused")
 	private ControladorPanelEmple cEmple;
+	@SuppressWarnings("unused")
 	private ControladorPanelDpto cDpto;
 
 

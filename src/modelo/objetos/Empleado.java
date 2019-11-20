@@ -88,7 +88,7 @@ public class Empleado {
 	}
 
 	public Object[] toObjectArray() {
-		Object[] objetos = { this.dni, this.nombre, this.apellidos, this.sueldo, this.esJefe, this.fechaAlta, this.cargo.id, this.departamento.id };
+		Object[] objetos = { this.dni, this.nombre, this.apellidos, this.sueldo, this.esJefe, this.fechaAlta, this.cargo.id, this.departamento.id,this.departamento.centro.id };
 		return objetos;
 	}
 

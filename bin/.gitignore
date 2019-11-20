@@ -1,4 +1,6 @@
 /img/
+/controlador/
+/lecturaFicheros/
 /modelo/
 /vista/
-/controlador/
+/baseDatos/

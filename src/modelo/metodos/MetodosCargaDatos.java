@@ -2,10 +2,10 @@ package modelo.metodos;
 
 import com.google.gson.Gson;
 import baseDatos.ConsultaBD;
-import launcher.Launcher;
 import logs.Logger;
 import modelo.Modelo;
 import modelo.objetos.Cargo;
+import modelo.objetos.Centro;
 import modelo.objetos.Departamento;
 import modelo.objetos.Empleado;
 
@@ -40,7 +40,7 @@ public class MetodosCargaDatos {
 		if (departamento != null) {
 			return departamento[0];
 		} else {
-			Logger.getInstance().loggear("Error en la búsqueda de departamento",Launcher.class, 3);
+			Logger.getInstance().loggear("Error en la búsqueda de departamento",this.getClass(), 3);
 			return new Departamento();
 		}
 	}
@@ -51,7 +51,7 @@ public class MetodosCargaDatos {
 		if (departamento != null) {
 			return departamento[0];
 		} else {
-			Logger.getInstance().loggear("Error en la búsqueda de cargo",Launcher.class, 3);
+			Logger.getInstance().loggear("Error en la búsqueda de cargo",this.getClass(), 3);
 			return new Cargo();
 		}
 	}
@@ -63,6 +63,17 @@ public class MetodosCargaDatos {
 			bd.insertGenerico(depar.toObjectArray(), "departamento");
 			Object[] ids = {depar.getId(),depar.getCentro().getId()};
 			bd.insertGenerico(ids, "tdepartcentro");
+		}
+	}
+
+	public Centro buscarCentro(String id) {
+		String json = bd.consultarToGson("SELECT `idCentro` 'id',`nombre` 'nombre' FROM `centro` WHERE `idCentro` ='" + id + "'");
+		Centro[] centro = gson.fromJson(json, Centro[].class);
+		if (centro != null) {
+			return centro[0];
+		} else {
+			Logger.getInstance().loggear("Error en la búsqueda de departamento",this.getClass(), 3);
+			return new Centro();
 		}
 	}
 }

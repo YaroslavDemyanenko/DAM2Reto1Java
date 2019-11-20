@@ -10,6 +10,7 @@ public class ControladorPanelMenu {
 
 	private VentanaPpal vis;
 	private Modelo mod;
+	@SuppressWarnings("unused")
 	private Controlador controlador;
 
 	public ControladorPanelMenu(VentanaPpal vis, Controlador cont, Modelo mod) {
@@ -38,7 +39,7 @@ public class ControladorPanelMenu {
 
 			case "GESTIONAR DEPARTAMENTOS":
 				mod.mPMenu.mostrarListaDptos(0, vis);
-				mod.mPMenu.mostrarListaEmpleadosXDpto(0, vis);
+				mod.mPMenu.mostrarListaEmpleadosXDpto(mod.departamentos[0].getId(),mod.departamentos[0].getCentro().getId(), vis);
 				vis.pCenter.changePanel("2");
 				break;
 

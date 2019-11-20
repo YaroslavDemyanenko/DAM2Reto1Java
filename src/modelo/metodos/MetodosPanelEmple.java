@@ -3,8 +3,6 @@ package modelo.metodos;
 import javax.swing.JOptionPane;
 import com.google.gson.Gson;
 import baseDatos.ConsultaBD;
-import launcher.Launcher;
-import logs.Logger;
 import modelo.Modelo;
 import modelo.objetos.Cargo;
 import modelo.objetos.Centro;
@@ -84,8 +82,8 @@ public class MetodosPanelEmple {
 		return jefes;
 	}
 
-	public Empleado[] cargarEmpleados(int idDepartamento) {
-		String json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `idDepartamento`='" + idDepartamento + "'");
+	public Empleado[] cargarEmpleados(int idDepartamento,int idCentro) {
+		String json = mod.bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `idDepartamento`='" + idDepartamento + "' and `idCentro`='"+idCentro+"'");
 		Empleado[] empleados = gson.fromJson(json, Empleado[].class);
 		if (empleados != null) {
 			for (Empleado empleado : empleados) {

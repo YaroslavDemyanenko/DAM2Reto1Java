@@ -37,8 +37,8 @@ public class Modelo {
 	}
 
 	public void addMetodos() {
-		lectorCsv=new LeerCsv(this,bd);
-		lectorXml=new LectorXml(this,bd);
+		lectorCsv=new LeerCsv(this);
+		lectorXml=new LectorXml();
 		cargaDatos=new MetodosCargaDatos(this, bd);
 		mPMenu=new MetodosPanelMenu(this,bd);
 		mPDpto=new MetodosPanelDpto(this, bd);

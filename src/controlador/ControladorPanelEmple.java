@@ -3,7 +3,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
-import com.google.gson.Gson;
+
 import modelo.Modelo;
 import modelo.objetos.Cargo;
 import modelo.objetos.Departamento;
@@ -14,8 +14,8 @@ public class ControladorPanelEmple {
 
 	private VentanaPpal vis;
 	private Modelo mod;
+	@SuppressWarnings("unused")
 	private Controlador controlador;
-	private Gson gson = new Gson();
 	
 	public ControladorPanelEmple(VentanaPpal vis, Controlador cont, Modelo mod) {
 		this.vis = vis;

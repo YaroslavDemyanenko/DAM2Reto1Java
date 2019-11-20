@@ -15,7 +15,6 @@ public class PanelMenu extends JPanel {
 
 	public JLabel lblTitulo, lblGenInforme;
 	public JButton btnGestionDpto, btnGestionEmple, btnGenPdf, btnGenTxt;
-	private Dimension arcs = new Dimension(20, 20);
 
 	public PanelMenu() {
 		setParametros();

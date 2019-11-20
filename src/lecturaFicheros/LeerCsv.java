@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import baseDatos.ConsultaBD;
+
 import launcher.Launcher;
 import logs.Logger;
 import modelo.Modelo;
@@ -16,15 +16,12 @@ import modelo.objetos.Departamento;
 import modelo.objetos.Empleado;
 
 public class LeerCsv {
-
-	private ConsultaBD bd;
 	private Modelo mod;
 	private Logger log = Logger.getInstance();
 	
 	private List<Empleado> elementos;
 
-	public LeerCsv(Modelo mod, ConsultaBD bd) {
-		this.bd = bd;
+	public LeerCsv(Modelo mod) {
 		this.mod = mod;
 		elementos = new ArrayList<>();
 	}
@@ -56,6 +53,7 @@ public class LeerCsv {
 		
 		Cargo cargo= mod.cargaDatos.buscarCargo(valores[6]);
 		Departamento departamento= mod.cargaDatos.buscarDepartamento(valores[7]);
+		departamento.setCentro(mod.cargaDatos.buscarCentro(valores[8]));
 		Empleado emple = new Empleado(valores[0], valores[1], valores[2], sueldo, jefe, new Date(), cargo, departamento);
 		return emple;
 	}

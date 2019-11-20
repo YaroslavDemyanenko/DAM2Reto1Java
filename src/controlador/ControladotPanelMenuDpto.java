@@ -8,6 +8,7 @@ import vista.VentanaPpal;
 public class ControladotPanelMenuDpto {
 	private VentanaPpal vis;
 	private Modelo mod;
+	@SuppressWarnings("unused")
 	private Controlador controlador;
 	
 	public ControladotPanelMenuDpto(VentanaPpal vis, Controlador cont, Modelo mod) {
@@ -37,8 +38,7 @@ public class ControladotPanelMenuDpto {
 		public void actionPerformed(ActionEvent e) {
 			String accion = e.getActionCommand();
 			
-			switch (accion) {
-			
+			switch (accion) {			
 			case "Volver":
 				vis.pCenter.changePanel("1");
 				break;
@@ -52,28 +52,32 @@ public class ControladotPanelMenuDpto {
 				if(posicion < mod.departamentos.length-1) {
 					posicion++;
 				}
+				vis.pCenter.pMenuDpto.modeloListaEmple.removeAllElements();	
 				mod.mPMenu.mostrarListaDptos(posicion, vis);
-				mod.mPMenu.mostrarListaEmpleadosXDpto(mod.departamentos[posicion].getId(), vis);
+				mod.mPMenu.mostrarListaEmpleadosXDpto(mod.departamentos[posicion].getId(),mod.departamentos[posicion].getCentro().getId(), vis);
 				break;
 				
 			case "Ultimo":
 				posicion = mod.departamentos.length-1;
+				vis.pCenter.pMenuDpto.modeloListaEmple.removeAllElements();	
 				mod.mPMenu.mostrarListaDptos(posicion, vis);
-				mod.mPMenu.mostrarListaEmpleadosXDpto(mod.departamentos[posicion].getId(), vis);
+				mod.mPMenu.mostrarListaEmpleadosXDpto(mod.departamentos[posicion].getId(),mod.departamentos[posicion].getCentro().getId(), vis);
 				break;
 				
 			case "Anterior":
 				if(posicion > 0) {
 					posicion--;
 				}
+				vis.pCenter.pMenuDpto.modeloListaEmple.removeAllElements();	
 				mod.mPMenu.mostrarListaDptos(posicion, vis);
-				mod.mPMenu.mostrarListaEmpleadosXDpto(mod.departamentos[posicion].getId(), vis);
+				mod.mPMenu.mostrarListaEmpleadosXDpto(mod.departamentos[posicion].getId(),mod.departamentos[posicion].getCentro().getId(), vis);
 				break;
 				
-			case "Primero":
+			case "Primero":				
 				posicion=0;
+				vis.pCenter.pMenuDpto.modeloListaEmple.removeAllElements();	
 				mod.mPMenu.mostrarListaDptos(posicion, vis);
-				mod.mPMenu.mostrarListaEmpleadosXDpto(mod.departamentos[posicion].getId(), vis);
+				mod.mPMenu.mostrarListaEmpleadosXDpto(mod.departamentos[posicion].getId(),mod.departamentos[posicion].getCentro().getId(), vis);
 				break;
 			}
 		}

@@ -85,6 +85,7 @@ public class ConsultaBD {
 	public boolean insertGenerico(Object[] objetos, String nombreTabla) {
 		try {
 			con = datasource.getConnection();
+			@SuppressWarnings("rawtypes")
 			Class[] clasesObj = arrayClases(objetos);
 			String query = prepararQuery(objetos.length, nombreTabla);
 			PreparedStatement statementGenerico = generarStatement(objetos, clasesObj, query);
@@ -114,7 +115,7 @@ public class ConsultaBD {
 	 * @param query   query que se quiere ejecutar
 	 * @return Prepared statement listo para ejecutar
 	 */
-	public PreparedStatement generarStatement(Object[] objetos, Class[] clases, String query) {
+	public PreparedStatement generarStatement(Object[] objetos, @SuppressWarnings("rawtypes") Class[] clases, String query) {
 		try {
 			PreparedStatement statementGenerico = this.con.prepareStatement(query);
 			for (int i = 0; i < objetos.length; i++) {
@@ -151,6 +152,7 @@ public class ConsultaBD {
 	 * @param objetos array de objetos al que se le va a hacer una array de clases paralelo
 	 * @return array de clases
 	 */
+	@SuppressWarnings("rawtypes")
 	public Class[] arrayClases(Object[] objetos) {
 		Class[] clasesObj = new Class[objetos.length];
 		for (int i = 0; i < objetos.length; i++) {

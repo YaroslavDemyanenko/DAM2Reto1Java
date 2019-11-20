@@ -4,9 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
-import com.google.gson.Gson;
 
-import baseDatos.ConsultaBD;
 import launcher.Launcher;
 import logs.Logger;
 import modelo.Modelo;
@@ -18,6 +16,7 @@ public class ControladorPanelDpto {
 
 	private VentanaPpal vis;
 	private Modelo mod;
+	@SuppressWarnings("unused")
 	private Controlador controlador;
 
 	public ControladorPanelDpto(VentanaPpal vis, Controlador cont, Modelo mod) {

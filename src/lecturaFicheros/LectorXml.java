@@ -8,30 +8,27 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-import modelo.objetos.Centro;
-import modelo.objetos.Departamento;
-import baseDatos.ConsultaBD;
+
 import launcher.Launcher;
 import logs.Logger;
-import modelo.Modelo;
+import modelo.objetos.Centro;
+import modelo.objetos.Departamento;
 
 public class LectorXml {
 
 	private List<Departamento> departamentos;
 	private Centro centro;
-	private ConsultaBD bd;
-	private Modelo mod;
 	private Logger log = Logger.getInstance();
 
-	public LectorXml(Modelo mod, ConsultaBD bd) {
-		this.bd = bd;
-		this.mod = mod;
+	public LectorXml() {
 		departamentos = new ArrayList<Departamento>();
 		centro = new Centro();
 	}
