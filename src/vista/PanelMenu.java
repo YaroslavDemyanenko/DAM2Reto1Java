@@ -52,7 +52,7 @@ public class PanelMenu extends JPanel {
 		add(btnGestionEmple);
 
 		lblGenInforme = new JLabel("GENERAR INFORME");
-		lblGenInforme.setFont(new Font("Perpetua", Font.PLAIN, 18));
+		lblGenInforme.setFont(new Font("Perpetua", Font.PLAIN, 20));
 		lblGenInforme.setHorizontalAlignment(SwingConstants.CENTER);
 		lblGenInforme.setBounds(400, 437, 200, 50);
 		lblGenInforme.setForeground(Color.WHITE);

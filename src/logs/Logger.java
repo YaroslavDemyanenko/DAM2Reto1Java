@@ -9,7 +9,7 @@ import java.util.Date;
 public class Logger {
 
 	private static Logger logger;
-	private String ruta = "logs/logs.txt";
+	private String ruta = "logs/logs.log";
 	private FileWriter txtWriter;
 
 	private Logger() {

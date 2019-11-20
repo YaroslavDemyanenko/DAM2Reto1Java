@@ -119,7 +119,7 @@ public class ControladorPanelMenuEmple {
 		vis.pCenter.pMenuEmple.modeloListDatosEmple.addElement("Nombre: " + emple.getNombre());
 		vis.pCenter.pMenuEmple.modeloListDatosEmple.addElement("Apellido: " + emple.getApellidos());
 		vis.pCenter.pMenuEmple.modeloListDatosEmple.addElement("Salario: " + emple.getSueldo());
-		vis.pCenter.pMenuEmple.modeloListDatosEmple.addElement("Departamento: " + emple.getDepartamento().getNombre());
+		vis.pCenter.pMenuEmple.modeloListDatosEmple.addElement("Departamento: " + emple.getDepartamento().toString());
 		vis.pCenter.pMenuEmple.modeloListDatosEmple.addElement("Cargo: " + emple.getCargo().getNombre());
 		vis.pCenter.pMenuEmple.modeloListDatosEmple.addElement("Superior: " + emple.getEmpleJefe().getNombre() + " | "+emple.getEmpleJefe().getDni());
 	}

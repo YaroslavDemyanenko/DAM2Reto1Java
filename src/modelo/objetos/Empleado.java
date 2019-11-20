@@ -45,7 +45,7 @@ public class Empleado {
 	}
 
 	public void cargarDatosComplementarios(ConsultaBD bd, Gson gson) {
-		String json = bd.consultarToGson("select `idDepartamento` 'auxiliar1',`idCargo` 'auxiliar2' from `empleado` where `idDni`='" + this.dni + "'");
+		String json = bd.consultarToGson("select `idDepartamento` 'auxiliar1',`idCargo` 'auxiliar2',`idCentro` 'auxiliar3' from `empleado` where `idDni`='" + this.dni + "'");
 		Global[] ids = gson.fromJson(json, Global[].class);
 
 		json = bd.consultarToGson("select `idCargo` 'id',`nombre` 'nombre' from `cargo` where `idCargo`='" + ids[0].getAuxiliar2() + "'");
@@ -55,6 +55,10 @@ public class Empleado {
 		json = bd.consultarToGson("select `idDepartamento` 'id',`nombre` 'nombre' from `departamento` where `idDepartamento`='" + ids[0].getAuxiliar1() + "'");
 		Departamento[] departamento = gson.fromJson(json, Departamento[].class);
 		this.departamento = departamento[0];
+		
+		json = bd.consultarToGson("select `idCentro` 'id',`nombre` 'nombre' from `centro` where `idCentro`='" + ids[0].getAuxiliar3() + "'");
+		Centro[] centro = gson.fromJson(json, Centro[].class);
+		this.departamento.centro = centro[0];
 
 		json = bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `esJefe`=1");
 		Empleado[] jefe = gson.fromJson(json, Empleado[].class);

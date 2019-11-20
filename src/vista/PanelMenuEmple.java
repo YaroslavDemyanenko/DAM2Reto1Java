@@ -48,14 +48,14 @@ public class PanelMenuEmple extends JPanel {
 
 		btnIngresarEmple = new JButton("INGRESAR NUEVO EMPLEADO");
 		btnIngresarEmple.setForeground(new Color(255, 255, 255));
-		btnIngresarEmple.setBounds(334, 117, 331, 38);
+		btnIngresarEmple.setBounds(334, 143, 331, 38);
 		add(btnIngresarEmple);
 
 		lblBuscarEmple = new JLabel("BUSCAR EMPLEADO");
 		lblBuscarEmple.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBuscarEmple.setForeground(new Color(255, 255, 255));
-		lblBuscarEmple.setBounds(308, 206, 384, 50);
-		lblBuscarEmple.setFont(new Font("Dialog", Font.PLAIN, 20));
+		lblBuscarEmple.setBounds(308, 211, 384, 50);
+		lblBuscarEmple.setFont(new Font("Perpetua", Font.PLAIN, 20));
 		add(lblBuscarEmple);
 
 		txtBuscarEmple = new JTextField();
@@ -91,6 +91,7 @@ public class PanelMenuEmple extends JPanel {
 		modeloCmbEmpleados = new DefaultComboBoxModel<Empleado>();
 
 		cmbEmpleados = new JComboBox<Empleado>(modeloCmbEmpleados);
+		cmbEmpleados.setFont(new Font("Dialog", Font.PLAIN, 17));
 		cmbEmpleados.setBackground(new Color(1, 35, 80));
 		cmbEmpleados.setForeground(Color.WHITE);
 		cmbEmpleados.setUI(new BasicComboBoxUI());
@@ -106,8 +107,8 @@ public class PanelMenuEmple extends JPanel {
 		lblMenuGestionEmpleados = new JLabel("MENU GESTION EMPLEADOS");
 		lblMenuGestionEmpleados.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMenuGestionEmpleados.setForeground(Color.WHITE);
-		lblMenuGestionEmpleados.setFont(new Font("Dialog", Font.PLAIN, 25));
-		lblMenuGestionEmpleados.setBounds(308, 26, 384, 50);
+		lblMenuGestionEmpleados.setFont(new Font("Perpetua", Font.PLAIN, 25));
+		lblMenuGestionEmpleados.setBounds(254, 41, 492, 77);
 		add(lblMenuGestionEmpleados);
 		
 	

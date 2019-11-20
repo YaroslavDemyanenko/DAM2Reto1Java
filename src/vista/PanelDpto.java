@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -43,13 +44,13 @@ public class PanelDpto extends JPanel {
 		lblTitulo = new JLabel("INGRESO DE DEPARTAMENTO");
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitulo.setForeground(Color.WHITE);
-		lblTitulo.setFont(new Font("Dialog", Font.PLAIN, 25));
+		lblTitulo.setFont(new Font("Perpetua", Font.PLAIN, 25));
 		lblTitulo.setBounds(233, 45, 533, 77);
 		add(lblTitulo);
 		
 		lblCodigoDpto = new JLabel("C\u00F3digo de departamento");
 		lblCodigoDpto.setForeground(Color.WHITE);
-		lblCodigoDpto.setFont(new Font("Dialog", Font.PLAIN, 17));
+		lblCodigoDpto.setFont(new Font("Perpetua", Font.PLAIN, 20));
 		lblCodigoDpto.setBounds(233, 223, 212, 20);
 		add(lblCodigoDpto);
 		
@@ -62,7 +63,7 @@ public class PanelDpto extends JPanel {
 		
 		lblNombreDpto = new JLabel("Nombre de departamento");
 		lblNombreDpto.setForeground(Color.WHITE);
-		lblNombreDpto.setFont(new Font("Dialog", Font.PLAIN, 17));
+		lblNombreDpto.setFont(new Font("Perpetua", Font.PLAIN, 20));
 		lblNombreDpto.setBounds(233, 254, 212, 20);
 		add(lblNombreDpto);
 		
@@ -75,13 +76,14 @@ public class PanelDpto extends JPanel {
 		
 		lblCentro = new JLabel("Centro");
 		lblCentro.setForeground(Color.WHITE);
-		lblCentro.setFont(new Font("Dialog", Font.PLAIN, 17));
+		lblCentro.setFont(new Font("Perpetua", Font.PLAIN, 20));
 		lblCentro.setBounds(233, 283, 212, 20);
 		add(lblCentro);
 		
 		modeloCmbCentro=new DefaultComboBoxModel<Centro>();
 		
 		cmbCentro = new JComboBox<Centro>(modeloCmbCentro);
+		cmbCentro.setFont(new Font("Dialog", Font.PLAIN, 17));
 		cmbCentro.setBounds(532, 281, 268, 30);
 		add(cmbCentro);
 		
@@ -103,5 +105,15 @@ public class PanelDpto extends JPanel {
 		cmbCentro.setUI(new BasicComboBoxUI());
 		cmbCentro.setBorder(new LineBorder(new Color(1, 35, 80)));
 		cmbCentro.setFocusable(false);
+		
+		txtCodigoDpto.setForeground(new Color(1, 35, 80));
+		txtNombreDpto.setForeground(new Color(1, 35, 80));
+		
+		txtCodigoDpto.setBorder(BorderFactory.createLineBorder(new Color(1, 35, 80), 2));
+		txtNombreDpto.setBorder(BorderFactory.createLineBorder(new Color(1, 35, 80), 2));
+		
+		btnRegistrar.setFont(new Font("Perpetua", Font.PLAIN, 20));
+		btnRegistrar.setBackground(new Color(1, 35, 80));
+		btnRegistrar.setForeground(new Color(255,255,255));
 	}
 }

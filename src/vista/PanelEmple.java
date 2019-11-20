@@ -82,6 +82,7 @@ public class PanelEmple extends JPanel {
 		add(lblDpto);
 		
 		cmbDpto = new JComboBox<Departamento>();
+		cmbDpto.setFont(new Font("Dialog", Font.PLAIN, 17));
 		modeloDpto=new DefaultComboBoxModel<Departamento>();
 		cmbDpto.setModel(modeloDpto);
 		cmbDpto.setBounds(532, 343, 268, 30);
@@ -123,6 +124,7 @@ public class PanelEmple extends JPanel {
 		
 		modeloCargo = new DefaultComboBoxModel<Cargo>();
 		cmbCargo = new JComboBox<Cargo>();
+		cmbCargo.setFont(new Font("Dialog", Font.PLAIN, 17));
 		cmbCargo.setModel(modeloCargo);
 		cmbCargo.setBounds(532, 374, 268, 30);
 		add(cmbCargo);
@@ -133,6 +135,7 @@ public class PanelEmple extends JPanel {
 		
 		modeloSelJefe = new DefaultComboBoxModel<Empleado>();
 		cmbSelJefe = new JComboBox<Empleado>();
+		cmbSelJefe.setFont(new Font("Dialog", Font.PLAIN, 17));
 		cmbSelJefe.setModel(modeloSelJefe);
 		cmbSelJefe.setBounds(532, 405, 268, 30);
 		add(cmbSelJefe);
@@ -183,7 +186,7 @@ public class PanelEmple extends JPanel {
 		chbEsJefe.setBackground(new Color(136, 136, 207));
 		chbEsJefe.setForeground(new Color(255,255,255));
 		chbEsJefe.setFocusPainted(false);
-		chbEsJefe.setFont(new Font("Dialog", Font.PLAIN, 17));
+		chbEsJefe.setFont(new Font("Perpetua", Font.PLAIN, 20));
 	
 		btnRegistrar.setFont(new Font("Perpetua", Font.PLAIN, 20));
 		btnRegistrar.setBackground(new Color(1, 35, 80));

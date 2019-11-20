@@ -39,7 +39,7 @@ public class ControladorPanelEmple {
 			switch (accion) {
 			
 			case "Volver":
-				vis.pCenter.changePanel("1");
+				vis.pCenter.changePanel("4");
 				break;
 				
 			case "Registrar":

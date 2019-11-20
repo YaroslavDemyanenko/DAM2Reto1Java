@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import modelo.Modelo;
+import vista.PanelMenuEmple;
 import vista.VentanaPpal;
 
 public class ControladorPanelMenu {
@@ -44,6 +45,7 @@ public class ControladorPanelMenu {
 				break;
 
 			case "GESTION DE EMPLEADOS":
+				limpiarPanelMenuEmple(vis.pCenter.pMenuEmple);
 				vis.pCenter.changePanel("4");
 				break;
 
@@ -67,5 +69,11 @@ public class ControladorPanelMenu {
 				break;
 			}
 		}
+	}
+	
+	public void limpiarPanelMenuEmple(PanelMenuEmple panel) {
+		panel.txtBuscarEmple.setText("");
+		panel.modeloCmbEmpleados.removeAllElements();
+		panel.modeloListDatosEmple.removeAllElements();
 	}
 }

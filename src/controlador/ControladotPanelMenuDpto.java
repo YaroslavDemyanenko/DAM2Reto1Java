@@ -3,6 +3,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.Modelo;
+import vista.PanelDpto;
 import vista.VentanaPpal;
 
 public class ControladotPanelMenuDpto {
@@ -21,7 +22,6 @@ public class ControladotPanelMenuDpto {
 	
 	private void initListeners() {
 		ListenerBotones listener=new ListenerBotones();
-		//public JButton btnGestionDpto, btnGestionEmple, btnGenPdf, btnGenTxt;
 		vis.pCenter.pMenuDpto.btnVolver.addActionListener(listener);
 		vis.pCenter.pMenuDpto.btnIngresarDpto.addActionListener(listener);
 		vis.pCenter.pMenuDpto.btnSiguiente.addActionListener(listener);
@@ -44,6 +44,7 @@ public class ControladotPanelMenuDpto {
 				break;
 				
 			case "INGRESAR NUEVO DEPARTAMENTO":
+				limpiarPanelDpto(vis.pCenter.pDpto);
 				vis.pCenter.pDpto.txtCodigoDpto.setText(Integer.toString(mod.mPMDpto.numeroPropuestoDpto()));
 				vis.pCenter.changePanel("3");
 				break;
@@ -81,5 +82,9 @@ public class ControladotPanelMenuDpto {
 				break;
 			}
 		}
+	}
+	
+	public void limpiarPanelDpto(PanelDpto panel) {
+		panel.txtNombreDpto.setText("");
 	}
 }
