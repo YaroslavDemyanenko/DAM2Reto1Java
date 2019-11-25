@@ -115,5 +115,6 @@ public class PanelDpto extends JPanel {
 		btnRegistrar.setFont(new Font("Perpetua", Font.PLAIN, 20));
 		btnRegistrar.setBackground(new Color(1, 35, 80));
 		btnRegistrar.setForeground(new Color(255,255,255));
+		btnRegistrar.setFocusPainted(false);
 	}
 }

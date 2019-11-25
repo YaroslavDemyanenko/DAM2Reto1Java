@@ -59,11 +59,16 @@ public class Empleado {
 		json = bd.consultarToGson("select `idCentro` 'id',`nombre` 'nombre' from `centro` where `idCentro`='" + ids[0].getAuxiliar3() + "'");
 		Centro[] centro = gson.fromJson(json, Centro[].class);
 		this.departamento.centro = centro[0];
-
-		json = bd.consultarToGson("select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `esJefe`=1");
+		String consulta="select `idDni` 'dni',`nombre` 'nombre',`apellidos` 'apellidos',`sueldo` 'sueldo',`esJefe` 'esJefe', `fechaAlta` 'fechaString' from `empleado` where `esJefe`='1' and `idDni` in(select `idJefe` from `templejefe` where `idDni`='"+this.getDni()+"')";
+		json = bd.consultarToGson(consulta);
 		Empleado[] jefe = gson.fromJson(json, Empleado[].class);
-		jefe[0].convertirFecha();
-		this.empleJefe=jefe[0];
+		if(jefe!= null) {
+			jefe[0].convertirFecha();
+			this.empleJefe=jefe[0];	
+		}else {
+			this.empleJefe=new Empleado("No tiene jefe");
+		}
+		
 	}
 
 	public Empleado(String dni, String nombre, String apellidos, int sueldo, int esJefe, Date fechaAlta, Cargo cargo, Departamento departamento, Empleado empleJefe) {
@@ -89,6 +94,12 @@ public class Empleado {
 		this.fechaAlta = new Date();
 		this.cargo = cargo;
 		this.departamento = departamento;
+	}
+
+	public Empleado(String string) {
+		this.nombre=string;
+		this.dni="";
+		this.apellidos="";
 	}
 
 	public Object[] toObjectArray() {
