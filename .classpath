@@ -1,45 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="librerias/barcodes-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="librerias/barcodes-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="librerias/barcodes-7.1.4.jar"/>
-	<classpathentry kind="lib" path="librerias/commons-dbcp2-2.6.0.jar"/>
-	<classpathentry kind="lib" path="librerias/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="librerias/commons-pool2-2.6.1.jar"/>
-	<classpathentry kind="lib" path="librerias/font-asian-7.1.4.jar"/>
-	<classpathentry kind="lib" path="librerias/forms-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="librerias/forms-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="librerias/forms-7.1.4.jar"/>
-	<classpathentry kind="lib" path="librerias/gson-2.2.2.jar"/>
-	<classpathentry kind="lib" path="librerias/hyph-7.1.4.jar"/>
-	<classpathentry kind="lib" path="librerias/io-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="librerias/io-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="librerias/io-7.1.4.jar"/>
-	<classpathentry kind="lib" path="librerias/kernel-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="librerias/kernel-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="librerias/kernel-7.1.4.jar"/>
-	<classpathentry kind="lib" path="librerias/layout-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="librerias/layout-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="librerias/layout-7.1.4.jar"/>
-	<classpathentry kind="lib" path="librerias/mysql-connector-java-8.0.13.jar"/>
-	<classpathentry kind="lib" path="librerias/pdfa-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="librerias/pdfa-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="librerias/pdfa-7.1.4.jar"/>
-	<classpathentry kind="lib" path="librerias/pdftest-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="librerias/pdftest-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="librerias/pdftest-7.1.4.jar"/>
-	<classpathentry kind="lib" path="librerias/sign-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="librerias/sign-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="librerias/sign-7.1.4.jar"/>
-	<classpathentry kind="lib" path="librerias/styled-xml-parser-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="librerias/styled-xml-parser-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="librerias/styled-xml-parser-7.1.4.jar"/>
-	<classpathentry kind="lib" path="librerias/svg-7.1.4-javadoc.jar"/>
-	<classpathentry kind="lib" path="librerias/svg-7.1.4-sources.jar"/>
-	<classpathentry kind="lib" path="librerias/svg-7.1.4.jar"/>
-	<classpathentry kind="lib" path="librerias/slf4j-api-1.7.29.jar"/>
-	<classpathentry kind="lib" path="librerias/slf4j-simple-1.7.29.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>
